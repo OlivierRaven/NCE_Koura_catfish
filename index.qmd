@@ -24,9 +24,7 @@ This site accompanies the scientific work on: *NCE_Koura_catfish*.
 
 ## Setup
 ```{r load packages}
-cat("\014"); rm(list = ls())
-
-# Define the list of packages
+#| label: setup
 packages <- c("ggeffects","DHARMa", "brms", "emmeans", "lme4","lmerTest","vegan","ggnewscale","multcompView","patchwork","janitor","lubridate","stringr","tidyverse","dplyr","ggplot2","readxl","writexl","readr")
 
 # Load packages if not already installed
@@ -37,12 +35,21 @@ quiet_load <- function(pkg) {
   invisible(TRUE)}
 
 invisible(lapply(packages, quiet_load))
+
+base_theme_bw <- theme_classic() +
+  theme(text     = element_text(family = "Arial", size = 11),
+    axis.title   = element_text(face = "plain"),
+    axis.text    = element_text(face = "plain"),
+    plot.title   = element_text(face = "plain"),
+    strip.text   = element_text(face = "plain"),
+    panel.border = element_rect(colour = "black", fill = NA, linewidth = 0.3))
+theme_set(base_theme_bw)
 ```
 
 # Load raw data
 ```{r Load raw data}
-getwd()
-exc_file_dir <- "data/raw/Mesocosm_experiment.xlsx"
+#| label: load-data
+exc_file_dir <- "data/raw/NCE_data.xlsx"
 raw_data_dir <- "data/raw"
 der_data_dir <- "data/derived"
 fig_dir      <- "figures"
@@ -115,7 +122,7 @@ koura_long_ref <- koura_long_ref %>%
 
 # Beh & Loc per treatment
 ```{r, fig.width=10, fig.height=6, dpi=100}
-#loc_order <- c("ref_back","ref_open","ref_next","wall","floor","barrier")
+loc_order <- c("ref_back","ref_open","ref_next","wall","floor","barrier")
 loc_order_ref <- c("refuge","open")
 beh_order <- c("static","walk","swim","climb")
 

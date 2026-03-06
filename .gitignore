@@ -12,3 +12,12 @@
 *.MOV
 *.zip
 *.txt
+manuscript/
+images/
+data/raw/
+outputs/
+.RData
+.Rhistory
+.quarto/
+_freeze/
+docs/

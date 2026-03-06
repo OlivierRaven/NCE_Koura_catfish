@@ -14,7 +14,7 @@
 *.txt
 manuscript/
 images/
-data/raw/
+GoPro/
 outputs/
 .RData
 .Rhistory

@@ -17,7 +17,7 @@ execute:
 ## Overview
 This site accompanies the scientific work on: *NCE_Koura_catfish*.
 
-- **Code repository:** (add URL)
+- **Code repository:** https://github.com/OlivierRaven/NCE_Koura_catfish.git
 - **Data DOI:** (add DOI link)
 - **Paper DOI:** (add DOI link)
 - **Title:** NCE_Koura_catfish
@@ -52,11 +52,18 @@ theme_set(base_theme_bw)
 exc_file_dir <- "data/raw/NCE_data.xlsx"
 raw_data_dir <- "data/raw"
 der_data_dir <- "data/derived"
-fig_dir      <- "figures"
+fig_dir      <- "outputs"
 
-# Read sheets
+# Read sheets from raw xlsx
 df_NCE_raw <- readxl::read_excel(exc_file_dir, sheet = "NCE_exp")
 df_Feeding_raw <- readxl::read_excel(exc_file_dir, sheet = "Feeding")
+
+# Save as csv to derived/
+write.csv(df_NCE_raw,     file.path(der_data_dir, "NCE_exp.csv"),  row.names = FALSE)
+write.csv(df_Feeding_raw, file.path(der_data_dir, "Feeding.csv"),  row.names = FALSE)
+df_NCE_raw     <- read.csv(file.path(der_data_dir, "NCE_exp.csv"))
+df_Feeding_raw <- read.csv(file.path(der_data_dir, "Feeding.csv"))
+
 ```
 
 # Make into long format
@@ -107,8 +114,7 @@ koura_long_ref <- koura_long %>%
     location = case_when(
       location %in% c("floor", "wall", "barrier") ~ "open",
       location %in% c("ref_back", "ref_open", "ref_next") ~ "refuge",
-      TRUE ~ NA_character_),
-    location = factor(location, levels = c("barrier", "open", "refuge")))
+      TRUE ~ NA_character_))
 
 koura_long_ref <- koura_long_ref %>%
   mutate(period = case_when(
@@ -122,9 +128,9 @@ koura_long_ref <- koura_long_ref %>%
 
 # Beh & Loc per treatment
 ```{r, fig.width=10, fig.height=6, dpi=100}
-loc_order <- c("ref_back","ref_open","ref_next","wall","floor","barrier")
+#loc_order <- c("ref_back","ref_open","ref_next","wall","floor","barrier")
 loc_order_ref <- c("refuge","open")
-beh_order <- c("static","walk","swim","climb")
+#beh_order <- c("static","walk","swim","climb")
 
 # calculate the proportions of location for each treatment for each time step
 prop_location_time <- koura_long_ref %>%
@@ -138,15 +144,15 @@ prop_location_time <- koura_long_ref %>%
     location  = factor(location,  levels = loc_order_ref))
 
 # Behaviour
-prop_behaviour_time <- koura_long_ref %>%
-  filter(!is.na(behaviour), behaviour != "") %>%
-  count(treatment, time, light, behaviour = behaviour, name = "n") %>%
-  group_by(treatment, time, light) %>%
-  mutate(prop = n / sum(n)) %>%
-  ungroup() %>%
-  mutate(
-    treatment = factor(treatment, levels = c("catfish","eel","control")),
-    behaviour = factor(behaviour, levels = beh_order))
+#prop_behaviour_time <- koura_long_ref %>%
+#  filter(!is.na(behaviour), behaviour != "") %>%
+#  count(treatment, time, light, behaviour = behaviour, name = "n") %>%
+#  group_by(treatment, time, light) %>%
+#  mutate(prop = n / sum(n)) %>%
+#  ungroup() %>%
+#  mutate(
+#    treatment = factor(treatment, levels = c("catfish","eel","control")),
+#    behaviour = factor(behaviour, levels = beh_order))
 
 # plot 
 p_loc_time2 <- prop_location_time%>%
@@ -180,7 +186,7 @@ write.csv(prop_refuge, file = file.path(fig_dir, "prop_refuge.csv"), row.names =
 ```
 
 
-# Statistics GLMM addapted from Finn
+# Statistics GLMM adapted from Finn
 ```{r}
 koura_stat <- koura_long_ref %>%
   select(treatment, exp_id, round, tank, time, period, light, location) 

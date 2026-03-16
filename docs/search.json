@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Fear alone influences the behaviour of a keystone native prey by an invader",
+    "section": "",
+    "text": "This site accompanies the scientific work on: Fear alone influences the behaviour of a keystone native prey by an invader; a non-consumptive effect of the catfish invasion of New Zealand’s freshwaters.\n\nCode repository: https://github.com/OlivierRaven/NCE_Koura_catfish.git\nData DOI: (add DOI link)\nPaper DOI: (add DOI link)\nQuartro manuscript (add link)\nTitle: Fear alone influences the behaviour of a keystone native prey by an invader; a non-consumptive effect of the catfish invasion of New Zealand’s freshwaters"
+  },
+  {
+    "objectID": "index.html#overview",
+    "href": "index.html#overview",
+    "title": "Fear alone influences the behaviour of a keystone native prey by an invader",
+    "section": "",
+    "text": "This site accompanies the scientific work on: Fear alone influences the behaviour of a keystone native prey by an invader; a non-consumptive effect of the catfish invasion of New Zealand’s freshwaters.\n\nCode repository: https://github.com/OlivierRaven/NCE_Koura_catfish.git\nData DOI: (add DOI link)\nPaper DOI: (add DOI link)\nQuartro manuscript (add link)\nTitle: Fear alone influences the behaviour of a keystone native prey by an invader; a non-consumptive effect of the catfish invasion of New Zealand’s freshwaters"
+  },
+  {
+    "objectID": "index.html#setup",
+    "href": "index.html#setup",
+    "title": "Fear alone influences the behaviour of a keystone native prey by an invader",
+    "section": "0.2 Setup",
+    "text": "0.2 Setup\n\n\nShow code\nknitr::opts_knit$set(root.dir = normalizePath(\"..\"))\noptions(warn = -1)\n\npackages &lt;- c(\"ggeffects\",\"DHARMa\", \"brms\", \"emmeans\", \"lme4\",\"lmerTest\",\"vegan\",\"ggnewscale\",\"multcompView\",\"patchwork\",\"janitor\",\"lubridate\",\"stringr\",\"tidyverse\",\"dplyr\",\"ggplot2\",\"readxl\",\"writexl\",\"readr\")\n\n# Load packages if not already installed\nquiet_load &lt;- function(pkg) {\n  if (!requireNamespace(pkg, quietly = TRUE)) {\n    suppressWarnings(suppressMessages(install.packages(pkg, dependencies = TRUE)))}\n  suppressPackageStartupMessages(require(pkg, character.only = TRUE, quietly = TRUE))\n  invisible(TRUE)}\n\ninvisible(lapply(packages, quiet_load))\n\nif (interactive()) {\n  root_dir &lt;- normalizePath(file.path(dirname(rstudioapi::getSourceEditorContext()$path), \"..\"))\n} else {\n  root_dir &lt;- normalizePath(file.path(dirname(knitr::current_input(dir = TRUE)), \"..\"))\n}\n\nexc_file_dir &lt;- file.path(root_dir, \"data/raw/NCE_data.xlsx\")\nder_data_dir &lt;- file.path(root_dir, \"data/derived\")\nout_dir      &lt;- file.path(root_dir, \"outputs\")\n\n# Read sheets from raw xlsx\ndf_NCE_raw &lt;- readxl::read_excel(exc_file_dir, sheet = \"NCE_exp\")\ndf_Feeding_raw &lt;- readxl::read_excel(exc_file_dir, sheet = \"Feeding\")\n\n# Save as csv to derived/\nwrite.csv(df_NCE_raw,     file.path(der_data_dir, \"NCE_exp.csv\"),  row.names = FALSE)\nwrite.csv(df_Feeding_raw, file.path(der_data_dir, \"Feeding.csv\"),  row.names = FALSE)\n\ndf_NCE_raw     &lt;- read.csv(file.path(der_data_dir, \"NCE_exp.csv\"))\ndf_Feeding_raw &lt;- read.csv(file.path(der_data_dir, \"Feeding.csv\"))\n\n# Set base for plots\nbase_theme_bw &lt;- theme_classic() +\n  theme(text     = element_text(family = \"Arial\", size = 11),\n    axis.title   = element_text(face = \"plain\"),\n    axis.text    = element_text(face = \"plain\"),\n    plot.title   = element_text(face = \"plain\"),\n    strip.text   = element_text(face = \"plain\"),\n    panel.border = element_rect(colour = \"black\", fill = NA, linewidth = 0.3))\ntheme_set(base_theme_bw)"
+  }
+]

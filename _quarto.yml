@@ -1,9 +1,9 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: ../docs
 
 website:
-  title: "NCE_Koura_catfish"
+  title: "Fear alone influences the behaviour of a keystone native prey by an invader; a non-consumptive effect of the catfish invasion of New Zealand’s freshwaters"
   navbar:
     left:
       - href: index.qmd

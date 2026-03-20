@@ -1,5 +1,7 @@
 ---
 title: "Analysis Notebook"
+execute:
+  freeze: false
 ---
 
 # Setup
@@ -47,7 +49,8 @@ theme_set(base_theme_bw)
 
 ```
 
-# Build refuge dataframe
+# Refuge experiment
+## Build refuge dataframe
 ```{r}
 #| label: build-df
 #| include: false
@@ -89,7 +92,6 @@ koura_long_ref <- koura_long_ref %>%
 
 ```
 
-# Refuge experiment
 ## Refuge table
 ```{r}
 #| label: tbl-refuge
@@ -215,7 +217,7 @@ refuge_plot
 
 ```
 
-## GLMM
+## Refuge stats
 ```{r}
 #| label: fig-emmeans-plot
 #| include: true

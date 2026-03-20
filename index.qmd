@@ -2,6 +2,10 @@
 title: "Fear alone influences the behaviour of a keystone native prey by an invader; a non-consumptive effect of the catfish invasion of New Zealand’s freshwaters"
 subtitle: ""
 
+execute:
+  freeze: false
+  cache: false
+
 author:
   - name:
       given: Olivier V.

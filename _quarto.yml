@@ -1,20 +1,26 @@
 project:
-  type: website
-  output-dir: ../docs
+  type: manuscript
 
-website:
-  title: "Fear alone influences the behaviour of a keystone native prey by an invader; a non-consumptive effect of the catfish invasion of New Zealand’s freshwaters"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-
+manuscript:
+  article: index.qmd
+  notebooks:
+    - notebook: analysis.qmd
+      title: "Analysis Notebook"
+  
 format:
   html:
-    toc: true
+    theme: 
+      light: flatly
+      dark: darkly
+    code-fold: true          # Code hidden by default, can expand
+    code-tools: true         # Adds code download button
+    code-summary: "View Code"
+    toc: true                # Table of contents
+    toc-depth: 3
     number-sections: true
-
-execute:
-  freeze: auto
-  warning: false
-  message: false
+    fig-width: 8
+    fig-height: 6
+    embed-resources: true    # Single HTML file with everything
+    
+bibliography: references/references.bib
+csl: references/apa.csl

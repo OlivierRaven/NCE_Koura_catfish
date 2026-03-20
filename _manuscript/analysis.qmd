@@ -155,7 +155,7 @@ knitr::kable(refuge_table, digits = 2,
 
 ```
 
-## Refuge Plot
+## Refuge plot
 ```{r}
 #| label: fig-refuge-plot
 #| include: true
@@ -415,10 +415,11 @@ koura_time_plot
 ```
 
 # Feeding experiment
-## Feeding stats
+## Feeding plot
 ```{r}
-#| label: feeding-stats
-#| include: false
+#| label: fig-feeding-plot
+#| include: true
+#| fig-cap: "your caption"
 
 df_feeding <- df_Feeding_raw %>%
   filter(round != 1) %>%
@@ -427,6 +428,23 @@ df_feeding <- df_Feeding_raw %>%
     koura_id = as.factor(koura_id),
     treatment = as.factor(treatment),
     day_starve = as.factor(day_starve))
+
+feeding_plot <- ggplot(df_feeding, aes(day_starve, pellets_per_g, 
+                        colour = treatment, group = treatment)) +
+  stat_summary(fun = mean, geom = "point", size = 3) +
+  stat_summary(fun = mean, geom = "line") +
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.2) +
+  labs(x = "days starved", y = "pellets eaten per gram")
+
+ggsave(file.path(out_dir, "feeding_plot.png"), feeding_plot, width = 8, height = 5, dpi = 300)
+
+feeding_plot
+```
+
+## Feeding stats
+```{r}
+#| label: feeding-stats
+#| include: false
 
 # Linear model
 lm_feed <- lm(pellets_per_g ~ treatment * day_starve, data = df_feeding)
@@ -463,23 +481,4 @@ par(mfrow = c(1, 1))
 
 
 ```
-
-## Feeding plot
-```{r}
-#| label: fig-feeding-plot
-#| include: true
-#| fig-cap: "your caption"
-
-feeding_plot <- ggplot(df_feeding, aes(day_starve, pellets_per_g, 
-                        colour = treatment, group = treatment)) +
-  stat_summary(fun = mean, geom = "point", size = 3) +
-  stat_summary(fun = mean, geom = "line") +
-  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.2) +
-  labs(x = "days starved", y = "pellets eaten per gram")
-
-ggsave(file.path(out_dir, "feeding_plot.png"), feeding_plot, width = 8, height = 5, dpi = 300)
-
-feeding_plot
-```
-
 

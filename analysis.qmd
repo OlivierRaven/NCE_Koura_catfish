@@ -400,15 +400,16 @@ p_beh_time <- ggplot(koura_long_ref, aes(time, behaviour, col = treatment)) +
   labs(x = "time (min)", y = "behaviour") 
 
 # --- Combine ---
-p_loc_time + p_beh_time
+koura_time_plot <- p_loc_time + p_beh_time
+koura_time_plot
 
 ```
 
 # Feeding experiment
+## Feeding stats
 ```{r}
-#| label: fig-feeding-plot
+#| label: feeding-stats
 #| include: false
-#| fig-cap: "your caption"
 
 df_feeding <- df_Feeding_raw %>%
   filter(round != 1) %>%
@@ -420,12 +421,6 @@ df_feeding <- df_Feeding_raw %>%
 
 # Linear model
 lm_feed <- lm(pellets_per_g ~ treatment * day_starve, data = df_feeding)
-Anova(lm_feed, type = "III")
-emmeans(lm_feed, ~ treatment * day_starve)
-shapiro.test(residuals(lm_feed))
-par(mfrow = c(2, 2))
-plot(lm_feed)
-par(mfrow = c(1, 1)) 
 
 # extract p-values for inline reporting
 anova_feed <- Anova(lm_feed, type = "III")
@@ -449,6 +444,22 @@ get_se <- function(trt, starve) {
     filter(treatment == trt, day_starve == starve) %>% 
     pull(SE)
 }
+
+Anova(lm_feed, type = "III")
+emmeans(lm_feed, ~ treatment * day_starve)
+shapiro.test(residuals(lm_feed))
+par(mfrow = c(2, 2))
+plot(lm_feed)
+par(mfrow = c(1, 1)) 
+
+
+```
+
+## Feeding plot
+```{r}
+#| label: fig-feeding-plot
+#| include: false
+#| fig-cap: "your caption"
 
 feeding_plot <- ggplot(df_feeding, aes(day_starve, pellets_per_g, 
                         colour = treatment, group = treatment)) +

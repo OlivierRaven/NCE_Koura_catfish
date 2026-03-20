@@ -94,10 +94,11 @@ format:
 ---
 
 ```{r}
-#| label: start  
+#| label: start
 #| include: false
-# run analysis to make variables available
-source(knitr::knit_child("analysis.qmd", quiet = TRUE))
+
+# run analysis notebook to make all variables available
+knitr::knit("analysis.qmd", output = tempfile(), quiet = TRUE)
 ```
 
 ## Overview {.unnumbered}
@@ -131,8 +132,8 @@ The GLMM showed that kōura were significantly more likely to be in refuge when 
 
 ## Conclusion
 
-# Acknowledgements
+# Acknowledgements {.unnumbered}
 
-# References
+# References {.unnumbered}
 
-# Supplementary information
+# Supplementary information {.unnumbered}

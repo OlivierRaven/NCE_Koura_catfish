@@ -1,5 +1,6 @@
 project:
   type: manuscript
+  output-dir: docs
 
 manuscript:
   article: index.qmd
@@ -21,6 +22,8 @@ format:
     fig-width: 8
     fig-height: 6
     embed-resources: true    # Single HTML file with everything
+  docx: default
+  pdf: default
     
 bibliography: references/references.bib
 csl: references/apa.csl

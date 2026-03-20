@@ -221,9 +221,8 @@ refuge_plot
 
 ## Refuge stats
 ```{r}
-#| label: fig-emmeans-plot
-#| include: true
-#| fig-cap: "your caption"
+#| label: refuge_stats
+#| include: false
 
 
 koura_stat <- koura_long_ref %>%
@@ -312,6 +311,13 @@ p_dark_light      <- emmeans_bb %>% filter(contrast == "dark / light")      %>% 
 
 or_before_after   <- emmeans_bb %>% filter(contrast == "before / after")    %>% pull(odds.ratio)
 
+```
+
+### Emmeans plot
+```{r}
+#| label: fig-emmeans-plot
+#| include: true
+#| fig-cap: "your caption"
 
 # Make plot
 # get predicted probabilities (not contrasts) for plotting
@@ -338,7 +344,6 @@ emmeans_plot <- ggplot(emm_all, aes(x = x, y = prob, ymin = asymp.LCL, ymax = as
 
 ggsave(file.path(out_dir, "emmeans_plot.png"), emmeans_plot, width = 5, height = 3, dpi = 300)
 emmeans_plot
-
 
 ```
 
@@ -462,7 +467,7 @@ par(mfrow = c(1, 1))
 ## Feeding plot
 ```{r}
 #| label: fig-feeding-plot
-#| include: false
+#| include: true
 #| fig-cap: "your caption"
 
 feeding_plot <- ggplot(df_feeding, aes(day_starve, pellets_per_g, 

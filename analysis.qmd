@@ -13,7 +13,7 @@ execute:
 
 options(warn = -1)
 
-packages <- c("car","glmmTMB","AICcmodavg", "ggeffects","DHARMa", "brms", "emmeans", "lme4","lmerTest","vegan","ggnewscale","multcompView","patchwork","janitor","lubridate","stringr","tidyverse","dplyr","ggplot2","readxl","writexl","readr")
+packages <- c("DT","car","glmmTMB","AICcmodavg", "ggeffects","DHARMa", "brms", "emmeans", "lme4","lmerTest","vegan","ggnewscale","multcompView","patchwork","janitor","lubridate","stringr","tidyverse","dplyr","ggplot2","readxl","writexl","readr")
 
 # Load packages if not already installed
 quiet_load <- function(pkg) {
@@ -96,9 +96,9 @@ koura_long_ref <- koura_long_ref %>%
 
 ## Refuge table
 ```{r}
-#| label: tbl-refuge
+#| label: tbl-S1-refuge-prop
 #| include: true
-#| tbl-cap: "your caption"
+#| tbl-cap: "Proportion of kōura observations recorded in refuge across experimental treatments (catfish, eel, control), light conditions (light, dark), and periods (before, during, and after predator exposure). Combined rows summarise across all levels of a given factor. Values represent the proportion of total observations where kōura were located in the refuge."
 
 prop_refuge_light_treat <- koura_long_ref %>%
   dplyr::group_by(light, treatment, period) %>%
@@ -149,9 +149,32 @@ get_prop <- function(l, t, p) {
 
 write.csv(refuge_table, file = file.path(out_dir, "refuge_table.csv"), row.names = FALSE)
 
-
-knitr::kable(refuge_table, digits = 2,
-             caption = "Proportion of observations in refuge by treatment, light condition and period")
+if (knitr::is_html_output()) {
+  datatable(
+    refuge_table,
+    caption = "Proportion of kōura observations recorded in refuge across experimental treatments (catfish, eel, control), light conditions (light, dark), and periods (before, during, and after predator exposure). Combined rows summarise across all levels of a given factor. Values represent the proportion of total observations where kōura were located in the refuge.",
+    filter = "top",
+    options = list(
+      pageLength = 37,
+      dom = 'Bfrtip',
+      buttons = c('csv', 'excel'),
+      columnDefs = list(list(className = 'dt-center', targets = "_all"))
+    ),
+    extensions = 'Buttons',
+    rownames = FALSE,
+    colnames = c("Light", "Treatment", "Period", "N total", "N refuge", "Proportion in refuge")
+  ) |>
+    formatRound(columns = "prop_refuge", digits = 2) |>
+    formatStyle(
+      "prop_refuge",
+      background = styleColorBar(range(refuge_table$prop_refuge), "lightblue"),
+      backgroundSize = "100% 90%",
+      backgroundRepeat = "no-repeat",
+      backgroundPosition = "center"
+    )
+} else {
+  knitr::kable(refuge_table, digits = 2)
+}
 
 ```
 
@@ -159,7 +182,7 @@ knitr::kable(refuge_table, digits = 2,
 ```{r}
 #| label: fig-refuge-plot
 #| include: true
-#| fig-cap: "your caption"
+#| fig-cap: "Kōura use of refuge over course of experiment with the three periods (before, during, after), the treatment (catfish; red-solid circle, eel; green-dashed triangle, control; blue-dotdash square), and divided over light regime (combined, dark, light). The points represent the proportion within each period for each treatment."
 
 loc_order_ref <- c("refuge","open")
 
@@ -203,6 +226,7 @@ refuge_plot <- plot_data %>%
   ggplot2::ggplot(aes(time, prop, colour = treatment, group = treatment, linetype = treatment)) +
   geom_line(linewidth = 1) +
   geom_vline(xintercept = c(60, 240), linetype = "dashed") +
+  geom_vline(xintercept = c(0, 5, 10, 20, 30, 45, 60, 61, 65, 70, 80, 90, 120, 150, 210, 240, 245, 260, 275, 290, 300), alpha = .15) +
   geom_point(data = overlay_data,  aes(x = time, y = prop_refuge, fill = treatment, shape = treatment), stroke = 1, col = "black") +
   annotate("text", x = 30,  y = 1, label = "before", size = 3) +
   annotate("text", x = 150, y = 1, label = "during", size = 3) +
@@ -221,19 +245,20 @@ refuge_plot
 
 ## Refuge stats
 ```{r}
-#| label: refuge_stats
+#| label: tbl-S2-fixed-effects
 #| include: false
+#| tbl-cap: "..."
 
 
 koura_stat <- koura_long_ref %>%
-  select(treatment, exp_id, round, tank, time, period, light, location) %>%
+  select(treatment, exp_id, round, tank, time, period, light, location, koura_id) %>%
   mutate(
     location = factor(location, levels = c("refuge", "open")),
     period   = factor(period,   levels = c("before", "during", "after")),
     tank     = factor(tank))
 
 round_summary <- koura_stat %>%
-  group_by(treatment, exp_id, round, tank, light, period) %>%
+  group_by(treatment, exp_id, round, tank, light, period, koura_id) %>%
   summarise(
     n_total  = n(),
     n_refuge = sum(location == "refuge"),
@@ -253,15 +278,28 @@ models_bb <- list(
   m4_light_period = glmmTMB(
     cbind(n_refuge, n_total - n_refuge) ~ treatment + light * period + (1 | tank),
     data = round_summary, family = betabinomial),
-  m5_main = glmmTMB(
+  m5_tank = glmmTMB(
     cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period + (1 | tank),
     data = round_summary, family = betabinomial),
-  m6_main = glmmTMB(
+  m6_exp_id = glmmTMB(
+    cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period + (1 | exp_id),
+    data = round_summary, family = betabinomial),
+  m7_koura_id = glmmTMB(
+    cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period + (1 | koura_id),
+    data = round_summary, family = betabinomial),
+  m8_main = glmmTMB(
     cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period,
     data = round_summary, family = betabinomial),
-  m7_null = glmmTMB(
+  m9_null = glmmTMB(
     cbind(n_refuge, n_total - n_refuge) ~ 1 + (1 | tank),
+    data = round_summary, family = betabinomial),
+  m10_both = glmmTMB(
+    cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period + (1 | koura_id) + (1 | exp_id),
+    data = round_summary, family = betabinomial),
+  m11_ = glmmTMB(
+    cbind(n_refuge, n_total - n_refuge) ~ treatment * light * period + (1 | exp_id),
     data = round_summary, family = betabinomial))
+
 
 comparison_bb <- data.frame(
   model  = names(models_bb),
@@ -274,15 +312,33 @@ comparison_bb <- data.frame(
 #print(comparison_bb)
 
 # Final model (no random effect needed — AIC confirmed) 
-m_final_bb <- glmmTMB(cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period, data = round_summary, family = betabinomial)
+m_final_bb <- glmmTMB(
+  cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period + (1 | exp_id),
+  data = round_summary, family = betabinomial)
 
 #summary(m_final_bb)
 
 # Model diagnostics 
-sim_final <- simulateResiduals(m_final_bb)
+#sim_final <- simulateResiduals(m_final_bb)
 #plot(sim_final)
 #testDispersion(sim_final)
 #testZeroInflation(sim_final)
+
+# Save fixed effects table 
+fixed_bb <- as.data.frame(summary(m_final_bb)$coefficients$cond) %>%
+  rownames_to_column("term") %>%
+  mutate(across(where(is.numeric), round, 3))
+
+write.csv(fixed_bb,    file.path(out_dir, "table_bb_fixed_effects.csv"), row.names = FALSE)
+
+fixed_bb
+```
+
+### Emmeans tbl
+```{r}
+#| label: tbl-S3-emmeans
+#| include: true
+#| tbl-cap: "..."
 
 # Marginal means and pairwise contrasts 
 emm_treatment <- as.data.frame(pairs(emmeans(m_final_bb, ~ treatment, type = "response"))) %>% mutate(factor = "treatment")
@@ -292,13 +348,6 @@ emm_light     <- as.data.frame(pairs(emmeans(m_final_bb, ~ light,     type = "re
 emmeans_bb <- bind_rows(emm_treatment, emm_period, emm_light) %>%
   mutate(across(where(is.numeric), round, 3))
 
-# Save fixed effects table 
-fixed_bb <- as.data.frame(summary(m_final_bb)$coefficients$cond) %>%
-  rownames_to_column("term") %>%
-  mutate(across(where(is.numeric), round, 3))
-
-write.csv(fixed_bb,    file.path(out_dir, "table_bb_fixed_effects.csv"), row.names = FALSE)
-write.csv(emmeans_bb,  file.path(out_dir, "table_bb_emmeans.csv"),        row.names = FALSE)
 
 # extract specific p-values for inline reporting
 p_catfish_eel     <- emmeans_bb %>% filter(contrast == "catfish / eel")     %>% pull(p.value)
@@ -309,15 +358,17 @@ p_before_during   <- emmeans_bb %>% filter(contrast == "before / during")   %>% 
 p_during_after    <- emmeans_bb %>% filter(contrast == "during / after")    %>% pull(p.value)
 p_dark_light      <- emmeans_bb %>% filter(contrast == "dark / light")      %>% pull(p.value)
 
-or_before_after   <- emmeans_bb %>% filter(contrast == "before / after")    %>% pull(odds.ratio)
+write.csv(emmeans_bb,  file.path(out_dir, "table_bb_emmeans.csv"),        row.names = FALSE)
+
+emmeans_bb
 
 ```
 
-### Emmeans plot
+## Emmeans plot
 ```{r}
 #| label: fig-emmeans-plot
 #| include: true
-#| fig-cap: "your caption"
+#| fig-cap: "Predicted probability of refuge use with 95% confidence intervals. The dashed line at 0.5 helps show whether kōura spend more or less than half their time in refuge."
 
 # Make plot
 # get predicted probabilities (not contrasts) for plotting
@@ -343,6 +394,7 @@ emmeans_plot <- ggplot(emm_all, aes(x = x, y = prob, ymin = asymp.LCL, ymax = as
   geom_hline(yintercept = 0.5, linetype = "dashed", colour = "grey50")
 
 ggsave(file.path(out_dir, "emmeans_plot.png"), emmeans_plot, width = 5, height = 3, dpi = 300)
+
 emmeans_plot
 
 ```
@@ -387,25 +439,26 @@ loc_order <- c("ref_back","ref_open","ref_next","wall","floor","barrier")
 beh_order <- c("static","walk","swim","climb")
 
 koura_location_time <- koura_long %>%
-  mutate(location = factor(location, levels = loc_order))
+  mutate(location = factor(location, levels = loc_order), treatment = factor(treatment, levels = c("catfish", "eel", "control")))
+
 
 koura_behaviour_time <- koura_long %>%
-  mutate(behaviour = factor(behaviour, levels = beh_order))
+  mutate(behaviour = factor(behaviour, levels = beh_order), treatment = factor(treatment, levels = c("catfish", "eel", "control")))
 
 # --- Plots ---
-p_loc_time <- ggplot(koura_long_ref, aes(time, location, col = treatment)) +
+p_loc_time <- ggplot(koura_location_time, aes(time, location, col = treatment)) +
   geom_point() +  
-  geom_line(aes(group = treatment))+
+  geom_line(aes(group = koura_id)) +
   geom_vline(xintercept = c(60, 240), linetype = "dashed") +
-  facet_grid(exp_id~.) +
-  labs(x = "time (min)", y = "location") +
+  facet_wrap(koura_id ~ .) +
+  labs(x = "time (min)", y = "location")+
   theme(legend.position = "none")
 
-p_beh_time <- ggplot(koura_long_ref, aes(time, behaviour, col = treatment)) +
+p_beh_time <- ggplot(koura_behaviour_time, aes(time, behaviour, col = treatment)) +
   geom_point() +
-  geom_line(aes(group = treatment))+
+  geom_line(aes(group = koura_id))+
   geom_vline(xintercept = c(60, 240), linetype = "dashed") +
-  facet_grid(exp_id~.) +
+  facet_wrap(koura_id ~ .) +
   labs(x = "time (min)", y = "behaviour") 
 
 # --- Combine ---
@@ -414,12 +467,65 @@ koura_time_plot
 
 ```
 
+## Barrier
+```{r}
+#| label: fig-barrier
+#| include: true
+#| fig-cap: "your caption"
+
+koura_long_bar <- koura_long %>%
+  mutate(location = case_when(
+      location == "barrier" ~ "barrier",
+      location %in% c("floor", "wall") ~ "open",
+      location %in% c("ref_back", "ref_open", "ref_next") ~ "refuge",
+      TRUE ~ NA_character_ ),
+    behaviour = case_when(
+      behaviour == "climb" ~ "climbing",
+      behaviour %in% c("static", "walk", "swim") ~ "other",
+      TRUE ~ NA_character_))
+
+# summarise barrier climbing per round
+barrier_summary <- koura_long_bar %>%
+  filter(!is.na(location)) %>%
+  group_by(treatment, exp_id, round, tank, light, period) %>%
+  summarise(
+    n_total   = n(),
+    n_barrier = sum(location == "barrier", na.rm = TRUE),
+    .groups   = "drop"
+  )
+
+# check counts
+barrier_summary %>%
+  group_by(treatment, period) %>%
+  summarise(mean_prop = mean(n_barrier/n_total), .groups = "drop")
+
+# fit model
+m_barrier <- glmmTMB(
+  cbind(n_barrier, n_total - n_barrier) ~ treatment + light + period,
+  data = barrier_summary,
+  family = betabinomial)
+
+#summary(m_barrier)
+
+# emmeans contrasts
+pairs(emmeans(m_barrier, ~ treatment, type = "response"))
+pairs(emmeans(m_barrier, ~ period, type = "response"))
+
+# DHARMa diagnostics
+sim_bar <- simulateResiduals(m_barrier)
+plot(sim_bar)
+testDispersion(sim_bar)
+
+
+
+```
+
 # Feeding experiment
 ## Feeding plot
 ```{r}
 #| label: fig-feeding-plot
 #| include: true
-#| fig-cap: "your caption"
+#| fig-cap: "Mean kōura feeding rate (pellets consumed per gram body weight ± SE) across predator treatments (catfish, eel, control) and starvation periods (0, 3, and 4 days). Points represent treatment means and error bars show standard error."
 
 df_feeding <- df_Feeding_raw %>%
   filter(round != 1) %>%
@@ -443,10 +549,34 @@ feeding_plot
 
 ## Feeding stats
 ```{r}
-#| label: feeding-stats
+#| label: tbl-S4-feeding-ano
 #| include: false
+#| tbl-cap: "..."
 
-# Linear model
+# Model selection
+
+feeding_models <- list(
+  m1 = lm(pellets_per_g ~ treatment * day_starve, data = df_feeding),
+  m2 = lm(pellets_per_g ~ treatment * day_starve + (1 | exp_id ), data = df_feeding),
+  m3 = lm(pellets_per_g ~ treatment + day_starve, data = df_feeding),
+  m4 = lm(pellets_per_g ~ treatment + day_starve + (1 | exp_id ), data = df_feeding),
+  m5 = lm(pellets_per_g ~ day_starve + treatment, data = df_feeding),
+  m6 = lm(pellets_per_g ~ treatment, data = df_feeding),
+  m7 = lm(pellets_per_g ~ day_starve, data = df_feeding)
+)
+
+comparison_feeding_models <- data.frame(
+  model  = names(feeding_models),
+  AIC    = sapply(feeding_models, AIC),
+  BIC    = sapply(feeding_models, BIC),
+  logLik = sapply(feeding_models, \(m) as.numeric(logLik(m)))) |>
+  arrange(AIC) |>
+  mutate(delta_AIC = round(AIC - min(AIC), 2))
+
+#print(comparison_feeding_models)
+
+
+# Final Linear model
 lm_feed <- lm(pellets_per_g ~ treatment * day_starve, data = df_feeding)
 
 # extract p-values for inline reporting
@@ -479,6 +609,11 @@ par(mfrow = c(2, 2))
 plot(lm_feed)
 par(mfrow = c(1, 1)) 
 
+write.csv(anova_feed,  file.path(out_dir, "anova_feed.csv"), row.names = FALSE)
+
+anova_feed
 
 ```
+
+
 

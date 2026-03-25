@@ -12,6 +12,7 @@ manuscript:
     - notebook: analysis.qmd
       title: "Analysis Notebook"
 
+
 format:
   html:
     fig-path: "analysis_files/figure-html/"
@@ -27,6 +28,10 @@ format:
     fig-width: 8
     fig-height: 6
   docx: default
+  pdf:
+    colorlinks: true
+    link-citations: true
+    toc: true
     
 bibliography: references/references.bib
 csl: references/apa.csl

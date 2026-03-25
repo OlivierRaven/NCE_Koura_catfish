@@ -342,10 +342,10 @@ fixed_bb
 
 # Marginal means and pairwise contrasts 
 emm_treatment <- as.data.frame(pairs(emmeans(m_final_bb, ~ treatment, type = "response"))) %>% mutate(factor = "treatment")
-emm_period    <- as.data.frame(pairs(emmeans(m_final_bb, ~ period,    type = "response"))) %>% mutate(factor = "period")
 emm_light     <- as.data.frame(pairs(emmeans(m_final_bb, ~ light,     type = "response"))) %>% mutate(factor = "light")
+emm_period    <- as.data.frame(pairs(emmeans(m_final_bb, ~ period,    type = "response"))) %>% mutate(factor = "period")
 
-emmeans_bb <- bind_rows(emm_treatment, emm_period, emm_light) %>%
+emmeans_bb <- bind_rows(emm_treatment, emm_light, emm_period) %>%
   mutate(across(where(is.numeric), round, 3))
 
 
@@ -358,7 +358,7 @@ p_before_during   <- emmeans_bb %>% filter(contrast == "before / during")   %>% 
 p_during_after    <- emmeans_bb %>% filter(contrast == "during / after")    %>% pull(p.value)
 p_dark_light      <- emmeans_bb %>% filter(contrast == "dark / light")      %>% pull(p.value)
 
-write.csv(emmeans_bb,  file.path(out_dir, "table_bb_emmeans.csv"),        row.names = FALSE)
+write.csv(emmeans_bb,  file.path(out_dir, "table_bb_emmeans.csv"), row.names = FALSE)
 
 emmeans_bb
 
@@ -368,20 +368,22 @@ emmeans_bb
 ```{r}
 #| label: fig-emmeans-plot
 #| include: true
-#| fig-cap: "Predicted probability of refuge use with 95% confidence intervals. The dashed line at 0.5 helps show whether kōura spend more or less than half their time in refuge."
+#| fig-cap: "Predicted marginal probabilities of refuge use from the beta-binomial GLMM for each level of treatment, light condition, and experimental period. Points show model-estimated marginal means averaged over all other factors, with 95% confidence intervals. The dashed line at 0.5 helps show whether kōura spend more or less than half their time in refuge."
 
 # Make plot
 # get predicted probabilities (not contrasts) for plotting
 emm_treat_pred  <- as.data.frame(emmeans(m_final_bb, ~ treatment, type = "response"))
-emm_period_pred <- as.data.frame(emmeans(m_final_bb, ~ period,    type = "response"))
 emm_light_pred  <- as.data.frame(emmeans(m_final_bb, ~ light,     type = "response"))
+emm_period_pred <- as.data.frame(emmeans(m_final_bb, ~ period,    type = "response"))
+
 
 # add factor label and rename x variable
 emm_treat_pred  <- emm_treat_pred  %>% mutate(factor = "treatment", x = treatment)
-emm_period_pred <- emm_period_pred %>% mutate(factor = "period",    x = period)
 emm_light_pred  <- emm_light_pred  %>% mutate(factor = "light",     x = light)
+emm_period_pred <- emm_period_pred %>% mutate(factor = "period",    x = period)
 
-emm_all <- bind_rows(emm_treat_pred, emm_period_pred, emm_light_pred) %>%
+
+emm_all <- bind_rows(emm_treat_pred, emm_light_pred, emm_period_pred) %>%
   mutate(factor = factor(factor, levels = c("treatment", "light", "period")),
          x = factor(x, levels = c("catfish", "eel", "control", "dark", "light", "before", "during", "after")))
 
@@ -551,7 +553,7 @@ feeding_plot
 ```{r}
 #| label: tbl-S4-feeding-ano
 #| include: false
-#| tbl-cap: "..."
+#| tbl-cap: "Feeding anova output"
 
 # Model selection
 
@@ -609,7 +611,7 @@ get_se <- function(trt, starve) {
 #plot(lm_feed)
 #par(mfrow = c(1, 1)) 
 
-write.csv(anova_feed,  file.path(out_dir, "anova_feed.csv"), row.names = FALSE)
+write.csv(anova_feed,  file.path(out_dir, "anova_feed.csv"), row.names = TRUE)
 
 anova_feed
 

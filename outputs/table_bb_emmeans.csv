@@ -2,7 +2,7 @@
 "catfish / control",1.879,1.252,Inf,1,0.946,0.611,"treatment"
 "catfish / eel",3.445,2.275,Inf,1,1.873,0.147,"treatment"
 "control / eel",1.834,1.231,Inf,1,0.903,0.638,"treatment"
+"dark / light",0.356,0.195,Inf,1,-1.889,0.059,"light"
 "before / during",0.441,0.129,Inf,1,-2.803,0.014,"period"
 "before / after",0.254,0.082,Inf,1,-4.246,0,"period"
 "during / after",0.576,0.172,Inf,1,-1.852,0.153,"period"
-"dark / light",0.356,0.195,Inf,1,-1.889,0.059,"light"

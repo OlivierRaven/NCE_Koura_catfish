@@ -246,7 +246,7 @@ refuge_plot
 ## Refuge stats
 ```{r}
 #| label: tbl-S2-fixed-effects
-#| include: false
+#| include: true
 #| tbl-cap: "..."
 
 
@@ -329,7 +329,7 @@ fixed_bb <- as.data.frame(summary(m_final_bb)$coefficients$cond) %>%
   rownames_to_column("term") %>%
   mutate(across(where(is.numeric), round, 3))
 
-write.csv(fixed_bb,    file.path(out_dir, "table_bb_fixed_effects.csv"), row.names = FALSE)
+write.csv(fixed_bb, file.path(out_dir, "table_bb_fixed_effects.csv"), row.names = FALSE)
 
 fixed_bb
 ```
@@ -446,7 +446,7 @@ koura_behaviour_time <- koura_long %>%
   mutate(behaviour = factor(behaviour, levels = beh_order), treatment = factor(treatment, levels = c("catfish", "eel", "control")))
 
 # --- Plots ---
-p_loc_time <- ggplot(koura_location_time, aes(time, location, col = treatment)) +
+p_loc_time <- ggplot(koura_long_ref, aes(time, location, col = treatment)) +
   geom_point() +  
   geom_line(aes(group = koura_id)) +
   geom_vline(xintercept = c(60, 240), linetype = "dashed") +
@@ -508,13 +508,13 @@ m_barrier <- glmmTMB(
 #summary(m_barrier)
 
 # emmeans contrasts
-pairs(emmeans(m_barrier, ~ treatment, type = "response"))
-pairs(emmeans(m_barrier, ~ period, type = "response"))
+#pairs(emmeans(m_barrier, ~ treatment, type = "response"))
+#pairs(emmeans(m_barrier, ~ period, type = "response"))
 
 # DHARMa diagnostics
-sim_bar <- simulateResiduals(m_barrier)
-plot(sim_bar)
-testDispersion(sim_bar)
+#sim_bar <- simulateResiduals(m_barrier)
+#plot(sim_bar)
+#testDispersion(sim_bar)
 
 
 
@@ -602,12 +602,12 @@ get_se <- function(trt, starve) {
     pull(SE)
 }
 
-Anova(lm_feed, type = "III")
-emmeans(lm_feed, ~ treatment * day_starve)
-shapiro.test(residuals(lm_feed))
-par(mfrow = c(2, 2))
-plot(lm_feed)
-par(mfrow = c(1, 1)) 
+#Anova(lm_feed, type = "III")
+#emmeans(lm_feed, ~ treatment * day_starve)
+#shapiro.test(residuals(lm_feed))
+#par(mfrow = c(2, 2))
+#plot(lm_feed)
+#par(mfrow = c(1, 1)) 
 
 write.csv(anova_feed,  file.path(out_dir, "anova_feed.csv"), row.names = FALSE)
 

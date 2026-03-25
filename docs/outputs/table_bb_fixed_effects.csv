@@ -1,7 +1,0 @@
-"term","Estimate","Std. Error","z value","Pr(>|z|)"
-"(Intercept)",-0.528,0.557,-0.948,0.343
-"treatmentcontrol",-0.631,0.666,-0.946,0.344
-"treatmenteel",-1.237,0.66,-1.873,0.061
-"lightlight",1.033,0.547,1.889,0.059
-"periodduring",0.818,0.292,2.803,0.005
-"periodafter",1.37,0.323,4.246,0

@@ -182,4 +182,4 @@ The feeding experiment showed the highest mean (±SE) feeding rate was after 3 d
 
 {{< embed analysis.qmd#tbl-S3-emmeans >}}
 
-{{< embed analysis.qmd#tbl-S-feeding-ano >}}
+{{< embed analysis.qmd#tbl-S4-feeding-ano >}}

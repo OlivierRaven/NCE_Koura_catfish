@@ -98,7 +98,7 @@ koura_long_ref <- koura_long_ref %>%
 
 ## Refuge table
 ```{r}
-#| label: tbl-S1-refuge-prop
+#| label: tbl-s1-refuge-prop
 #| include: true
 #| tbl-cap: "Proportion of kōura observations recorded in refuge across experimental treatments (catfish, eel, control), light conditions (light, dark), and periods (before, during, and after predator exposure). Combined rows summarise across all levels of a given factor. Values represent the proportion of total observations where kōura were located in the refuge."
 
@@ -328,7 +328,7 @@ testZeroInflation(sim_final)
 
 ### fixed effect tbl
 ```{r}
-#| label: tbl-S2-fixed-effects
+#| label: tbl-s2-fixed-effects
 #| include: true
 #| tbl-cap: "Fixed effects of the beta-binomial GLMM for kōura refuge use."
 
@@ -345,7 +345,7 @@ knitr::kable(fixed_bb, col.names = c("Term", "Estimate", "Std. Error", "z value"
 
 ### Emmeans tbl
 ```{r}
-#| label: tbl-S3-emmeans
+#| label: tbl-s3-emmeans
 #| include: true
 #| tbl-cap: "Pairwise contrasts from the beta-binomial GLMM for kōura refuge use. Odds ratios and p-values are shown for treatment, light condition, and period comparisons. P-values are Tukey-adjusted for multiple comparisons within each factor."
 
@@ -625,7 +625,7 @@ par(mfrow = c(1, 1))
 
 ### feeding anova tbl
 ```{r}
-#| label: tbl-S4-feeding-anova
+#| label: tbl-s4-feeding-anova
 #| include: true
 #| tbl-cap: "Type III ANOVA table for the linear model of kōura feeding rate (pellets consumed per gram body weight). Treatment, starvation period, and their interaction were included as fixed effects."
 

@@ -961,9 +961,7 @@ alternative hypothesis: two.sided</code></pre>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>write.csv(fixed_bb, <span class="bu">file</span>.path(out_dir, <span class="st">"table_bb_fixed_effects.csv"</span>), row.names <span class="op">=</span> FALSE)</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>knitr::kable(fixed_bb, </span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>             caption <span class="op">=</span> <span class="st">"Fixed effects of the beta-binomial GLMM for kōura refuge use."</span>,</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>             col.names <span class="op">=</span> c(<span class="st">"Term"</span>, <span class="st">"Estimate"</span>, <span class="st">"Std. Error"</span>, <span class="st">"z value"</span>, <span class="st">"p value"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>knitr::kable(fixed_bb, col.names <span class="op">=</span> c(<span class="st">"Term"</span>, <span class="st">"Estimate"</span>, <span class="st">"Std. Error"</span>, <span class="st">"z value"</span>, <span class="st">"p value"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="tbl-s2-fixed-effects" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -973,7 +971,6 @@ Table&nbsp;2: Fixed effects of the beta-binomial GLMM for kōura refuge use.
 <div aria-describedby="tbl-s2-fixed-effects-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="do-not-create-environment cell caption-top table table-sm table-striped small">
-<caption>Fixed effects of the beta-binomial GLMM for kōura refuge use.</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Term</th>
@@ -1059,9 +1056,7 @@ Table&nbsp;2: Fixed effects of the beta-binomial GLMM for kōura refuge use.
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>write.csv(emmeans_bb,  <span class="bu">file</span>.path(out_dir, <span class="st">"table_bb_emmeans.csv"</span>), row.names <span class="op">=</span> FALSE)</span>
 <span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>knitr::kable(emmeans_bb,</span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>             col.names <span class="op">=</span> c(<span class="st">"Contrast"</span>, <span class="st">"Odds ratio"</span>, <span class="st">"SE"</span>, <span class="st">"df"</span>, <span class="st">"Null"</span>, <span class="st">"z value"</span>, <span class="st">"p value"</span>, <span class="st">"Factor"</span>),</span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>             digits <span class="op">=</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>knitr::kable(emmeans_bb,col.names <span class="op">=</span> c(<span class="st">"Contrast"</span>, <span class="st">"Odds ratio"</span>, <span class="st">"SE"</span>, <span class="st">"df"</span>, <span class="st">"Null"</span>, <span class="st">"z value"</span>, <span class="st">"p value"</span>, <span class="st">"Factor"</span>), digits <span class="op">=</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-container"><div class="cell-decorator"><pre>In [10]:</pre></div><div id="tbl-s3-emmeans" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1243,18 +1238,16 @@ Figure&nbsp;2: Predicted marginal probabilities of refuge use from the beta-bino
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  arrange(factor(grouping, levels<span class="op">=</span>tags), treatment, light)</span>
 <span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co"># need to make into nice table</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>knitr::kable(summary_animals, digits <span class="op">=</span> <span class="dv">2</span>, </span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>             caption <span class="op">=</span> <span class="st">"Summary of kōura used in experiments"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>knitr::kable(summary_animals, digits <span class="op">=</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-container"><div class="cell-decorator"><pre>In [13]:</pre></div><div id="tbl-koura" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-koura-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4: your caption
+Table&nbsp;4: Summary of kōura used in experiments
 </figcaption>
 <div aria-describedby="tbl-koura-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="do-not-create-environment cell caption-top table table-sm table-striped small">
-<caption>Summary of kōura used in experiments</caption>
 <colgroup>
 <col style="width: 12%">
 <col style="width: 8%">
@@ -1482,7 +1475,7 @@ Table&nbsp;4: your caption
 <span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  geom_point() <span class="op">+</span>  </span>
 <span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  geom_line(aes(group <span class="op">=</span> koura_id)) <span class="op">+</span></span>
 <span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  geom_vline(xintercept <span class="op">=</span> c(<span class="dv">60</span>, <span class="dv">240</span>), linetype <span class="op">=</span> <span class="st">"dashed"</span>) <span class="op">+</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  facet_wrap(koura_id <span class="op">~</span> .) <span class="op">+</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  facet_wrap(koura_id <span class="op">~</span> light) <span class="op">+</span></span>
 <span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"time (min)"</span>, y <span class="op">=</span> <span class="st">"location"</span>)<span class="op">+</span></span>
 <span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  theme(legend.position <span class="op">=</span> <span class="st">"none"</span>)</span>
 <span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
@@ -1490,7 +1483,7 @@ Table&nbsp;4: your caption
 <span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  geom_point() <span class="op">+</span></span>
 <span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  geom_line(aes(group <span class="op">=</span> koura_id))<span class="op">+</span></span>
 <span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>  geom_vline(xintercept <span class="op">=</span> c(<span class="dv">60</span>, <span class="dv">240</span>), linetype <span class="op">=</span> <span class="st">"dashed"</span>) <span class="op">+</span></span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>  facet_wrap(koura_id <span class="op">~</span> .) <span class="op">+</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>  facet_wrap(koura_id <span class="op">~</span> light) <span class="op">+</span></span>
 <span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"time (min)"</span>, y <span class="op">=</span> <span class="st">"behaviour"</span>) </span>
 <span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Combine ---</span></span>
@@ -1513,6 +1506,9 @@ Figure&nbsp;3: your caption
 </section>
 <section id="barrier" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="barrier"><span class="header-section-number">2.8</span> Barrier</h2>
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [15]:</pre></div><div id="fig-barrier" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-barrier-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <details class="code-fold">
 <summary>View Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>koura_long_bar <span class="op">&lt;-</span> koura_long <span class="op">%&gt;%</span></span>
@@ -1537,27 +1533,12 @@ Figure&nbsp;3: your caption
 <span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="co"># check counts</span></span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>barrier_summary <span class="op">%&gt;%</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>barrier_summary_tbl <span class="op">&lt;-</span> barrier_summary <span class="op">%&gt;%</span></span>
 <span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>  group_by(treatment, period) <span class="op">%&gt;%</span></span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>  summarise(mean_prop <span class="op">=</span> mean(n_barrier<span class="op">/</span>n_total), .groups <span class="op">=</span> <span class="st">"drop"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>  summarise(mean_prop <span class="op">=</span> mean(n_barrier<span class="op">/</span>n_total), .groups <span class="op">=</span> <span class="st">"drop"</span>)</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>knitr::kable(barrier_summary_tbl, digits <span class="op">=</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-container"><div class="cell-decorator"><pre>In [15]:</pre></div><div id="fig-barrier" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-barrier-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 9 × 3
-  treatment period mean_prop
-  &lt;chr&gt;     &lt;fct&gt;      &lt;dbl&gt;
-1 catfish   before     0.348
-2 catfish   during     0.298
-3 catfish   after      0.235
-4 control   before     0.383
-5 control   during     0.422
-6 control   after      0.275
-7 eel       before     0.371
-8 eel       during     0.369
-9 eel       after      0.462</code></pre>
-</div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-barrier-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4
@@ -1573,24 +1554,24 @@ Figure&nbsp;4
 <div class="cell-container code-fold"><div class="cell-decorator"><pre>In [16]:</pre></div><div id="cell-fig-feeding-plot" class="cell">
 <details class="code-fold">
 <summary>View Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_feeding <span class="op">&lt;-</span> df_Feeding_raw <span class="op">%&gt;%</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">filter</span>(<span class="bu">round</span> <span class="op">!=</span> <span class="dv">1</span>) <span class="op">%&gt;%</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  mutate(pellets_eaten_24h <span class="op">=</span> total_fed <span class="op">-</span> left_after_24h,</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    pellets_per_g <span class="op">=</span> pellets_eaten_24h <span class="op">/</span> weight_g1,</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    koura_id <span class="op">=</span> <span class="im">as</span>.factor(koura_id),</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    treatment <span class="op">=</span> <span class="im">as</span>.factor(treatment),</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    day_starve <span class="op">=</span> <span class="im">as</span>.factor(day_starve))</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>feeding_plot <span class="op">&lt;-</span> ggplot(df_feeding, aes(day_starve, pellets_per_g, </span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>                        colour <span class="op">=</span> treatment, group <span class="op">=</span> treatment)) <span class="op">+</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  stat_summary(fun <span class="op">=</span> mean, geom <span class="op">=</span> <span class="st">"point"</span>, size <span class="op">=</span> <span class="dv">3</span>) <span class="op">+</span></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  stat_summary(fun <span class="op">=</span> mean, geom <span class="op">=</span> <span class="st">"line"</span>) <span class="op">+</span></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  stat_summary(fun.data <span class="op">=</span> mean_se, geom <span class="op">=</span> <span class="st">"errorbar"</span>, width <span class="op">=</span> <span class="fl">0.2</span>) <span class="op">+</span></span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"days starved"</span>, y <span class="op">=</span> <span class="st">"pellets eaten per gram"</span>)</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>ggsave(<span class="bu">file</span>.path(out_dir, <span class="st">"feeding_plot.png"</span>), feeding_plot, width <span class="op">=</span> <span class="dv">8</span>, height <span class="op">=</span> <span class="dv">5</span>, dpi <span class="op">=</span> <span class="dv">300</span>)</span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>feeding_plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_feeding <span class="op">&lt;-</span> df_Feeding_raw <span class="op">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">filter</span>(<span class="bu">round</span> <span class="op">!=</span> <span class="dv">1</span>) <span class="op">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  mutate(pellets_eaten_24h <span class="op">=</span> total_fed <span class="op">-</span> left_after_24h,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    pellets_per_g <span class="op">=</span> pellets_eaten_24h <span class="op">/</span> weight_g1,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    koura_id <span class="op">=</span> <span class="im">as</span>.factor(koura_id),</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    treatment <span class="op">=</span> <span class="im">as</span>.factor(treatment),</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    day_starve <span class="op">=</span> <span class="im">as</span>.factor(day_starve))</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>feeding_plot <span class="op">&lt;-</span> ggplot(df_feeding, aes(day_starve, pellets_per_g, </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>                        colour <span class="op">=</span> treatment, group <span class="op">=</span> treatment)) <span class="op">+</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  stat_summary(fun <span class="op">=</span> mean, geom <span class="op">=</span> <span class="st">"point"</span>, size <span class="op">=</span> <span class="dv">3</span>) <span class="op">+</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  stat_summary(fun <span class="op">=</span> mean, geom <span class="op">=</span> <span class="st">"line"</span>) <span class="op">+</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  stat_summary(fun.data <span class="op">=</span> mean_se, geom <span class="op">=</span> <span class="st">"errorbar"</span>, width <span class="op">=</span> <span class="fl">0.2</span>) <span class="op">+</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  labs(x <span class="op">=</span> <span class="st">"days starved"</span>, y <span class="op">=</span> <span class="st">"pellets eaten per gram"</span>)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>ggsave(<span class="bu">file</span>.path(out_dir, <span class="st">"feeding_plot.png"</span>), feeding_plot, width <span class="op">=</span> <span class="dv">8</span>, height <span class="op">=</span> <span class="dv">5</span>, dpi <span class="op">=</span> <span class="dv">300</span>)</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>feeding_plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-feeding-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1611,27 +1592,27 @@ Figure&nbsp;5: Mean kōura feeding rate (pellets consumed per gram body weight �
 <div class="cell-container code-fold"><div class="cell-decorator"><pre>In [17]:</pre></div><div id="cell-feeding-stats" class="cell">
 <details class="code-fold">
 <summary>View Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model selection</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>feeding_models <span class="op">&lt;-</span> <span class="bu">list</span>(</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  m1 <span class="op">=</span> lm(pellets_per_g <span class="op">~</span> treatment <span class="op">*</span> day_starve, data <span class="op">=</span> df_feeding),</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  m2 <span class="op">=</span> lm(pellets_per_g <span class="op">~</span> treatment <span class="op">*</span> day_starve <span class="op">+</span> (<span class="dv">1</span> <span class="op">|</span> exp_id ), data <span class="op">=</span> df_feeding),</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  m3 <span class="op">=</span> lm(pellets_per_g <span class="op">~</span> treatment <span class="op">+</span> day_starve, data <span class="op">=</span> df_feeding),</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  m4 <span class="op">=</span> lm(pellets_per_g <span class="op">~</span> treatment <span class="op">+</span> day_starve <span class="op">+</span> (<span class="dv">1</span> <span class="op">|</span> exp_id ), data <span class="op">=</span> df_feeding),</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  m5 <span class="op">=</span> lm(pellets_per_g <span class="op">~</span> day_starve <span class="op">+</span> treatment, data <span class="op">=</span> df_feeding),</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  m6 <span class="op">=</span> lm(pellets_per_g <span class="op">~</span> treatment, data <span class="op">=</span> df_feeding),</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  m7 <span class="op">=</span> lm(pellets_per_g <span class="op">~</span> day_starve, data <span class="op">=</span> df_feeding)</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>comparison_feeding_models <span class="op">&lt;-</span> data.frame(</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  model  <span class="op">=</span> names(feeding_models),</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  AIC    <span class="op">=</span> sapply(feeding_models, AIC),</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>  BIC    <span class="op">=</span> sapply(feeding_models, BIC),</span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>  logLik <span class="op">=</span> sapply(feeding_models, \(m) <span class="im">as</span>.numeric(logLik(m)))) <span class="op">|&gt;</span></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>  arrange(AIC) <span class="op">|&gt;</span></span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>  mutate(delta_AIC <span class="op">=</span> <span class="bu">round</span>(AIC <span class="op">-</span> <span class="bu">min</span>(AIC), <span class="dv">2</span>))</span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(comparison_feeding_models)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model selection</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>feeding_models <span class="op">&lt;-</span> <span class="bu">list</span>(</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  m1 <span class="op">=</span> lm(pellets_per_g <span class="op">~</span> treatment <span class="op">*</span> day_starve, data <span class="op">=</span> df_feeding),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  m2 <span class="op">=</span> lm(pellets_per_g <span class="op">~</span> treatment <span class="op">*</span> day_starve <span class="op">+</span> (<span class="dv">1</span> <span class="op">|</span> exp_id ), data <span class="op">=</span> df_feeding),</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  m3 <span class="op">=</span> lm(pellets_per_g <span class="op">~</span> treatment <span class="op">+</span> day_starve, data <span class="op">=</span> df_feeding),</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  m4 <span class="op">=</span> lm(pellets_per_g <span class="op">~</span> treatment <span class="op">+</span> day_starve <span class="op">+</span> (<span class="dv">1</span> <span class="op">|</span> exp_id ), data <span class="op">=</span> df_feeding),</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  m5 <span class="op">=</span> lm(pellets_per_g <span class="op">~</span> day_starve <span class="op">+</span> treatment, data <span class="op">=</span> df_feeding),</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  m6 <span class="op">=</span> lm(pellets_per_g <span class="op">~</span> treatment, data <span class="op">=</span> df_feeding),</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  m7 <span class="op">=</span> lm(pellets_per_g <span class="op">~</span> day_starve, data <span class="op">=</span> df_feeding)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>comparison_feeding_models <span class="op">&lt;-</span> data.frame(</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  model  <span class="op">=</span> names(feeding_models),</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  AIC    <span class="op">=</span> sapply(feeding_models, AIC),</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  BIC    <span class="op">=</span> sapply(feeding_models, BIC),</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  logLik <span class="op">=</span> sapply(feeding_models, \(m) <span class="im">as</span>.numeric(logLik(m)))) <span class="op">|&gt;</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>  arrange(AIC) <span class="op">|&gt;</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  mutate(delta_AIC <span class="op">=</span> <span class="bu">round</span>(AIC <span class="op">-</span> <span class="bu">min</span>(AIC), <span class="dv">2</span>))</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(comparison_feeding_models)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   model       AIC       BIC   logLik delta_AIC
@@ -1681,10 +1662,10 @@ W = 0.97279, p-value = 0.324</code></pre>
 <div class="cell-container code-fold"><div class="cell-decorator"><pre>In [18]:</pre></div><div class="cell">
 <details class="code-fold">
 <summary>View Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">as</span>.data.frame(anova_feed) <span class="op">%&gt;%</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  rownames_to_column(<span class="st">"term"</span>) <span class="op">%&gt;%</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  mutate(across(where(<span class="kw">is</span>.numeric), <span class="bu">round</span>, <span class="dv">3</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  knitr::kable(col.names <span class="op">=</span> c(<span class="st">"Term"</span>, <span class="st">"Sum Sq"</span>, <span class="st">"Df"</span>, <span class="st">"F value"</span>, <span class="st">"p value"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">as</span>.data.frame(anova_feed) <span class="op">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  rownames_to_column(<span class="st">"term"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  mutate(across(where(<span class="kw">is</span>.numeric), <span class="bu">round</span>, <span class="dv">3</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  knitr::kable(col.names <span class="op">=</span> c(<span class="st">"Term"</span>, <span class="st">"Sum Sq"</span>, <span class="st">"Df"</span>, <span class="st">"F value"</span>, <span class="st">"p value"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-container"><div class="cell-decorator"><pre>In [19]:</pre></div><div id="tbl-s4-feeding-anova" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">

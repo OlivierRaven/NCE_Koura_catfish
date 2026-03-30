@@ -1,11 +1,24 @@
 ---
 title: "Analysis Notebook"
-format: 
+format:
   html:
     fig-path: "analysis_files/figure-html/"
+    theme:
+      light: flatly
+      dark: darkly
+    code-fold: true
+    code-tools: true
+    code-summary: "View Code"
+    toc: true
+    toc-depth: 3
+    number-sections: true
+fig-width: 8
+fig-height: 6
+
 execute:
   freeze: false
   cache: false
+
 ---
 
 # Setup
@@ -15,7 +28,7 @@ execute:
 
 options(warn = -1)
 
-packages <- c("DT","car","glmmTMB","AICcmodavg", "ggeffects","DHARMa", "brms", "emmeans", "lme4","lmerTest","vegan","ggnewscale","multcompView","patchwork","janitor","lubridate","stringr","tidyverse","dplyr","ggplot2","readxl","writexl","readr")
+packages <- c("multcomp","DT","car","glmmTMB","AICcmodavg", "ggeffects","DHARMa", "brms", "emmeans", "lme4","lmerTest","vegan","ggnewscale","multcompView","patchwork","janitor","lubridate","stringr","tidyverse","dplyr","ggplot2","readxl","writexl","readr")
 
 # Load packages if not already installed
 quiet_load <- function(pkg) {
@@ -43,7 +56,7 @@ df_Feeding_raw <- read.csv(file.path(der_data_dir, "Feeding.csv"))
 
 # Set base for plots
 base_theme_bw <- theme_classic() +
-  theme(text     = element_text(family = "Arial", size = 11),
+  theme(text     = element_text(family = "sans", size = 11),
     axis.title   = element_text(face = "plain"),
     axis.text    = element_text(face = "plain"),
     plot.title   = element_text(face = "plain"),
@@ -223,13 +236,13 @@ plot_data <- bind_rows(prop_location_time, prop_location_time_combined) %>%
 overlay_data <- bind_rows(prop_overlay, prop_overlay_combined) %>%
   mutate(light = factor(light, levels = c("combined", "dark", "light")))
 
-refuge_plot <- plot_data %>%
+refuge_plot <- prop_location_time %>%
   dplyr::filter(location == "refuge") %>%
   ggplot2::ggplot(aes(time, prop, colour = treatment, group = treatment, linetype = treatment)) +
   geom_line(linewidth = 1) +
   geom_vline(xintercept = c(60, 240), linetype = "dashed") +
   geom_vline(xintercept = c(0, 5, 10, 20, 30, 45, 60, 61, 65, 70, 80, 90, 120, 150, 210, 240, 245, 260, 275, 290, 300), alpha = .15) +
-  geom_point(data = overlay_data,  aes(x = time, y = prop_refuge, fill = treatment, shape = treatment), stroke = 1, col = "black") +
+  geom_point(data = prop_overlay,  aes(x = time, y = prop_refuge, fill = treatment, shape = treatment), stroke = 1, col = "black") +
   annotate("text", x = 30,  y = 1, label = "before", size = 3) +
   annotate("text", x = 150, y = 1, label = "during", size = 3) +
   annotate("text", x = 270, y = 1, label = "after",  size = 3) +
@@ -242,6 +255,8 @@ refuge_plot <- plot_data %>%
 ggsave(file.path(out_dir, "refuge_plot.png"), refuge_plot, width = 8, height = 5, dpi = 300)
 
 refuge_plot
+
+
 
 ```
 
@@ -259,46 +274,44 @@ koura_stat <- koura_long_ref %>%
 
 round_summary <- koura_stat %>%
   group_by(treatment, exp_id, round, tank, light, period, koura_id, size_mm1, weight_g1) %>%
-  summarise(
-    n_total  = n(),
-    n_refuge = sum(location == "refuge"),
-    .groups  = "drop")
+  summarise(n_total  = n(),n_refuge = sum(location == "refuge"), .groups  = "drop") %>%
+  mutate(treatment = relevel(factor(treatment), ref = "control"),
+    light = relevel(factor(light), ref = "light"),   
+    before = relevel(factor(period), ref = "before"))
 
 # Model selection
 models_bb <- list(
-  m1_full = glmmTMB(
-    cbind(n_refuge, n_total - n_refuge) ~ treatment * light * period + (1 | tank),
+  # --- Fixed effects structure (with tank as random, the defensible RE) ---
+  m1_main = glmmTMB(
+    cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period + (1 | tank),
     data = round_summary, family = betabinomial),
-  m2_twoway = glmmTMB(
-    cbind(n_refuge, n_total - n_refuge) ~ treatment * light + treatment * period + light * period + (1 | tank),
-    data = round_summary, family = betabinomial),
-  m3_trt_period = glmmTMB(
+  m2_trt_period = glmmTMB(
     cbind(n_refuge, n_total - n_refuge) ~ treatment * period + light + (1 | tank),
+    data = round_summary, family = betabinomial),
+  m3_trt_light = glmmTMB(
+    cbind(n_refuge, n_total - n_refuge) ~ treatment * light + period + (1 | tank),
     data = round_summary, family = betabinomial),
   m4_light_period = glmmTMB(
     cbind(n_refuge, n_total - n_refuge) ~ treatment + light * period + (1 | tank),
     data = round_summary, family = betabinomial),
-  m5_tank = glmmTMB(
-    cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period + (1 | tank),
+  m5_twoway = glmmTMB(
+    cbind(n_refuge, n_total - n_refuge) ~ treatment * light + treatment * period + light * period + (1 | tank),
     data = round_summary, family = betabinomial),
-  m6_exp_id = glmmTMB(
-    cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period + (1 | exp_id),
+  m6_full = glmmTMB(
+    cbind(n_refuge, n_total - n_refuge) ~ treatment * light * period + (1 | tank),
     data = round_summary, family = betabinomial),
-  m7_koura_id = glmmTMB(
-    cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period + (1 | koura_id),
-    data = round_summary, family = betabinomial),
-  m8_main = glmmTMB(
+  # --- Random effects structure (main effects fixed, vary RE) ---
+  m7_no_re = glmmTMB(
     cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period,
     data = round_summary, family = betabinomial),
+  m8_tank_round = glmmTMB(
+    cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period + (1 | tank) + (1 | round),
+    data = round_summary, family = betabinomial),
+  # --- Null model for baseline comparison ---
   m9_null = glmmTMB(
     cbind(n_refuge, n_total - n_refuge) ~ 1 + (1 | tank),
-    data = round_summary, family = betabinomial),
-  m10_both = glmmTMB(
-    cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period + (1 | koura_id) + (1 | exp_id),
-    data = round_summary, family = betabinomial),
-  m11_ = glmmTMB(
-    cbind(n_refuge, n_total - n_refuge) ~ treatment * light * period + (1 | exp_id),
-    data = round_summary, family = betabinomial))
+    data = round_summary, family = betabinomial)
+)
 
 
 comparison_bb <- data.frame(
@@ -309,17 +322,16 @@ comparison_bb <- data.frame(
   arrange(AIC) |>
   mutate(delta_AIC = round(AIC - min(AIC), 2))
 
-#print(comparison_bb)
+print(comparison_bb)
 
-# Final model (no random effect needed — AIC confirmed) 
-m_final_bb <- glmmTMB(
-  cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period + (1 | exp_id),
+m_final <- glmmTMB(
+  cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period,
   data = round_summary, family = betabinomial)
 
-summary(m_final_bb)
+summary(m_final)
 
 # Model diagnostics 
-sim_final <- simulateResiduals(m_final_bb)
+sim_final <- simulateResiduals(m_final)
 plot(sim_final)
 testDispersion(sim_final)
 testZeroInflation(sim_final)
@@ -334,7 +346,7 @@ testZeroInflation(sim_final)
 
 
 # Save fixed effects table 
-fixed_bb <- as.data.frame(summary(m_final_bb)$coefficients$cond) %>%
+fixed_bb <- as.data.frame(summary(m_final)$coefficients$cond) %>%
   rownames_to_column("term") %>%
   mutate(across(where(is.numeric), round, 3))
 
@@ -350,13 +362,33 @@ knitr::kable(fixed_bb, col.names = c("Term", "Estimate", "Std. Error", "z value"
 #| tbl-cap: "Pairwise contrasts from the beta-binomial GLMM for kōura refuge use. Odds ratios and p-values are shown for treatment, light condition, and period comparisons. P-values are Tukey-adjusted for multiple comparisons within each factor."
 
 # Marginal means and pairwise contrasts 
-emm_treatment <- as.data.frame(pairs(emmeans(m_final_bb, ~ treatment, type = "response"))) %>% mutate(factor = "treatment")
-emm_light     <- as.data.frame(pairs(emmeans(m_final_bb, ~ light,     type = "response"))) %>% mutate(factor = "light")
-emm_period    <- as.data.frame(pairs(emmeans(m_final_bb, ~ period,    type = "response"))) %>% mutate(factor = "period")
+emm_treatment <- as.data.frame(pairs(emmeans(m_final, ~ treatment, type = "response"))) %>% mutate(factor = "treatment")
+emm_light     <- as.data.frame(pairs(emmeans(m_final, ~ light,     type = "response"))) %>% mutate(factor = "light")
+emm_period    <- as.data.frame(pairs(emmeans(m_final, ~ period,    type = "response"))) %>% mutate(factor = "period")
 
 emmeans_bb <- bind_rows(emm_treatment, emm_light, emm_period) %>%
   mutate(across(where(is.numeric), round, 3))
 
+
+# Get emmeans for each factor
+emm_treatment <- emmeans(m_final, ~ treatment, type = "response")
+emm_light     <- emmeans(m_final, ~ light, type = "response")
+emm_period    <- emmeans(m_final, ~ period, type = "response")
+
+# Compute CLDs for each factor
+cld_treatment <- multcomp::cld(emm_treatment, Letters = letters, adjust = "tukey")
+cld_light     <- multcomp::cld(emm_light, Letters = letters, adjust = "tukey")
+cld_period    <- multcomp::cld(emm_period, Letters = letters, adjust = "tukey")
+
+# Add factor labels and rename x variable for plotting
+cld_treatment <- cld_treatment %>% mutate(factor = "treatment", x = treatment)
+cld_light     <- cld_light %>% mutate(factor = "light", x = light)
+cld_period    <- cld_period %>% mutate(factor = "period", x = period)
+
+# Combine all CLDs
+cld_all <- bind_rows(cld_treatment, cld_light, cld_period) %>%
+  mutate(factor = factor(factor, levels = c("treatment", "light", "period")),
+         x = factor(x, levels = c("catfish", "eel", "control", "dark", "light", "before", "during", "after")))
 
 # extract specific p-values for inline reporting
 p_catfish_eel     <- emmeans_bb %>% filter(contrast == "catfish / eel")     %>% pull(p.value)
@@ -377,13 +409,13 @@ knitr::kable(emmeans_bb,col.names = c("Contrast", "Odds ratio", "SE", "df", "Nul
 ```{r}
 #| label: fig-emmeans-plot
 #| include: true
-#| fig-cap: "Predicted marginal probabilities of refuge use from the beta-binomial GLMM for each level of treatment, light condition, and experimental period. Points show model-estimated marginal means averaged over all other factors, with 95% confidence intervals. The dashed line at 0.5 helps show whether kōura spend more or less than half their time in refuge."
+#| fig-cap: "Predicted marginal probabilities of refuge use from the beta-binomial GLMM for each level of treatment, light condition, and experimental period. Points represent model-estimated marginal means averaged over other factors, with 95% confidence intervals shown as error bars. Different letters (a, b) indicate statistically significant differences between groups within each factor based on Tukey-adjusted pairwise comparisons. The dashed line at 0.5 marks the threshold where kōura spend half their time in refuge."
 
 # Make plot
 # get predicted probabilities (not contrasts) for plotting
-emm_treat_pred  <- as.data.frame(emmeans(m_final_bb, ~ treatment, type = "response"))
-emm_light_pred  <- as.data.frame(emmeans(m_final_bb, ~ light,     type = "response"))
-emm_period_pred <- as.data.frame(emmeans(m_final_bb, ~ period,    type = "response"))
+emm_treat_pred  <- as.data.frame(emmeans(m_final, ~ treatment, type = "response"))
+emm_light_pred  <- as.data.frame(emmeans(m_final, ~ light,     type = "response"))
+emm_period_pred <- as.data.frame(emmeans(m_final, ~ period,    type = "response"))
 
 
 # add factor label and rename x variable
@@ -399,6 +431,7 @@ emm_all <- bind_rows(emm_treat_pred, emm_light_pred, emm_period_pred) %>%
 emmeans_plot <- ggplot(emm_all, aes(x = x, y = prob, ymin = asymp.LCL, ymax = asymp.UCL)) +
   geom_point(size = 3) +
   geom_errorbar(width = 0.2) +
+  geom_text(data = cld_all, aes(x = x, y = asymp.UCL + 0.05, label = .group), inherit.aes = FALSE) +
   facet_wrap(~ factor, scales = "free_x") +
   scale_y_continuous("predicted probability of refuge use", limits = c(0, 1)) +
   scale_x_discrete(NULL) +
@@ -477,8 +510,49 @@ koura_time_plot
 
 ```
 
+## Repeated measurements
+```{r}
+#| label: repeated-measurements
+#| include: true
+#| fig-cap: "your caption"
+
+repeated_ids <- unique(df_NCE_raw$koura_id[duplicated(df_NCE_raw$koura_id)])
+
+df_repeated <- koura_long_ref %>% 
+  filter(koura_id %in% repeated_ids) %>%
+  filter(!is.na(location), location != "") %>%
+  count(koura_id, treatment, exp_id, location = location, name = "n") %>%
+  group_by(koura_id, exp_id) %>%
+  mutate(prop = n / sum(n)) %>%
+  ungroup() %>%
+  mutate(treatment = factor(treatment, levels = c("catfish","eel","control")),
+    location  = factor(location,  levels = loc_order_ref))
+
+# Collapse to one score per individual per trial - e.g. prop time refuge
+refuge_score <- df_repeated %>%
+  filter(location == "refuge") %>%
+  group_by(koura_id, exp_id, treatment) %>%
+  summarise(prop_refuge = mean(prop), .groups = "drop")
+
+plot_repeated_time <- 
+  koura_long_ref %>%
+  filter(koura_id %in% repeated_ids) %>%
+  mutate(treatment = factor(treatment, levels = c("catfish","eel","control")))%>%
+  ggplot(aes(x = time, y = location, col = treatment)) +
+  geom_point() +  
+  geom_line(aes(group = exp_id)) +
+  geom_vline(xintercept = c(60, 240), linetype = "dashed") +
+  facet_grid(koura_id  ~ date) +
+  labs(x = "time (min)", y = "location")
+
+plot_repeated_time
+```
+
 ## Koura size
 ```{r}
+#| label: koura-size
+#| include: true
+#| fig-cap: "your caption"
 
 m_size <- glmmTMB(
   cbind(n_refuge, n_total - n_refuge) ~ size_mm1 +  (1 | exp_id),
@@ -579,13 +653,11 @@ feeding_plot
 
 feeding_models <- list(
   m1 = lm(pellets_per_g ~ treatment * day_starve, data = df_feeding),
-  m2 = lm(pellets_per_g ~ treatment * day_starve + (1 | exp_id ), data = df_feeding),
-  m3 = lm(pellets_per_g ~ treatment + day_starve, data = df_feeding),
-  m4 = lm(pellets_per_g ~ treatment + day_starve + (1 | exp_id ), data = df_feeding),
-  m5 = lm(pellets_per_g ~ day_starve + treatment, data = df_feeding),
-  m6 = lm(pellets_per_g ~ treatment, data = df_feeding),
-  m7 = lm(pellets_per_g ~ day_starve, data = df_feeding)
-)
+  m2 = lm(pellets_per_g ~ treatment + day_starve, data = df_feeding),
+  m3 = lm(pellets_per_g ~ treatment * day_starve + (1 | exp_tank ), data = df_feeding),
+  m4 = lm(pellets_per_g ~ treatment + day_starve + (1 | exp_tank ), data = df_feeding),
+  m5 = lm(pellets_per_g ~ treatment, data = df_feeding),
+  m6 = lm(pellets_per_g ~ day_starve, data = df_feeding))
 
 comparison_feeding_models <- data.frame(
   model  = names(feeding_models),

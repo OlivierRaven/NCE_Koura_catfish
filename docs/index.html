@@ -13,7 +13,7 @@
 <meta name="author" content="Ian A. Kusabs">
 <meta name="author" content="Francis J. Burdon">
 <meta name="author" content="Deniz Özkundakci">
-<meta name="dcterms.date" content="2026-03-27">
+<meta name="dcterms.date" content="2026-03-30">
 <meta name="keywords" content="Non-consumptive effects, crayfish, catfish invasion, kōura, longfin eel">
 
 <title>Fear alone influences the behaviour of a keystone native prey by an invader; a non-consumptive effect of the catfish invasion of Aotearoa New Zealand’s freshwaters</title>
@@ -29,45 +29,10 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -122,10 +87,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <meta name="citation_title" content="Fear alone influences the behaviour of a keystone native prey by an invader; a non-consumptive effect of the catfish invasion of Aotearoa New Zealand’s freshwaters">
-<meta name="citation_abstract" content="Non-consumptive effects (NCEs) or ‘fear’ responses to predators encompass costly antipredator behaviours, such as increasing refuge use in conjunction with decreasing foraging and feeding efficiency. Such NCEs could influence prey population dynamics and even community structure and function, if prey themselves are ‘keystone’ species. In Aotearoa-New Zealand, the native freshwater crayfish kōura (*Paranephrops planifrons*) is a keystone species and an ecosystem engineer. As an omnivorous detritivore, its ecosystem functional role is as a scavenger and primary processor of organic material, increasing decomposition and nutrient cycling, and its burrowing behaviour aerates sediment, creating habitats for itself and other species. Both native longfin eels (*Anguilla dieffenbachii*) and invasive brown bullhead catfish (*Ameiurus nebulosus*) are major predators of kōura. In laboratory mesocosms, non-physical exposure of kōura to fish, showed predator presence alone caused a NCE on kōura in terms of increased refuge use. However, the catfish invader caused a much greater refuge use than the native eel, with the latter provoking a similar response as the control treatment, where fish were absent and only a temporary physical disturbance occurred. This NCE represents an unappreciated aspect of the catfish invasion on kōura, highlighting the additional predation pressure invaders may exert on prey in an invaded system, compared to co-evolved native predators.">
+<meta name="citation_abstract" content="Non-consumptive effects (NCEs) or ‘fear’ responses to predators encompass costly antipredator behaviours, such as increasing refuge use in conjunction with decreasing foraging and feeding efficiency. Such NCEs could influence prey population dynamics and even community structure and function, if the prey themselves are ‘keystone’ species. In Aotearoa-New Zealand, the native freshwater crayfish kōura (*Paranephrops planifrons*) is a keystone species and an ecosystem engineer but is preyed upon by native longfin eels (*Anguilla dieffenbachii*) and invasive brown bullhead catfish (*Ameiurus nebulosus*). Using controlled aquarium experiments, we tested whether visual and chemical cues from each predator induced changes in kōura refuge-seeking and feeding behaviour. Neither predator treatment significantly affected refuge use or feeding rate. The absence of a significant response to either predator, including the co-evolved eel, may reflect limited prior predator experience in the source lakes where eel densities are low. Substantial individual variation in kōura behaviour further reduced statistical power to detect treatment effects, highlighting the importance of accounting for personality differences in future NCE studies.">
 <meta name="citation_keywords" content="Non-consumptive effects,crayfish,catfish invasion,kōura,longfin eel">
 <meta name="citation_author" content="Olivier V. Raven">
 <meta name="citation_author" content="Calum MacNeil">
@@ -134,12 +102,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="citation_author" content="Ian A. Kusabs">
 <meta name="citation_author" content="Francis J. Burdon">
 <meta name="citation_author" content="Deniz Özkundakci">
-<meta name="citation_publication_date" content="2026-03-27">
-<meta name="citation_cover_date" content="2026-03-27">
+<meta name="citation_publication_date" content="2026-03-30">
+<meta name="citation_cover_date" content="2026-03-30">
 <meta name="citation_year" content="2026">
-<meta name="citation_online_date" content="2026-03-27">
+<meta name="citation_online_date" content="2026-03-30">
 <meta name="citation_language" content="en">
 <meta name="citation_journal_title" content="...">
+<meta name="citation_reference" content="citation_title=R: A language and environment for statistical computing;,citation_author=R Core Team;,citation_publication_date=2025;,citation_cover_date=2025;,citation_year=2025;,citation_fulltext_html_url=https://www.R-project.org/;">
 </head>
 
 <body class="quarto-light">
@@ -147,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title">Fear alone influences the behaviour of a keystone native prey by an invader; a non-consumptive effect of the catfish invasion of Aotearoa New Zealand’s freshwaters</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+      <h1 class="title">Fear alone influences the behaviour of a keystone native prey by an invader; a non-consumptive effect of the catfish invasion of Aotearoa New Zealand’s freshwaters</h1>
           </div>
 
     
@@ -221,7 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                 <div>
             <div class="quarto-title-meta-heading">Published</div>
             <div class="quarto-title-meta-contents">
-              <p class="date">March 27, 2026</p>
+              <p class="date">March 30, 2026</p>
             </div>
           </div>
           
@@ -229,13 +198,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
               </div>
       </div>
       <div class="quarto-title-meta-column-end quarto-other-formats-target">
-      </div>
+      <div class="quarto-alternate-formats"><div class="quarto-title-meta-heading">Other Formats</div><div class="quarto-title-meta-contents"><p><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></p></div><div class="quarto-title-meta-contents"><p><a href="index.docx"><i class="bi bi-file-word"></i>MS Word</a></p></div></div></div>
     </div>
 
     <div>
       <div class="abstract">
         <div class="block-title">Abstract</div>
-        Non-consumptive effects (NCEs) or ‘fear’ responses to predators encompass costly antipredator behaviours, such as increasing refuge use in conjunction with decreasing foraging and feeding efficiency. Such NCEs could influence prey population dynamics and even community structure and function, if prey themselves are ‘keystone’ species. In Aotearoa-New Zealand, the native freshwater crayfish kōura (<em>Paranephrops planifrons</em>) is a keystone species and an ecosystem engineer. As an omnivorous detritivore, its ecosystem functional role is as a scavenger and primary processor of organic material, increasing decomposition and nutrient cycling, and its burrowing behaviour aerates sediment, creating habitats for itself and other species. Both native longfin eels (<em>Anguilla dieffenbachii</em>) and invasive brown bullhead catfish (<em>Ameiurus nebulosus</em>) are major predators of kōura. In laboratory mesocosms, non-physical exposure of kōura to fish, showed predator presence alone caused a NCE on kōura in terms of increased refuge use. However, the catfish invader caused a much greater refuge use than the native eel, with the latter provoking a similar response as the control treatment, where fish were absent and only a temporary physical disturbance occurred. This NCE represents an unappreciated aspect of the catfish invasion on kōura, highlighting the additional predation pressure invaders may exert on prey in an invaded system, compared to co-evolved native predators.
+        Non-consumptive effects (NCEs) or ‘fear’ responses to predators encompass costly antipredator behaviours, such as increasing refuge use in conjunction with decreasing foraging and feeding efficiency. Such NCEs could influence prey population dynamics and even community structure and function, if the prey themselves are ‘keystone’ species. In Aotearoa-New Zealand, the native freshwater crayfish kōura (<em>Paranephrops planifrons</em>) is a keystone species and an ecosystem engineer but is preyed upon by native longfin eels (<em>Anguilla dieffenbachii</em>) and invasive brown bullhead catfish (<em>Ameiurus nebulosus</em>). Using controlled aquarium experiments, we tested whether visual and chemical cues from each predator induced changes in kōura refuge-seeking and feeding behaviour. Neither predator treatment significantly affected refuge use or feeding rate. The absence of a significant response to either predator, including the co-evolved eel, may reflect limited prior predator experience in the source lakes where eel densities are low. Substantial individual variation in kōura behaviour further reduced statistical power to detect treatment effects, highlighting the importance of accounting for personality differences in future NCE studies.
       </div>
     </div>
 
@@ -254,24 +223,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#materials-and-methods" id="toc-materials-and-methods" class="nav-link" data-scroll-target="#materials-and-methods"><span class="header-section-number">2</span> Materials and Methods</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#materials-and-methods" id="toc-materials-and-methods" class="nav-link" data-scroll-target="#materials-and-methods">Materials and Methods</a>
   <ul class="collapse">
-  <li><a href="#animal-collection-and-preparation" id="toc-animal-collection-and-preparation" class="nav-link" data-scroll-target="#animal-collection-and-preparation"><span class="header-section-number">2.1</span> Animal collection and preparation</a></li>
-  <li><a href="#refuge-experiment" id="toc-refuge-experiment" class="nav-link" data-scroll-target="#refuge-experiment"><span class="header-section-number">2.2</span> Refuge experiment</a></li>
-  <li><a href="#feeding-experiment" id="toc-feeding-experiment" class="nav-link" data-scroll-target="#feeding-experiment"><span class="header-section-number">2.3</span> Feeding experiment</a></li>
-  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis"><span class="header-section-number">2.4</span> Data analysis</a></li>
+  <li><a href="#animal-collection-and-preparation" id="toc-animal-collection-and-preparation" class="nav-link" data-scroll-target="#animal-collection-and-preparation">Animal collection and preparation</a></li>
+  <li><a href="#refuge-experiment" id="toc-refuge-experiment" class="nav-link" data-scroll-target="#refuge-experiment">Refuge experiment</a></li>
+  <li><a href="#feeding-experiment" id="toc-feeding-experiment" class="nav-link" data-scroll-target="#feeding-experiment">Feeding experiment</a></li>
+  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis">Data analysis</a></li>
   </ul></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">3</span> Results</a>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
   <ul class="collapse">
-  <li><a href="#refuge-experiment-1" id="toc-refuge-experiment-1" class="nav-link" data-scroll-target="#refuge-experiment-1"><span class="header-section-number">3.1</span> Refuge experiment</a></li>
-  <li><a href="#feeding-experiment-1" id="toc-feeding-experiment-1" class="nav-link" data-scroll-target="#feeding-experiment-1"><span class="header-section-number">3.2</span> Feeding experiment</a></li>
+  <li><a href="#refuge-experiment-1" id="toc-refuge-experiment-1" class="nav-link" data-scroll-target="#refuge-experiment-1">Refuge experiment</a></li>
+  <li><a href="#feeding-experiment-1" id="toc-feeding-experiment-1" class="nav-link" data-scroll-target="#feeding-experiment-1">Feeding experiment</a></li>
   </ul></li>
-  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">4</span> Discussion</a>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a>
   <ul class="collapse">
-  <li><a href="#refuge-experiment-2" id="toc-refuge-experiment-2" class="nav-link" data-scroll-target="#refuge-experiment-2"><span class="header-section-number">4.1</span> Refuge experiment</a></li>
-  <li><a href="#feeding-experiment-2" id="toc-feeding-experiment-2" class="nav-link" data-scroll-target="#feeding-experiment-2"><span class="header-section-number">4.2</span> Feeding experiment</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">4.3</span> Conclusion</a></li>
+  <li><a href="#refuge-experiment-2" id="toc-refuge-experiment-2" class="nav-link" data-scroll-target="#refuge-experiment-2">Refuge experiment</a></li>
+  <li><a href="#feeding-experiment-2" id="toc-feeding-experiment-2" class="nav-link" data-scroll-target="#feeding-experiment-2">Feeding experiment</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
@@ -290,59 +259,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-<section id="introduction" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
 <p>Biological invasions can have profound impacts on invaded ecosystems, particularly through the introduction of novel predators that prey upon native species lacking an evolutionary history with them (Doherty et al., 2016). Native prey are often naïve to these predators, making them especially vulnerable to direct predation (Gamradt &amp; Kats, 1996; Smith et al., 2008). In addition to these consumptive effects (CEs), native prey may exhibit heightened fear responses to invasive predators, leading to the development of anti-predator behaviours such as increased refuge use and avoidance of open habitats (Kindlinger &amp; Albins, 2017). These behavioural changes, termed non-consumptive effects (NCEs), can substantially influence population dynamics by reducing foraging activity, growth, and reproductive output (Pressier et al., 2005). In contrast, native predators generally elicit different responses because prey and predators have co-evolved, resulting in behavioural and physiological adaptations that stabilise predator–prey interactions within local ecosystems (Abrams, 2000).</p>
 <p>Freshwater crayfish rely primarily on chemical cues (kairomones) rather than visual cues to detect and respond to predatory fish (Blake &amp; Hart, 1993; Brönmark &amp; Hansson, 2012). The kairomones carry signals via excreta, mucus, or skin, that crayfish use to assess predator risk, responding more strongly to predators that have consumed conspecifics and to alarm cues released when prey are injured or killed (Gherardi et al., 2011; Beattie &amp; Moore, 2018). Exposure to kairomones from predatory fish can generate NCEs, including reduced growth and reduced activity levels in crayfish (Adams, 2007; Ramberg-Pihl &amp; Yurewicz, 2020), and even non-predatory fish can cause these behaviour changes, likely through heightened generalised awareness of risk (Nyström, 2005). However, the strength of these responses depends on prior experience as wild-caught individual crayfish show stronger antipredator responses than farmed conspecifics naive to predators (Martin, 2014), indicating that both individual experiences and evolutionary history shape kairomones detection.</p>
 <p>In Aotearoa-New Zealand (hereafter Aotearoa), the endemic northern freshwater crayfish <em>Paranephrops planifrons</em> White, 1842 commonly known as kōura is a ‘culturally treasured’ taonga species and valued food resource for Māori the indigenous people of Aotearoa (Kusabs &amp; Quinn, 2009). Ecologically, kōura play a critical role in freshwater ecosystems as ecosystem engineers through their effects on sediment dynamics, nutrient cycling, and benthic community structure, and have been described as keystone species in many freshwater systems (Collier at al., 1997; Parkyn et al., 2001; Usio &amp; Townsend, 2004). Kōura have a long co-evolutionary history with the native longfin eel (<em>Anguilla dieffenbachii</em>) and shortfin eel (<em>A. australis</em>) (MacNeil et al., 2025) and have been shown to respond more strongly to eel kairomones than to those of introduced non-native brown trout (<em>Salmo trutta</em>), even when sourced from streams where trout are present (Shave et al., 1994). This suggests that co-evolutionary history, rather than individual experience alone, shapes kōura predator recognition (Shave et al., 1994). Currently kōura are threatened by multiple interacting stressors, including climate change, water-quality degradation and invasive species, contributing to widespread population declines (Lee et al., 2025; Kusabs et al., in revision). One of the invasive species that threatens the kōura is the non-native brown bullhead catfish (<em>Ameiurus nebulosus</em>; Barnes &amp; Hicks, 2003; Dedual, 2019), which has been introduced in Aotearoa in 1878 and has spread over various waterways on the North Island (McDowall, 1990; Lee et al., 2025). The brown bullhead catfish is highly tolerant of a wide range of environmental conditions (Lee et al., 2025) and, due to its broad gape and opportunistic feeding behaviour, is capable of consuming a wide variety of native aquatic organisms (Scott &amp; Crossman, 1973; Dedual, 2019). The recent and ongoing spread of brown bullhead catfish into North Island waterways therefore represents a novel predation threat to which kōura may lack adequate behavioural or sensory adaptations.</p>
 <p>In this study, controlled aquarium experiments were used to test whether predator presence and associated chemical cues induce changes in refuge-seeking and feeding behaviour, providing insight into the behavioural mechanisms underlying NCEs of kōura responses to native and invasive predation threats. It is expected that kōura would show more shelter-seeking behaviour when presented with eels compared to catfish, due to naivety of the kōura towards catfish. Also, it is expected that light regime would have an influence on shelter seeking behaviour of this nocturnal species. For feeding behaviour it is expected that kōura will feed less when exposed to eel kairomones but as they will be naïve to catfish kairomones, feeding will be similar to the control. The findings of this study contribute to understanding the behavioural mechanisms underlying kōura vulnerability to invasive catfish and provide a basis for predicting population-level impacts as catfish continue to spread into uninvaded waterways across Aotearoa.</p>
 </section>
-<section id="materials-and-methods" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Materials and Methods</h1>
-<section id="animal-collection-and-preparation" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="animal-collection-and-preparation"><span class="header-section-number">2.1</span> Animal collection and preparation</h2>
+<section id="materials-and-methods" class="level1">
+<h1>Materials and Methods</h1>
+<section id="animal-collection-and-preparation" class="level2">
+<h2 class="anchored" data-anchor-id="animal-collection-and-preparation">Animal collection and preparation</h2>
 <p>On August 19th, 2025, kōura were sourced from two catfish-free lakes, (Ōkāreka and Tikitapu (Blue Lake)) in the Rotorua Te Awara Lakes area, Bay of Plenty region of the North Island. On September 25th, 2025, Brown bullhead catfish and longfin eels were sourced from Lake Rotoroa in Hamilton in the Waikato region of the North Island. Experiments were conducted at the Aquatic Research Centre of the University of Waikato. Some kōura were previously used in a mesocosm habitat preference study but never exposed to a predator. They were acclimated for a week in holding tanks under controlled conditions: a 10:14 light: dark cycle reflecting the correct seasonal day-length at a stable temperature of 15.6 °C, pH 8.4 and 10 mg l⁻¹ dissolved oxygen. Kōura were fed every other day fish food pellets (Hikari Tropical carnivore pellets, animal protein 47%). Catfish and eels were held in separate holding tanks, with the same environmental and feeding regime to kōura.</p>
 <p>Because kōura are taonga (culturally important) species, permission had to be sought from relevant iwi (Māori tribal unit), as well as relevant government regulator to source a limited number of animals. Experiments were adapted, particularly the feeding study to make the best use of the finite number of collected animals. As this study focused on kōura the catfish and eels were reused repeatedly in the study.</p>
 </section>
-<section id="refuge-experiment" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="refuge-experiment"><span class="header-section-number">2.2</span> Refuge experiment</h2>
+<section id="refuge-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="refuge-experiment">Refuge experiment</h2>
 <p>Prior to the experiments, all animals were individually weighed and measured. Only male kōura were used. Kōura had a mean (± SD) orbital carapace length (OCL) of 26.0 mm (± 3.08) (18.35-32.95 mm range) and a mean wet weight of 11.7 g (± 4.25) (3–23 g range). Catfish ranged in length from 260-267 mm and 2.34 – 3.16 kg wet weight and eels ranged in length from ? and 2.50-3.52 kg wet weight.</p>
-<p>Experiments were conducted in 38 L glass tanks (600 × 200 × 220 mm) with each tank having three sides (apart from front of tank) blacked out to block visual cues from neighbouring tanks. Each tank was divided into two compartments by a 0.5 mm steel mesh divider, allowing visual and chemical cues between compartments, while preventing physical contact between animals on either side of barrier (<a href="#fig-Aquarium-setup" class="quarto-xref">Figure&nbsp;1</a>). All tanks were filled with 26.4 L dechlorinated tap water and had identical environmental regimes as previously detailed for acclimatisation tanks, with water flow provided by an air stone lodged the top of the barrier in each tank. Each tank housed a single kōura on one side of the barrier and either a single predator (catfish or eel) or no predator (control) on the other side. A halved terracotta pot (90 mm diameter × 90 mm depth) was positioned on the kōura side of the tank to serve as a potential refuge. To control for potential tank or side effects, the position of predator treatments within the aquaria was systematically rotated between experimental rounds. The experiment was repeated across five rounds, resulting in 11 catfish replicates, 11 eel replicates, and 10 control replicates. This experiment was first carried out in the light (n = 32 tanks) before being repeated in the dark (n = 32 tanks) with a total of 64 tanks used. Observations were made in the dark using red lighting positioned above the tanks in the same location as the previous normal lighting for the light regime observations. Following each individual experimental run, each tank was thoroughly cleaned and refilled with dechlorinated tap water before reuse. Each individual kōura was only exposed once to a fish predator and there were no mortalities of kōura or fish during the course of experiments. All experiments were conducted within a three-week period (from 1/10/2025 to 16/10/2025), the dark trials following on from the light trials.</p>
+<p>Experiments were conducted in 38 L glass tanks (600 × 200 × 220 mm) with each tank having three sides (apart from front of tank) blacked out to block visual cues from neighbouring tanks. Each tank was divided into two compartments by a 0.5 mm steel mesh divider, allowing visual and chemical cues between compartments, while preventing physical contact between animals on either side of barrier (<a href="#fig-aquarium-setup" class="quarto-xref">Figure&nbsp;1</a>). All tanks were filled with 26.4 L dechlorinated tap water and had identical environmental regimes as previously detailed for acclimatisation tanks, with water flow provided by an air stone lodged the top of the barrier in each tank. Each tank housed a single kōura on one side of the barrier and either a single predator (catfish or eel) or no predator (control) on the other side. A halved terracotta pot (90 mm diameter × 90 mm depth) was positioned on the kōura side of the tank to serve as a potential refuge. To control for potential tank or side effects, the position of predator treatments within the aquaria was systematically rotated between experimental rounds. The experiment was repeated across five rounds, resulting in 11 catfish replicates, 11 eel replicates, and 10 control replicates. This experiment was first carried out in the light (n = 32 tanks) before being repeated in the dark (n = 32 tanks) with a total of 64 tanks used. Observations were made in the dark using red lighting positioned above the tanks in the same location as the previous normal lighting for the light regime observations. Following each individual experimental run, each tank was thoroughly cleaned and refilled with dechlorinated tap water before reuse. Each individual kōura was only exposed once to a fish predator and there were no mortalities of kōura or fish during the course of experiments. All experiments were conducted within a three-week period (from 1/10/2025 to 16/10/2025), the dark trials following on from the light trials.</p>
 <p>Observations of each kōura location was made 21 times at the following time intervals (in minutes): 0, 5, 10, 20, 30, 45, 60, 61, 65, 70, 80, 90, 120, 150, 210, 240, 245, 260, 275, 290, and 300. An individual kōura were placed in the middle of the tank compartment containing the refuge at 0-minute (its initial location being immediately noted after its addition to the tank) and was removed after the final 300-minute observation. The fish predator was introduced after 60 minutes into the tank on the other side of the barrier from the kōura compartment and removed again at 240 minutes. The control tanks had no fish added but at 60 minutes and again at 240 minutes the water in the ‘predator’ compartment was disturbed by mixing with a small net for approximately 30 seconds. This was to simulate the disturbance time associated with adding and removing fish in the other treatments. Kōura location within each tank was recorded at each time interval as either refuge (the animal was using the refuge, being inside it or immediately behind it and touching it) or in the open - non-refuge (any other location in the tank where the animal was not in the refuge or touching the refuge).</p>
 </section>
-<section id="feeding-experiment" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="feeding-experiment"><span class="header-section-number">2.3</span> Feeding experiment</h2>
+<section id="feeding-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="feeding-experiment">Feeding experiment</h2>
 <p>The feeding behaviour experiments were executed in 16 glass tanks of 9.25L (320 × 170 × 170 mm) filled with 5 L dechlorinated tap water and a halved terracotta pot (90 mm diameter × 90 mm depth). In three rounds a total of 46 male and two female kōura were placed individually in each tank. Kōura had a mean (± SD) orbital carapace length (OCL) of 27.84 mm (± 4.72) (20.48-41.15 mm range) and a mean wet weight of 15.65 g (± 8.84) (6-44 g range). For each round kōura were starved for different periods (0, 3 and 4 days) prior to the feeding experiment to also investigate how starvation period influenced feeding motivation.</p>
 <p>Kairomones from catfish and eels were collected by placing 4 fish (catfish or eel) in a 10 L bucket filled with water from the holding tanks for 15 minutes to concentrate the kairomones in the water. 1 L from the buckets was added to the tank with the kōura in it and for the controls 1 L of dechlorinated tap water was added. Next, 10 Hikari Tropical carnivore pellets were added to each tank. After 24 hours, when each experiment terminated, the number of pellets eaten (to the nearest quarter pellet) was counted and the feeding rate (pellets consumed per g kōura) calculated. As stated previously, the feeding study was adapted to make the best use of the finite number of collected taonga animals and the following protocols reflect this. After 0 days starvation, 16 kōura (14 male and 2 female) were exposed to eel water (n = 5), catfish water (n = 6) or control water (n = 5). After 3 days starvation, 16 kōura (male only) were exposed to eel water (n = 6), catfish water (n = 5) or control water (n = 5). After 4 days starvation, 16 kōura (male only) were exposed to eel water (n = 5), catfish water (n = 5) or control water (n = 6).</p>
 </section>
-<section id="data-analysis" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="data-analysis"><span class="header-section-number">2.4</span> Data analysis</h2>
+<section id="data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="data-analysis">Data analysis</h2>
 <p>To analyse kōura refuge use a beta-binomial generalized linear mixed-effects model (GLMM; BRON) fitted using the glmmTMB package in R (BRON; BRON). The response variable was the number of observations in refuge out of total observations per experiment round, treatment (catfish/eel/control), light condition (light, dark), period (before/during/after) included as fixed effects. A beta-binomial distribution was used to account for overdispersion in the binomial proportion data. Model selection was conducted by comparing candidate models differing in fixed effect structure and random effect inclusion using AIC, with the model with the lowest AIC selected as optimal. The need for a tank-level random intercept was evaluated by comparing AIC between models with and without this term. Model fit of the final model was assessed using DHARMa simulation-based residuals, including tests for overdispersion and zero-inflation (Hartig et al., 2024). Marginal means and pairwise contrasts between factor levels were obtained using the emmeans package (Lenth et al., 2026).</p>
-<p>The feeding rate was analysed using a linear model with pellets consumed per gram body weight as the response, and treatment (catfish, eel, control) and starvation period (0, 3, 4) as fixed effects, including their interaction. Because each starvation period was conducted in a separate experimental round, starvation period and round were fully confounded by design, precluding the inclusion of round as a random effect. Overall significance of fixed effects was assessed using Type III ANOVA (car package; Fox &amp; Weisberg, 2018), and model assumptions were verified using residual plots and testing normality of residuals using the Shapiro-Wilk test. Pairwise comparisons between treatment and starvation level combinations were conducted using estimated marginal means (emmeans package; Lenth et al., 2026)</p>
+<p>The feeding rate was analysed using a linear model with pellets consumed per gram body weight as the response, and treatment (catfish, eel, control) and starvation period (0, 3, 4) as fixed effects, including their interaction. Because each starvation period was conducted in a separate experimental round, starvation period and round were fully confounded by design, precluding the inclusion of round as a random effect. Overall significance of fixed effects was assessed using Type III ANOVA (car package; Fox &amp; Weisberg, 2018), and model assumptions were verified using residual plots and testing normality of residuals using the Shapiro-Wilk test. Pairwise comparisons between treatment and starvation level combinations were conducted using estimated marginal.</p>
 </section>
 </section>
-<section id="results" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Results</h1>
-<section id="refuge-experiment-1" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="refuge-experiment-1"><span class="header-section-number">3.1</span> Refuge experiment</h2>
+<section id="results" class="level1">
+<h1>Results</h1>
+<section id="refuge-experiment-1" class="level2">
+<h2 class="anchored" data-anchor-id="refuge-experiment-1">Refuge experiment</h2>
 <p>The proportion of time kōura spent in refuge varied across treatments, experimental periods, and light conditions (<a href="#fig-refuge-plot" class="quarto-xref">Figure&nbsp;2</a>, <a href="#tbl-s1-refuge-prop" class="quarto-xref">Table&nbsp;1</a>). Under dark conditions, refuge use increased across the experimental period in the catfish treatment, rising from 0.39 before to 0.7 after exposure, while the control showed a smaller increase (0.37 to 0.47) and eel-exposed kōura showed little change (0.27 before, 0.41 during, and 0.36 after). Under light conditions, refuge use was generally higher than under dark conditions, with catfish (0.52 before to 0.73 after) and control (0.4 to 0.82) both showing increases across periods, while eel-exposed kōura showed a smaller increase (0.35 to 0.53).</p>
-<p>A beta-binomial GLMM with experimental unit as a random intercept was the best supported model (lowest AIC). Full model coefficients are reported in <a href="#tbl-s2-fixed-effects" class="quarto-xref">Table&nbsp;2</a>. Refuge use was most affected by period with more kōura using the refuge as the experiment progressed. Refuge use was significantly more in the during period than in the before period (<em>p</em> = 0.014, <a href="#fig-emmeans-plot" class="quarto-xref">Figure&nbsp;3</a>, <a href="#tbl-s3-emmeans" class="quarto-xref">Table&nbsp;3</a>). This was also the case between before and after period (<em>p</em> = 0), but not between during and after (<em>p</em> = 0.153). Neither treatment nor light condition significantly affected refuge use. No significant differences were found between catfish and eel (<em>p</em> = 0.147), catfish and control (<em>p</em> = 0.611), or control and eel (<em>p</em> = 0.638). Light condition was also not significant (<em>p</em> = 0.059).</p>
+<p>A beta-binomial GLMM with experimental unit as a random intercept was the best supported model (lowest AIC). Full model coefficients are reported in <a href="#tbl-s2-fixed-effects" class="quarto-xref">Table&nbsp;2</a>. Refuge use was most affected by period with more kōura using the refuge as the experiment progressed. Refuge use was significantly more in the during period than in the before period (<em>p</em> = 0.144, <a href="#fig-emmeans-plot" class="quarto-xref">Figure&nbsp;3</a>, <a href="#tbl-s3-emmeans" class="quarto-xref">Table&nbsp;3</a>). This was also the case between before and after period (<em>p</em> = 0.007), but not between during and after (<em>p</em> = 0.409). Neither treatment nor light condition significantly affected refuge use. No significant differences were found between catfish and eel (<em>p</em> = 0.01), catfish and control (<em>p</em> = ), or control and eel (<em>p</em> = 0.314). Light condition was also not significant (<em>p</em> = ).</p>
 </section>
-<section id="feeding-experiment-1" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="feeding-experiment-1"><span class="header-section-number">3.2</span> Feeding experiment</h2>
+<section id="feeding-experiment-1" class="level2">
+<h2 class="anchored" data-anchor-id="feeding-experiment-1">Feeding experiment</h2>
 <p>The feeding experiment showed the highest mean (±SE) feeding rate was after 3 days of starvation in the catfish treatment (0.235 ± 0.037 pellets g⁻¹). The linear model showed starvation period had significant effect on feeding rate (<em>p</em> = 4^{-4}, <a href="#tbl-s4-feeding-anova" class="quarto-xref">Table&nbsp;4</a>). Treatment had no significant effect on feeding rate (<em>p</em> = 0.968), and the interaction between the treatment and starvation period was not significant (<em>p</em> = 0.082), although a marginal trend was observed (<a href="#fig-feeding-plot" class="quarto-xref">Figure&nbsp;4</a>). No significant difference was found in feeding rate between catfish, eel, and control treatments within each of the starvation periods, this suggests that predator kairomones did not affect feeding behaviour in kōura within this experiment.</p>
 </section>
 </section>
-<section id="discussion" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Discussion</h1>
-<section id="refuge-experiment-2" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="refuge-experiment-2"><span class="header-section-number">4.1</span> Refuge experiment</h2>
+<section id="discussion" class="level1">
+<h1>Discussion</h1>
+<section id="refuge-experiment-2" class="level2">
+<h2 class="anchored" data-anchor-id="refuge-experiment-2">Refuge experiment</h2>
 </section>
-<section id="feeding-experiment-2" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="feeding-experiment-2"><span class="header-section-number">4.2</span> Feeding experiment</h2>
+<section id="feeding-experiment-2" class="level2">
+<h2 class="anchored" data-anchor-id="feeding-experiment-2">Feeding experiment</h2>
 </section>
-<section id="conclusion" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">4.3</span> Conclusion</h2>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 </section>
 </section>
 <section id="acknowledgements" class="level1 unnumbered">
@@ -356,13 +325,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="figures" class="level1 unnumbered">
 <h1 class="unnumbered">Figures</h1>
-<div id="fig-Aquarium-setup" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-aquarium-setup" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-Aquarium-setup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="images/Aquarium_setup.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Schematic overview of the experimental aquarium layout for one experimental round. Eight aquaria were run simultaneously. In each tank, a single kōura (K) was housed on one side of the aquarium with a shelter, while a predator (catfish (C) or eel(E)) or no predator (control) was placed on the opposite side behind a mesh divider allowing visual and chemical cues but preventing physical contact."><img src="images/Aquarium_setup.png" class="img-fluid figure-img"></a>
+<div aria-describedby="fig-aquarium-setup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="images/aquarium_setup.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Schematic overview of the experimental aquarium layout for one experimental round. Eight aquaria were run simultaneously. In each tank, a single kōura (K) was housed on one side of the aquarium with a shelter, while a predator (catfish (C) or eel (E)) or no predator (control) was placed on the opposite side behind a mesh divider allowing visual and chemical cues but preventing physical contact."><img src="images/aquarium_setup.png" class="img-fluid figure-img"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Aquarium-setup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Schematic overview of the experimental aquarium layout for one experimental round. Eight aquaria were run simultaneously. In each tank, a single kōura (K) was housed on one side of the aquarium with a shelter, while a predator (catfish (C) or eel(E)) or no predator (control) was placed on the opposite side behind a mesh divider allowing visual and chemical cues but preventing physical contact.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-aquarium-setup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Schematic overview of the experimental aquarium layout for one experimental round. Eight aquaria were run simultaneously. In each tank, a single kōura (K) was housed on one side of the aquarium with a shelter, while a predator (catfish (C) or eel (E)) or no predator (control) was placed on the opposite side behind a mesh divider allowing visual and chemical cues but preventing physical contact.
 </figcaption>
 </figure>
 </div>
@@ -375,7 +344,7 @@ Figure&nbsp;1: Schematic overview of the experimental aquarium layout for one ex
 <div id="fig-refuge-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-refuge-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/analysis-fig-refuge-plot-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Kōura use of refuge over course of experiment with the three periods (before, during, after), the treatment (catfish; red-solid circle, eel; green-dashed triangle, control; blue-dotdash square), and divided over light regime (combined, dark, light). The points represent the proportion within each period for each treatment."><img src="index_files/figure-html/analysis-fig-refuge-plot-output-2.png" class="img-fluid figure-img"></a>
+<a href="index_files/figure-html/analysis-fig-refuge-plot-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Kōura use of refuge over course of experiment with the three periods (before, during, after), the treatment (catfish; red-solid circle, eel; green-dashed triangle, control; blue-dotdash square), and divided over light regime (combined, dark, light). The points represent the proportion within each period for each treatment."><img src="index_files/figure-html/analysis-fig-refuge-plot-output-2.png" width="768" height="576" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-refuge-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Kōura use of refuge over course of experiment with the three periods (before, during, after), the treatment (catfish; red-solid circle, eel; green-dashed triangle, control; blue-dotdash square), and divided over light regime (combined, dark, light). The points represent the proportion within each period for each treatment.
@@ -391,10 +360,10 @@ Figure&nbsp;2: Kōura use of refuge over course of experiment with the three per
 <div id="fig-emmeans-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-emmeans-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/analysis-fig-emmeans-plot-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Predicted marginal probabilities of refuge use from the beta-binomial GLMM for each level of treatment, light condition, and experimental period. Points show model-estimated marginal means averaged over all other factors, with 95% confidence intervals. The dashed line at 0.5 helps show whether kōura spend more or less than half their time in refuge."><img src="index_files/figure-html/analysis-fig-emmeans-plot-output-1.png" class="img-fluid figure-img"></a>
+<a href="index_files/figure-html/analysis-fig-emmeans-plot-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Predicted marginal probabilities of refuge use from the beta-binomial GLMM for each level of treatment, light condition, and experimental period. Points represent model-estimated marginal means averaged over other factors, with 95% confidence intervals shown as error bars. Different letters (a, b) indicate statistically significant differences between groups within each factor based on Tukey-adjusted pairwise comparisons. The dashed line at 0.5 marks the threshold where kōura spend half their time in refuge."><img src="index_files/figure-html/analysis-fig-emmeans-plot-output-1.png" width="768" height="576" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-emmeans-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Predicted marginal probabilities of refuge use from the beta-binomial GLMM for each level of treatment, light condition, and experimental period. Points show model-estimated marginal means averaged over all other factors, with 95% confidence intervals. The dashed line at 0.5 helps show whether kōura spend more or less than half their time in refuge.
+Figure&nbsp;3: Predicted marginal probabilities of refuge use from the beta-binomial GLMM for each level of treatment, light condition, and experimental period. Points represent model-estimated marginal means averaged over other factors, with 95% confidence intervals shown as error bars. Different letters (a, b) indicate statistically significant differences between groups within each factor based on Tukey-adjusted pairwise comparisons. The dashed line at 0.5 marks the threshold where kōura spend half their time in refuge.
 </figcaption>
 </figure>
 </div>
@@ -407,7 +376,7 @@ Figure&nbsp;3: Predicted marginal probabilities of refuge use from the beta-bino
 <div id="fig-feeding-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-feeding-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/analysis-fig-feeding-plot-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Mean kōura feeding rate (pellets consumed per gram body weight ± SE) across predator treatments (catfish, eel, control) and starvation periods (0, 3, and 4 days). Points represent treatment means and error bars show standard error."><img src="index_files/figure-html/analysis-fig-feeding-plot-output-1.png" class="img-fluid figure-img"></a>
+<a href="index_files/figure-html/analysis-fig-feeding-plot-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Mean kōura feeding rate (pellets consumed per gram body weight ± SE) across predator treatments (catfish, eel, control) and starvation periods (0, 3, and 4 days). Points represent treatment means and error bars show standard error."><img src="index_files/figure-html/analysis-fig-feeding-plot-output-1.png" width="768" height="576" class="figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-feeding-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4: Mean kōura feeding rate (pellets consumed per gram body weight ± SE) across predator treatments (catfish, eel, control) and starvation periods (0, 3, and 4 days). Points represent treatment means and error bars show standard error.
@@ -428,317 +397,9 @@ Figure&nbsp;4: Mean kōura feeding rate (pellets consumed per gram body weight �
 Table&nbsp;1: Proportion of kōura observations recorded in refuge across experimental treatments (catfish, eel, control), light conditions (light, dark), and periods (before, during, and after predator exposure). Combined rows summarise across all levels of a given factor. Values represent the proportion of total observations where kōura were located in the refuge.
 </figcaption>
 <div aria-describedby="tbl-s1-refuge-prop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display cell-output-markdown">
-<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">light</th>
-<th style="text-align: left;">treatment</th>
-<th style="text-align: left;">period</th>
-<th style="text-align: right;">n_total</th>
-<th style="text-align: right;">n_refuge</th>
-<th style="text-align: right;">prop_refuge</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">dark</td>
-<td style="text-align: left;">catfish</td>
-<td style="text-align: left;">before</td>
-<td style="text-align: right;">66</td>
-<td style="text-align: right;">26</td>
-<td style="text-align: right;">0.39</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">dark</td>
-<td style="text-align: left;">catfish</td>
-<td style="text-align: left;">during</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">47</td>
-<td style="text-align: right;">0.47</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">dark</td>
-<td style="text-align: left;">catfish</td>
-<td style="text-align: left;">after</td>
-<td style="text-align: right;">66</td>
-<td style="text-align: right;">46</td>
-<td style="text-align: right;">0.70</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">dark</td>
-<td style="text-align: left;">control</td>
-<td style="text-align: left;">before</td>
-<td style="text-align: right;">60</td>
-<td style="text-align: right;">22</td>
-<td style="text-align: right;">0.37</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">dark</td>
-<td style="text-align: left;">control</td>
-<td style="text-align: left;">during</td>
-<td style="text-align: right;">90</td>
-<td style="text-align: right;">38</td>
-<td style="text-align: right;">0.42</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">dark</td>
-<td style="text-align: left;">control</td>
-<td style="text-align: left;">after</td>
-<td style="text-align: right;">60</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">0.47</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">dark</td>
-<td style="text-align: left;">eel</td>
-<td style="text-align: left;">before</td>
-<td style="text-align: right;">66</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">0.27</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">dark</td>
-<td style="text-align: left;">eel</td>
-<td style="text-align: left;">during</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">41</td>
-<td style="text-align: right;">0.41</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">dark</td>
-<td style="text-align: left;">eel</td>
-<td style="text-align: left;">after</td>
-<td style="text-align: right;">66</td>
-<td style="text-align: right;">24</td>
-<td style="text-align: right;">0.36</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">light</td>
-<td style="text-align: left;">catfish</td>
-<td style="text-align: left;">before</td>
-<td style="text-align: right;">66</td>
-<td style="text-align: right;">34</td>
-<td style="text-align: right;">0.52</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">light</td>
-<td style="text-align: left;">catfish</td>
-<td style="text-align: left;">during</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">71</td>
-<td style="text-align: right;">0.72</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">light</td>
-<td style="text-align: left;">catfish</td>
-<td style="text-align: left;">after</td>
-<td style="text-align: right;">66</td>
-<td style="text-align: right;">48</td>
-<td style="text-align: right;">0.73</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">light</td>
-<td style="text-align: left;">control</td>
-<td style="text-align: left;">before</td>
-<td style="text-align: right;">60</td>
-<td style="text-align: right;">24</td>
-<td style="text-align: right;">0.40</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">light</td>
-<td style="text-align: left;">control</td>
-<td style="text-align: left;">during</td>
-<td style="text-align: right;">90</td>
-<td style="text-align: right;">48</td>
-<td style="text-align: right;">0.53</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">light</td>
-<td style="text-align: left;">control</td>
-<td style="text-align: left;">after</td>
-<td style="text-align: right;">60</td>
-<td style="text-align: right;">49</td>
-<td style="text-align: right;">0.82</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">light</td>
-<td style="text-align: left;">eel</td>
-<td style="text-align: left;">before</td>
-<td style="text-align: right;">66</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">0.35</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">light</td>
-<td style="text-align: left;">eel</td>
-<td style="text-align: left;">during</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">49</td>
-<td style="text-align: right;">0.49</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">light</td>
-<td style="text-align: left;">eel</td>
-<td style="text-align: left;">after</td>
-<td style="text-align: right;">66</td>
-<td style="text-align: right;">35</td>
-<td style="text-align: right;">0.53</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">catfish</td>
-<td style="text-align: left;">before</td>
-<td style="text-align: right;">132</td>
-<td style="text-align: right;">60</td>
-<td style="text-align: right;">0.45</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">catfish</td>
-<td style="text-align: left;">during</td>
-<td style="text-align: right;">198</td>
-<td style="text-align: right;">118</td>
-<td style="text-align: right;">0.60</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">catfish</td>
-<td style="text-align: left;">after</td>
-<td style="text-align: right;">132</td>
-<td style="text-align: right;">94</td>
-<td style="text-align: right;">0.71</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">control</td>
-<td style="text-align: left;">before</td>
-<td style="text-align: right;">120</td>
-<td style="text-align: right;">46</td>
-<td style="text-align: right;">0.38</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">control</td>
-<td style="text-align: left;">during</td>
-<td style="text-align: right;">180</td>
-<td style="text-align: right;">86</td>
-<td style="text-align: right;">0.48</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">control</td>
-<td style="text-align: left;">after</td>
-<td style="text-align: right;">120</td>
-<td style="text-align: right;">77</td>
-<td style="text-align: right;">0.64</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">eel</td>
-<td style="text-align: left;">before</td>
-<td style="text-align: right;">132</td>
-<td style="text-align: right;">41</td>
-<td style="text-align: right;">0.31</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">eel</td>
-<td style="text-align: left;">during</td>
-<td style="text-align: right;">198</td>
-<td style="text-align: right;">90</td>
-<td style="text-align: right;">0.45</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">eel</td>
-<td style="text-align: left;">after</td>
-<td style="text-align: right;">132</td>
-<td style="text-align: right;">59</td>
-<td style="text-align: right;">0.45</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">dark</td>
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">before</td>
-<td style="text-align: right;">192</td>
-<td style="text-align: right;">66</td>
-<td style="text-align: right;">0.34</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">dark</td>
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">during</td>
-<td style="text-align: right;">288</td>
-<td style="text-align: right;">126</td>
-<td style="text-align: right;">0.44</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">dark</td>
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">after</td>
-<td style="text-align: right;">192</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: right;">0.51</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">light</td>
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">before</td>
-<td style="text-align: right;">192</td>
-<td style="text-align: right;">81</td>
-<td style="text-align: right;">0.42</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">light</td>
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">during</td>
-<td style="text-align: right;">288</td>
-<td style="text-align: right;">168</td>
-<td style="text-align: right;">0.58</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">light</td>
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">after</td>
-<td style="text-align: right;">192</td>
-<td style="text-align: right;">132</td>
-<td style="text-align: right;">0.69</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">before</td>
-<td style="text-align: right;">384</td>
-<td style="text-align: right;">147</td>
-<td style="text-align: right;">0.38</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">during</td>
-<td style="text-align: right;">576</td>
-<td style="text-align: right;">294</td>
-<td style="text-align: right;">0.51</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">after</td>
-<td style="text-align: right;">384</td>
-<td style="text-align: right;">230</td>
-<td style="text-align: right;">0.60</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">combined</td>
-<td style="text-align: left;">combined</td>
-<td style="text-align: right;">1344</td>
-<td style="text-align: right;">671</td>
-<td style="text-align: right;">0.50</td>
-</tr>
-</tbody>
-</table>
+<div class="cell-output cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-3eed6010262f2ffc7be0" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3eed6010262f2ffc7be0">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"60\" data-max=\"1344\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"18\" data-max=\"671\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0.27\" data-max=\"0.82\" data-scale=\"2\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","extensions":["Buttons"],"caption":"<caption>Proportion of kōura observations recorded in refuge across experimental treatments (catfish, eel, control), light conditions (light, dark), and periods (before, during, and after predator exposure). Combined rows summarise across all levels of a given factor. Values represent the proportion of total observations where kōura were located in the refuge.<\/caption>","data":[["dark","dark","dark","dark","dark","dark","dark","dark","dark","light","light","light","light","light","light","light","light","light","combined","combined","combined","combined","combined","combined","combined","combined","combined","dark","dark","dark","light","light","light","combined","combined","combined","combined"],["catfish","catfish","catfish","control","control","control","eel","eel","eel","catfish","catfish","catfish","control","control","control","eel","eel","eel","catfish","catfish","catfish","control","control","control","eel","eel","eel","combined","combined","combined","combined","combined","combined","combined","combined","combined","combined"],["before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","combined"],[66,99,66,60,90,60,66,99,66,66,99,66,60,90,60,66,99,66,132,198,132,120,180,120,132,198,132,192,288,192,192,288,192,384,576,384,1344],[26,47,46,22,38,28,18,41,24,34,71,48,24,48,49,23,49,35,60,118,94,46,86,77,41,90,59,66,126,98,81,168,132,147,294,230,671],[0.39,0.47,0.7,0.37,0.42,0.47,0.27,0.41,0.36,0.52,0.72,0.73,0.4,0.53,0.82,0.35,0.49,0.53,0.45,0.6,0.71,0.38,0.48,0.64,0.31,0.45,0.45,0.34,0.44,0.51,0.42,0.58,0.6899999999999999,0.38,0.51,0.6,0.5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Light<\/th>\n      <th>Treatment<\/th>\n      <th>Period<\/th>\n      <th>N total<\/th>\n      <th>N refuge<\/th>\n      <th>Proportion in refuge<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":37,"dom":"Bfrtip","buttons":["csv","excel"],"columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-center","targets":"_all"},{"name":"light","targets":0},{"name":"treatment","targets":1},{"name":"period","targets":2},{"name":"n_total","targets":3},{"name":"n_refuge","targets":4},{"name":"prop_refuge","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[10,25,37,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.270000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(0.820000 - value, 0)/0.550000 * 100 + '%, lightblue ' + Math.max(0.820000 - value, 0)/0.550000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\n}"}},"evals":["options.columnDefs.0.render","options.rowCallback"],"jsHooks":[]}</script>
 </div>
 </div>
 </figure>
@@ -767,45 +428,45 @@ Table&nbsp;2: Fixed effects of the beta-binomial GLMM for kōura refuge use.
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-0.528</td>
-<td style="text-align: right;">0.557</td>
-<td style="text-align: right;">-0.948</td>
-<td style="text-align: right;">0.343</td>
+<td style="text-align: right;">-0.058</td>
+<td style="text-align: right;">0.282</td>
+<td style="text-align: right;">-0.206</td>
+<td style="text-align: right;">0.837</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">treatmentcontrol</td>
-<td style="text-align: right;">-0.631</td>
-<td style="text-align: right;">0.666</td>
-<td style="text-align: right;">-0.946</td>
-<td style="text-align: right;">0.344</td>
+<td style="text-align: left;">treatmentcatfish</td>
+<td style="text-align: right;">0.424</td>
+<td style="text-align: right;">0.292</td>
+<td style="text-align: right;">1.452</td>
+<td style="text-align: right;">0.146</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">treatmenteel</td>
-<td style="text-align: right;">-1.237</td>
-<td style="text-align: right;">0.660</td>
-<td style="text-align: right;">-1.873</td>
-<td style="text-align: right;">0.061</td>
+<td style="text-align: right;">-0.427</td>
+<td style="text-align: right;">0.294</td>
+<td style="text-align: right;">-1.452</td>
+<td style="text-align: right;">0.147</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">lightlight</td>
-<td style="text-align: right;">1.033</td>
-<td style="text-align: right;">0.547</td>
-<td style="text-align: right;">1.889</td>
-<td style="text-align: right;">0.059</td>
+<td style="text-align: left;">lightdark</td>
+<td style="text-align: right;">-0.654</td>
+<td style="text-align: right;">0.239</td>
+<td style="text-align: right;">-2.737</td>
+<td style="text-align: right;">0.006</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">periodduring</td>
-<td style="text-align: right;">0.818</td>
-<td style="text-align: right;">0.292</td>
-<td style="text-align: right;">2.803</td>
-<td style="text-align: right;">0.005</td>
+<td style="text-align: right;">0.530</td>
+<td style="text-align: right;">0.282</td>
+<td style="text-align: right;">1.881</td>
+<td style="text-align: right;">0.060</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">periodafter</td>
-<td style="text-align: right;">1.370</td>
-<td style="text-align: right;">0.323</td>
-<td style="text-align: right;">4.246</td>
-<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.912</td>
+<td style="text-align: right;">0.300</td>
+<td style="text-align: right;">3.040</td>
+<td style="text-align: right;">0.002</td>
 </tr>
 </tbody>
 </table>
@@ -849,73 +510,73 @@ Table&nbsp;3: Pairwise contrasts from the beta-binomial GLMM for kōura refuge u
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">catfish / control</td>
-<td style="text-align: right;">1.879</td>
-<td style="text-align: right;">1.252</td>
+<td style="text-align: left;">control / catfish</td>
+<td style="text-align: right;">0.655</td>
+<td style="text-align: right;">0.191</td>
 <td style="text-align: right;">Inf</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">0.946</td>
-<td style="text-align: right;">0.611</td>
+<td style="text-align: right;">-1.452</td>
+<td style="text-align: right;">0.314</td>
 <td style="text-align: left;">treatment</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">catfish / eel</td>
-<td style="text-align: right;">3.445</td>
-<td style="text-align: right;">2.275</td>
+<td style="text-align: left;">control / eel</td>
+<td style="text-align: right;">1.533</td>
+<td style="text-align: right;">0.451</td>
 <td style="text-align: right;">Inf</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">1.873</td>
-<td style="text-align: right;">0.147</td>
+<td style="text-align: right;">1.452</td>
+<td style="text-align: right;">0.314</td>
 <td style="text-align: left;">treatment</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">control / eel</td>
-<td style="text-align: right;">1.834</td>
-<td style="text-align: right;">1.231</td>
+<td style="text-align: left;">catfish / eel</td>
+<td style="text-align: right;">2.341</td>
+<td style="text-align: right;">0.681</td>
 <td style="text-align: right;">Inf</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">0.903</td>
-<td style="text-align: right;">0.638</td>
+<td style="text-align: right;">2.924</td>
+<td style="text-align: right;">0.010</td>
 <td style="text-align: left;">treatment</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">dark / light</td>
-<td style="text-align: right;">0.356</td>
-<td style="text-align: right;">0.195</td>
+<td style="text-align: left;">light / dark</td>
+<td style="text-align: right;">1.924</td>
+<td style="text-align: right;">0.460</td>
 <td style="text-align: right;">Inf</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">-1.889</td>
-<td style="text-align: right;">0.059</td>
+<td style="text-align: right;">2.737</td>
+<td style="text-align: right;">0.006</td>
 <td style="text-align: left;">light</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">before / during</td>
-<td style="text-align: right;">0.441</td>
-<td style="text-align: right;">0.129</td>
+<td style="text-align: right;">0.589</td>
+<td style="text-align: right;">0.166</td>
 <td style="text-align: right;">Inf</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">-2.803</td>
-<td style="text-align: right;">0.014</td>
+<td style="text-align: right;">-1.881</td>
+<td style="text-align: right;">0.144</td>
 <td style="text-align: left;">period</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">before / after</td>
-<td style="text-align: right;">0.254</td>
-<td style="text-align: right;">0.082</td>
+<td style="text-align: right;">0.402</td>
+<td style="text-align: right;">0.121</td>
 <td style="text-align: right;">Inf</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">-4.246</td>
-<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">-3.040</td>
+<td style="text-align: right;">0.007</td>
 <td style="text-align: left;">period</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">during / after</td>
-<td style="text-align: right;">0.576</td>
-<td style="text-align: right;">0.172</td>
+<td style="text-align: right;">0.682</td>
+<td style="text-align: right;">0.205</td>
 <td style="text-align: right;">Inf</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">-1.852</td>
-<td style="text-align: right;">0.153</td>
+<td style="text-align: right;">-1.276</td>
+<td style="text-align: right;">0.409</td>
 <td style="text-align: left;">period</td>
 </tr>
 </tbody>
@@ -989,8 +650,6 @@ Table&nbsp;4: Type III ANOVA table for the linear model of kōura feeding rate (
 </div>
 </div>
 </div>
-<!-- -->
-
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{raven2026,
@@ -1000,35 +659,32 @@ Table&nbsp;4: Type III ANOVA table for the linear model of kōura feeding rate (
   title = {Fear Alone Influences the Behaviour of a Keystone Native Prey
     by an Invader; a Non-Consumptive Effect of the Catfish Invasion of
     {Aotearoa} {New} {Zealand’s} Freshwaters},
-  date = {2026-03-27},
+  date = {2026-03-30},
   langid = {en},
   abstract = {Non-consumptive effects (NCEs) or “fear” responses to
     predators encompass costly antipredator behaviours, such as
     increasing refuge use in conjunction with decreasing foraging and
     feeding efficiency. Such NCEs could influence prey population
-    dynamics and even community structure and function, if prey
+    dynamics and even community structure and function, if the prey
     themselves are “keystone” species. In Aotearoa-New Zealand, the
     native freshwater crayfish kōura (*Paranephrops planifrons*) is a
-    keystone species and an ecosystem engineer. As an omnivorous
-    detritivore, its ecosystem functional role is as a scavenger and
-    primary processor of organic material, increasing decomposition and
-    nutrient cycling, and its burrowing behaviour aerates sediment,
-    creating habitats for itself and other species. Both native longfin
-    eels (*Anguilla dieffenbachii*) and invasive brown bullhead catfish
-    (*Ameiurus nebulosus*) are major predators of kōura. In laboratory
-    mesocosms, non-physical exposure of kōura to fish, showed predator
-    presence alone caused a NCE on kōura in terms of increased refuge
-    use. However, the catfish invader caused a much greater refuge use
-    than the native eel, with the latter provoking a similar response as
-    the control treatment, where fish were absent and only a temporary
-    physical disturbance occurred. This NCE represents an unappreciated
-    aspect of the catfish invasion on kōura, highlighting the additional
-    predation pressure invaders may exert on prey in an invaded system,
-    compared to co-evolved native predators.}
+    keystone species and an ecosystem engineer but is preyed upon by
+    native longfin eels (*Anguilla dieffenbachii*) and invasive brown
+    bullhead catfish (*Ameiurus nebulosus*). Using controlled aquarium
+    experiments, we tested whether visual and chemical cues from each
+    predator induced changes in kōura refuge-seeking and feeding
+    behaviour. Neither predator treatment significantly affected refuge
+    use or feeding rate. The absence of a significant response to either
+    predator, including the co-evolved eel, may reflect limited prior
+    predator experience in the source lakes where eel densities are low.
+    Substantial individual variation in kōura behaviour further reduced
+    statistical power to detect treatment effects, highlighting the
+    importance of accounting for personality differences in future NCE
+    studies.}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-raven2026" class="csl-entry quarto-appendix-citeas" role="listitem">
 Raven, O. V., MacNeil, C., Lee, F., Holmes, R., Kusabs, I. A., Burdon,
-F. J., &amp; Özkundakci, D. (2026, March 27). <em>Fear alone influences
+F. J., &amp; Özkundakci, D. (2026, March 30). <em>Fear alone influences
 the behaviour of a keystone native prey by an invader; a non-consumptive
 effect of the catfish invasion of Aotearoa New Zealand’s
 freshwaters</em>...
@@ -1104,57 +760,6 @@ freshwaters</em>...
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
-      }
-    }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
-    }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -1484,194 +1089,7 @@ freshwaters</em>...
       }
     }
   });
-  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Fear alone influences the behaviour of a keystone native prey by an invader; a non-consumptive effect of the catfish invasion of Aotearoa New Zealand’s freshwaters"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> ""</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">  freeze: false</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">  cache: false</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">  - name:</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">      given: Olivier V.</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">      family: Raven</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    orcid: 0009-0008-6184-6831</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliations:</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">      - name: University of Waikato</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">        department: Te Aka Mātuatua – School of Science</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">        address: Private Bag 3105, Hamilton 3240</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">        country: New Zealand</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">    email: olivier.raven@icloud.com; or81@students.waikato.ac.nz</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">    corresponding: true</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">  - name:</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">      given: Calum</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">      family: MacNeil</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">    orcid: 0000-0003-0402-9292</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliations:</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">      - name: The Cawthron Institute</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">        address: 98 Halifax Street East, Nelson 7010, Private Bag 2, Nelson 7042</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">        country: New Zealand</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">  - name:</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co">      given: Finnbar</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">      family: Lee</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">    orcid: 0000-0002-9219-1486</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliations:</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">      - name: The Cawthron Institute</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co">        address: 98 Halifax Street East, Nelson 7010, Private Bag 2, Nelson 7042</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">        country: New Zealand</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co"> </span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co">  - name:</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="co">      given: Robin</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co">      family: Holmes</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co">    orcid: 0000-0002-8737-2717</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliations:</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co">      - name: The Cawthron Institute</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co">        address: 98 Halifax Street East, Nelson 7010, Private Bag 2, Nelson 7042</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co">        country: New Zealand</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: </span></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="co">      given: Ian A. </span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="co">      family: Kusabs</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="co">    orcid: 0000-0002-1473-7447</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliations:</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="co">      - name: Ian Kusabs and Associates Limited</span></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="co">        address: 21 Summit Road, Rotorua 3076</span></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="co">        country: New Zealand</span></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: </span></span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="co">      given: Francis J. </span></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="co">      family: Burdon</span></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="co">    orcid: 0000-0002-5398-4993</span></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliations:</span></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="co">      - name: University of Waikato</span></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="co">        department: Te Aka Mātuatua – School of Science</span></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="co">        address: Private Bag 3105, Hamilton 3240</span></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="co">        country: New Zealand</span></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="co">  - name:  </span></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="co">      given: Deniz</span></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="co">      family: Özkundakci</span></span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="co">    orcid: 0000-0002-5442-4576</span></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="co">    affiliations:</span></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="co">      - name: University of Waikato</span></span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="co">        department: Te Aka Mātuatua – School of Science</span></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="co">        address: Private Bag 3105, Hamilton 3240</span></span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="co">        country: New Zealand</span></span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> today</span></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="an">abstract:</span><span class="co"> Non-consumptive effects (NCEs) or ‘fear’ responses to predators encompass costly antipredator behaviours, such as increasing refuge use in conjunction with decreasing foraging and feeding efficiency. Such NCEs could influence prey population dynamics and even community structure and function, if prey themselves are ‘keystone’ species. In Aotearoa-New Zealand, the native freshwater crayfish kōura (*Paranephrops planifrons*) is a keystone species and an ecosystem engineer. As an omnivorous detritivore, its ecosystem functional role is as a scavenger and primary processor of organic material, increasing decomposition and nutrient cycling, and its burrowing behaviour aerates sediment, creating habitats for itself and other species. Both native longfin eels (*Anguilla dieffenbachii*) and invasive brown bullhead catfish (*Ameiurus nebulosus*) are major predators of kōura. In laboratory mesocosms, non-physical exposure of kōura to fish, showed predator presence alone caused a NCE on kōura in terms of increased refuge use. However, the catfish invader caused a much greater refuge use than the native eel, with the latter provoking a similar response as the control treatment, where fish were absent and only a temporary physical disturbance occurred. This NCE represents an unappreciated aspect of the catfish invasion on kōura, highlighting the additional predation pressure invaders may exert on prey in an invaded system, compared to co-evolved native predators.</span></span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="co"> </span></span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="an">keywords:</span></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="co">  - Non-consumptive effects</span></span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="co">  - crayfish</span></span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="co">  - catfish invasion</span></span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="co">  - kōura</span></span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a><span class="co">  - longfin eel</span></span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="an">funding:</span><span class="co"> "This research was supported by the Fish Futures programme funded through a Ministry of Business, Innovation and Employment grant (CAWX2101)"</span></span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="an">citation:</span></span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a><span class="co">  container-title: "..."</span></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: cosmo</span></span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: start</span></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="co"># run analysis notebook to make all variables available</span></span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">knit</span>(<span class="st">"analysis.qmd"</span>, <span class="at">output =</span> <span class="fu">tempfile</span>(), <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>Biological invasions can have profound impacts on invaded ecosystems, particularly through the introduction of novel predators that prey upon native species lacking an evolutionary history with them (Doherty et al., 2016). Native prey are often naïve to these predators, making them especially vulnerable to direct predation (Gamradt &amp; Kats, 1996; Smith et al., 2008). In addition to these consumptive effects (CEs), native prey may exhibit heightened fear responses to invasive predators, leading to the development of anti-predator behaviours such as increased refuge use and avoidance of open habitats (Kindlinger &amp; Albins, 2017). These behavioural changes, termed non-consumptive effects (NCEs), can substantially influence population dynamics by reducing foraging activity, growth, and reproductive output (Pressier et al., 2005). In contrast, native predators generally elicit different responses because prey and predators have co-evolved, resulting in behavioural and physiological adaptations that stabilise predator–prey interactions within local ecosystems (Abrams, 2000).</span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>Freshwater crayfish rely primarily on chemical cues (kairomones) rather than visual cues to detect and respond to predatory fish (Blake &amp; Hart, 1993; Brönmark &amp; Hansson, 2012). The kairomones carry signals via excreta, mucus, or skin, that crayfish use to assess predator risk, responding more strongly to predators that have consumed conspecifics and to alarm cues released when prey are injured or killed (Gherardi et al., 2011; Beattie &amp; Moore, 2018). Exposure to kairomones from predatory fish can generate NCEs, including reduced growth and reduced activity levels in crayfish (Adams, 2007; Ramberg-Pihl &amp; Yurewicz, 2020), and even non-predatory fish can cause these behaviour changes, likely through heightened generalised awareness of risk (Nyström, 2005). However, the strength of these responses depends on prior experience as wild-caught individual crayfish show stronger antipredator responses than farmed conspecifics naive to predators (Martin, 2014), indicating that both individual experiences and evolutionary history shape kairomones detection.</span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>In Aotearoa-New Zealand (hereafter Aotearoa), the endemic northern freshwater crayfish *Paranephrops planifrons* White, 1842 commonly known as kōura is a ‘culturally treasured’ taonga species and valued food resource for Māori the indigenous people of Aotearoa (Kusabs &amp; Quinn, 2009). Ecologically, kōura play a critical role in freshwater ecosystems as ecosystem engineers through their effects on sediment dynamics, nutrient cycling, and benthic community structure, and have been described as keystone species in many freshwater systems (Collier at al., 1997; Parkyn et al., 2001; Usio &amp; Townsend, 2004). Kōura have a long co-evolutionary history with the native longfin eel (*Anguilla dieffenbachii*) and shortfin eel (*A. australis*) (MacNeil et al., 2025) and have been shown to respond more strongly to eel kairomones than to those of introduced non-native brown trout (*Salmo trutta*), even when sourced from streams where trout are present (Shave et al., 1994). This suggests that co-evolutionary history, rather than individual experience alone, shapes kōura predator recognition (Shave et al., 1994). Currently kōura are threatened by multiple interacting stressors, including climate change, water-quality degradation and invasive species, contributing to widespread population declines (Lee et al., 2025; Kusabs et al., in revision). One of the invasive species that threatens the kōura is the non-native brown bullhead catfish (*Ameiurus nebulosus*; Barnes &amp; Hicks, 2003; Dedual, 2019), which has been introduced in Aotearoa in 1878 and has spread over various waterways on the North Island (McDowall, 1990; Lee et al., 2025). The brown bullhead catfish is highly tolerant of a wide range of environmental conditions (Lee et al., 2025) and, due to its broad gape and opportunistic feeding behaviour, is capable of consuming a wide variety of native aquatic organisms (Scott &amp; Crossman, 1973; Dedual, 2019). The recent and ongoing spread of brown bullhead catfish into North Island waterways therefore represents a novel predation threat to which kōura may lack adequate behavioural or sensory adaptations.</span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>In this study, controlled aquarium experiments were used to test whether predator presence and associated chemical cues induce changes in refuge-seeking and feeding behaviour, providing insight into the behavioural mechanisms underlying NCEs of kōura responses to native and invasive predation threats. It is expected that kōura would show more shelter-seeking behaviour when presented with eels compared to catfish, due to naivety of the kōura towards catfish. Also, it is expected that light regime would have an influence on shelter seeking behaviour of this nocturnal species. For feeding behaviour it is expected that kōura will feed less when exposed to eel kairomones but as they will be naïve to catfish kairomones, feeding will be similar to the control. The findings of this study contribute to understanding the behavioural mechanisms underlying kōura vulnerability to invasive catfish and provide a basis for predicting population-level impacts as catfish continue to spread into uninvaded waterways across Aotearoa.</span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a><span class="fu"># Materials and Methods</span></span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a><span class="fu">## Animal collection and preparation</span></span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>On August 19th, 2025, kōura were sourced from two catfish-free lakes, (Ōkāreka and Tikitapu (Blue Lake)) in the Rotorua Te Awara Lakes area, Bay of Plenty region of the North Island. On September 25th, 2025, Brown bullhead catfish and longfin eels were sourced from Lake Rotoroa in Hamilton in the Waikato region of the North Island. Experiments were conducted at the Aquatic Research Centre of the University of Waikato. Some kōura were previously used in a mesocosm habitat preference study but never exposed to a predator. They were acclimated for a week in holding tanks under controlled conditions: a 10:14 light: dark cycle reflecting the correct seasonal day-length at a stable temperature of 15.6 °C, pH 8.4 and 10 mg l⁻¹ dissolved oxygen. Kōura were fed every other day fish food pellets (Hikari Tropical carnivore pellets, animal protein 47%). Catfish and eels were held in separate holding tanks, with the same environmental and feeding regime to kōura.</span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>Because kōura are taonga (culturally important) species, permission had to be sought from relevant iwi (Māori tribal unit), as well as relevant government regulator to source a limited number of animals. Experiments were adapted, particularly the feeding study to make the best use of the finite number of collected animals. As this study focused on kōura the catfish and eels were reused repeatedly in the study.</span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a><span class="fu">## Refuge experiment</span></span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>Prior to the experiments, all animals were individually weighed and measured. Only male kōura were used. Kōura had a mean (± SD) orbital carapace length (OCL) of 26.0 mm (± 3.08) (18.35-32.95 mm range) and a mean wet weight of 11.7 g (± 4.25) (3–23 g range). Catfish ranged in length from 260-267 mm and 2.34 – 3.16 kg wet weight and eels ranged in length from  ? and 2.50-3.52 kg wet weight. </span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>Experiments were conducted in 38 L glass tanks (600 × 200 × 220 mm) with each tank having three sides (apart from front of tank) blacked out to block visual cues from neighbouring tanks. Each tank was divided into two compartments by a 0.5 mm steel mesh divider, allowing visual and chemical cues between compartments, while preventing physical contact between animals on either side of barrier (@fig-aquarium-setup). All tanks were filled with 26.4 L dechlorinated tap water and had identical environmental regimes as previously detailed for acclimatisation tanks, with water flow provided by an air stone lodged the top of the barrier in each tank. Each tank housed a single kōura on one side of the barrier and either a single predator (catfish or eel) or no predator (control) on the other side. A halved terracotta pot (90 mm diameter × 90 mm depth) was positioned on the kōura side of the tank to serve as a potential refuge. To control for potential tank or side effects, the position of predator treatments within the aquaria was systematically rotated between experimental rounds. The experiment was repeated across five rounds, resulting in 11 catfish replicates, 11 eel replicates, and 10 control replicates. This experiment was first carried out in the light (n = 32 tanks) before being repeated in the dark (n = 32 tanks) with a total of 64 tanks used. Observations were made in the dark using red lighting positioned above the tanks in the same location as the previous normal lighting for the light regime observations. Following each individual experimental run, each tank was thoroughly cleaned and refilled with dechlorinated tap water before reuse. Each individual kōura was only exposed once to a fish predator and there were no mortalities of kōura or fish during the course of experiments. All experiments were conducted within a three-week period (from 1/10/2025 to 16/10/2025), the dark trials following on from the light trials.</span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>Observations of each kōura location was made 21 times at the following time intervals (in minutes): 0, 5, 10, 20, 30, 45, 60, 61, 65, 70, 80, 90, 120, 150, 210, 240, 245, 260, 275, 290, and 300. An individual kōura were placed in the middle of the tank compartment containing the refuge at 0-minute (its initial location being immediately noted after its addition to the tank) and was removed after the final 300-minute observation. The fish predator was introduced after 60 minutes into the tank on the other side of the barrier from the kōura compartment and removed again at 240 minutes. The control tanks had no fish added but at 60 minutes and again at 240 minutes the water in the ‘predator’ compartment was disturbed by mixing with a small net for approximately 30 seconds. This was to simulate the disturbance time associated with adding and removing fish in the other treatments. Kōura location within each tank was recorded at each time interval as either refuge (the animal was using the refuge, being inside it or immediately behind it and touching it) or in the open - non-refuge (any other location in the tank where the animal was not in the refuge or touching the refuge).</span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a><span class="fu">## Feeding experiment</span></span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>The feeding behaviour experiments were executed in 16 glass tanks of 9.25L (320 × 170 × 170 mm) filled with 5 L dechlorinated tap water and a halved terracotta pot (90 mm diameter × 90 mm depth). In three rounds a total of 46 male and two female kōura were placed individually in each tank. Kōura had a mean (± SD) orbital carapace length (OCL) of 27.84 mm (± 4.72) (20.48-41.15 mm range) and a mean wet weight of 15.65 g (± 8.84) (6-44 g range). For each round kōura were starved for different periods (0, 3 and 4 days) prior to the feeding experiment to also investigate how starvation period influenced feeding motivation.</span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>Kairomones from catfish and eels were collected by placing 4 fish (catfish or eel) in a 10 L bucket filled with water from the holding tanks for 15 minutes to concentrate the kairomones in the water. 1 L from the buckets was added to the tank with the kōura in it and for the controls 1 L of dechlorinated tap water was added. Next, 10 Hikari Tropical carnivore pellets were added to each tank. After 24 hours, when each experiment terminated, the number of pellets eaten (to the nearest quarter pellet) was counted and the feeding rate (pellets consumed per g kōura) calculated. As stated previously, the feeding study was adapted to make the best use of the finite number of collected taonga animals and the following protocols reflect this. After 0 days starvation, 16 kōura (14 male and 2 female) were exposed to eel water (n = 5), catfish water (n = 6) or control water (n = 5). After 3 days starvation, 16 kōura (male only) were exposed to eel water (n = 6), catfish water (n = 5) or control water (n = 5). After 4 days starvation, 16 kōura (male only) were exposed to eel water (n = 5), catfish water (n = 5) or control water (n = 6).</span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data analysis</span></span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>To analyse kōura refuge use a beta-binomial generalized linear mixed-effects model (GLMM; BRON) fitted using the glmmTMB package in R (BRON; BRON). The response variable was the number of observations in refuge out of total observations per experiment round, treatment (catfish/eel/control), light condition (light, dark), period (before/during/after) included as fixed effects. A beta-binomial distribution was used to account for overdispersion in the binomial proportion data. Model selection was conducted by comparing candidate models differing in fixed effect structure and random effect inclusion using AIC, with the model with the lowest AIC selected as optimal. The need for a tank-level random intercept was evaluated by comparing AIC between models with and without this term. Model fit of the final model was assessed using DHARMa simulation-based residuals, including tests for overdispersion and zero-inflation (Hartig et al., 2024). Marginal means and pairwise contrasts between factor levels were obtained using the emmeans package (Lenth et al., 2026).</span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>The feeding rate was analysed using a linear model with pellets consumed per gram body weight as the response, and treatment (catfish, eel, control) and starvation period (0, 3, 4) as fixed effects, including their interaction. Because each starvation period was conducted in a separate experimental round, starvation period and round were fully confounded by design, precluding the inclusion of round as a random effect. Overall significance of fixed effects was assessed using Type III ANOVA (car package; Fox &amp; Weisberg, 2018), and model assumptions were verified using residual plots and testing normality of residuals using the Shapiro-Wilk test. Pairwise comparisons between treatment and starvation level combinations were conducted using estimated marginal means (emmeans package; Lenth et al., 2026)</span>
-<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a><span class="fu"># Results</span></span>
-<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a><span class="fu">## Refuge experiment</span></span>
-<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>The proportion of time kōura spent in refuge varied across treatments, experimental periods, and light conditions (@fig-refuge-plot, @tbl-s1-refuge-prop). Under dark conditions, refuge use increased across the experimental period in the catfish treatment, rising from <span class="in">`r get_prop("dark","catfish","before")`</span> before to <span class="in">`r get_prop("dark","catfish","after")`</span> after exposure, while the control showed a smaller increase (<span class="in">`r get_prop("dark","control","before")`</span> to <span class="in">`r get_prop("dark","control","after")`</span>) and eel-exposed kōura showed little change (<span class="in">`r get_prop("dark","eel","before")`</span> before, <span class="in">`r get_prop("dark","eel","during")`</span> during, and <span class="in">`r get_prop("dark","eel","after")`</span> after). Under light conditions, refuge use was generally higher than under dark conditions, with catfish (<span class="in">`r get_prop("light","catfish","before")`</span> before to <span class="in">`r get_prop("light","catfish","after")`</span> after) and control (<span class="in">`r get_prop("light","control","before")`</span> to <span class="in">`r get_prop("light","control","after")`</span>) both showing increases across periods, while eel-exposed kōura showed a smaller increase (<span class="in">`r get_prop("light","eel","before")`</span> to <span class="in">`r get_prop("light","eel","after")`</span>).</span>
-<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>A beta-binomial GLMM with experimental unit as a random intercept was the best supported model (lowest AIC). Full model coefficients are reported in @tbl-s2-fixed-effects. Refuge use was most affected by period with more kōura using the refuge as the experiment progressed. Refuge use was significantly more in the during period than in the before period (*p* = `r p_before_during`, @fig-emmeans-plot, @tbl-s3-emmeans). This was also the case between before and after period (*p* = `r p_before_after`), but not between during and after (*p* = `r p_during_after`). Neither treatment nor light condition significantly affected refuge use. No significant differences were found between catfish and eel (*p* = `r p_catfish_eel`), catfish and control (*p* = `r p_catfish_control`), or control and eel (*p* = `r p_control_eel`). Light condition was also not significant (*p* = <span class="in">`r p_dark_light`</span>).</span>
-<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## Feeding experiment</span></span>
-<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>The feeding experiment showed the highest mean (±SE) feeding rate was after 3 days of starvation in the catfish treatment (<span class="in">`r get_emm("catfish", "3")`</span> ± <span class="in">`r get_se("catfish", "3")`</span> pellets g⁻¹). The linear model showed starvation period had significant effect on feeding rate (*p* = `r p_day_starve`, @tbl-s4-feeding-anova). Treatment had no significant effect on feeding rate (*p* = `r p_treatment`), and the interaction between the treatment and starvation period was not significant (*p* = <span class="in">`r p_interaction`</span>), although a marginal trend was observed (@fig-feeding-plot). No significant difference was found in feeding rate between catfish, eel, and control treatments within each of the starvation periods, this suggests that predator kairomones did not affect feeding behaviour in kōura within this experiment.</span>
-<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a><span class="fu"># Discussion</span></span>
-<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a><span class="fu">## Refuge experiment </span></span>
-<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a><span class="fu">## Feeding experiment</span></span>
-<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
-<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a><span class="fu"># Acknowledgements {.unnumbered}</span></span>
-<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a><span class="fu"># References {.unnumbered}</span></span>
-<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tables {.unnumbered}</span></span>
-<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a><span class="fu"># Figures {.unnumbered}</span></span>
-<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a><span class="al">![Schematic overview of the experimental aquarium layout for one experimental round. Eight aquaria were run simultaneously. In each tank, a single kōura (K) was housed on one side of the aquarium with a shelter, while a predator (catfish (C) or eel(E)) or no predator (control) was placed on the opposite side behind a mesh divider allowing visual and chemical cues but preventing physical contact.](images/aquarium_setup.png)</span>{#fig-aquarium-setup}</span>
-<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a>{{&lt; embed analysis.qmd#fig-refuge-plot &gt;}}</span>
-<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>{{&lt; embed analysis.qmd#fig-emmeans-plot &gt;}}</span>
-<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>{{&lt; embed analysis.qmd#fig-feeding-plot &gt;}}</span>
-<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a><span class="fu"># Supplementary information {.unnumbered}</span></span>
-<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a>{{&lt; embed analysis.qmd#tbl-s1-refuge-prop &gt;}}</span>
-<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a>{{&lt; embed analysis.qmd#tbl-s2-fixed-effects &gt;}}</span>
-<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a>{{&lt; embed analysis.qmd#tbl-s3-emmeans &gt;}}</span>
-<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a>{{&lt; embed analysis.qmd#tbl-s4-feeding-anova &gt;}}</span>
-</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
-</div></div></div></div></div>
+  </script>
 </div> <!-- /content -->
 <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
 (function() {

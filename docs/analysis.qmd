@@ -167,7 +167,6 @@ write.csv(refuge_table, file = file.path(out_dir, "refuge_table.csv"), row.names
 if (knitr::is_html_output()) {
   datatable(
     refuge_table,
-    caption = "Proportion of kōura observations recorded in refuge across experimental treatments (catfish, eel, control), light conditions (light, dark), and periods (before, during, and after predator exposure). Combined rows summarise across all levels of a given factor. Values represent the proportion of total observations where kōura were located in the refuge.",
     filter = "top",
     options = list(
       pageLength = 37,
@@ -256,6 +255,8 @@ ggsave(file.path(out_dir, "refuge_plot.png"), refuge_plot, width = 8, height = 5
 
 refuge_plot
 
+
+
 ```
 
 ## Refuge stats
@@ -336,7 +337,7 @@ testZeroInflation(sim_final)
 
 ```
 
-### fixed effect tbl
+### Fixed effect tbl
 ```{r}
 #| label: tbl-s2-fixed-effects
 #| include: true
@@ -374,9 +375,9 @@ emm_light     <- emmeans(m_final, ~ light, type = "response")
 emm_period    <- emmeans(m_final, ~ period, type = "response")
 
 # Compute CLDs for each factor
-cld_treatment <- multcomp::cld(emm_treatment, Letters = letters, adjust = "tukey")
-cld_light     <- multcomp::cld(emm_light, Letters = letters, adjust = "tukey")
-cld_period    <- multcomp::cld(emm_period, Letters = letters, adjust = "tukey")
+cld_treatment <- multcomp::cld(emm_treatment, Letters = letters, adjust = "sidak")
+cld_light     <- multcomp::cld(emm_light, Letters = letters, adjust = "sidak")
+cld_period    <- multcomp::cld(emm_period, Letters = letters, adjust = "sidak")
 
 # Add factor labels and rename x variable for plotting
 cld_treatment <- cld_treatment %>% mutate(factor = "treatment", x = treatment)
@@ -407,7 +408,7 @@ knitr::kable(emmeans_bb,col.names = c("Contrast", "Odds ratio", "SE", "df", "Nul
 ```{r}
 #| label: fig-emmeans-plot
 #| include: true
-#| fig-cap: "Predicted marginal probabilities of refuge use from the beta-binomial GLMM for each level of treatment, light condition, and experimental period. Points represent model-estimated marginal means averaged over other factors, with 95% confidence intervals shown as error bars. Different letters (a, b) indicate statistically significant differences between groups within each factor based on Tukey-adjusted pairwise comparisons. The dashed line at 0.5 marks the threshold where kōura spend half their time in refuge."
+#| fig-cap: "Predicted marginal probabilities of refuge use from the beta-binomial GLMM for each level of treatment, light condition, and experimental period. Points represent model-estimated marginal means averaged over other factors, with 95% confidence intervals shown as error bars. Different letters (a, b) indicate statistically significant differences between groups within each factor based on multiple comparison-adjusted pairwise comparisons. The dashed line at 0.5 marks the threshold where kōura spend half their time in refuge."
 
 # Make plot
 # get predicted probabilities (not contrasts) for plotting
@@ -472,7 +473,7 @@ knitr::kable(summary_animals, digits = 2)
 ## Plots individual koura
 ```{r}
 #| label: fig-koura
-#| include: true
+#| include: false
 #| fig-cap: "your caption"
 
 
@@ -508,10 +509,22 @@ koura_time_plot
 
 ```
 
+## Koura behaviour (controls)
+```{r}
+#| label: Koura-behaviour
+#| include: false
+
+
+
+
+
+
+```
+
 ## Repeated measurements
 ```{r}
 #| label: repeated-measurements
-#| include: true
+#| include: false
 #| fig-cap: "your caption"
 
 repeated_ids <- unique(df_NCE_raw$koura_id[duplicated(df_NCE_raw$koura_id)])
@@ -549,14 +562,14 @@ plot_repeated_time
 ## Koura size
 ```{r}
 #| label: koura-size
-#| include: true
+#| include: false
 #| fig-cap: "your caption"
 
 m_size <- glmmTMB(
   cbind(n_refuge, n_total - n_refuge) ~ size_mm1 +  (1 | exp_id),
   data = round_summary, family = betabinomial)
 
-summary(m_size)
+#summary(m_size)
 
 
 ```
@@ -564,7 +577,7 @@ summary(m_size)
 ## Barrier
 ```{r}
 #| label: fig-barrier
-#| include: true
+#| include: false
 #| fig-cap: "your caption"
 
 koura_long_bar <- koura_long %>%

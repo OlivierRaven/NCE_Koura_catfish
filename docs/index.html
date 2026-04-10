@@ -13,7 +13,7 @@
 <meta name="author" content="Ian A. Kusabs">
 <meta name="author" content="Francis J. Burdon">
 <meta name="author" content="Deniz Özkundakci">
-<meta name="dcterms.date" content="2026-03-30">
+<meta name="dcterms.date" content="2026-04-01">
 <meta name="keywords" content="Non-consumptive effects, crayfish, catfish invasion, kōura, longfin eel">
 
 <title>Fear alone influences the behaviour of a keystone native prey by an invader; a non-consumptive effect of the catfish invasion of Aotearoa New Zealand’s freshwaters</title>
@@ -32,7 +32,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -87,9 +87,6 @@ ul.task-list li input[type="checkbox"] {
 
 <script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <meta name="citation_title" content="Fear alone influences the behaviour of a keystone native prey by an invader; a non-consumptive effect of the catfish invasion of Aotearoa New Zealand’s freshwaters">
@@ -102,10 +99,10 @@ ul.task-list li input[type="checkbox"] {
 <meta name="citation_author" content="Ian A. Kusabs">
 <meta name="citation_author" content="Francis J. Burdon">
 <meta name="citation_author" content="Deniz Özkundakci">
-<meta name="citation_publication_date" content="2026-03-30">
-<meta name="citation_cover_date" content="2026-03-30">
+<meta name="citation_publication_date" content="2026-04-01">
+<meta name="citation_cover_date" content="2026-04-01">
 <meta name="citation_year" content="2026">
-<meta name="citation_online_date" content="2026-03-30">
+<meta name="citation_online_date" content="2026-04-01">
 <meta name="citation_language" content="en">
 <meta name="citation_journal_title" content="...">
 <meta name="citation_reference" content="citation_title=R: A language and environment for statistical computing;,citation_author=R Core Team;,citation_publication_date=2025;,citation_cover_date=2025;,citation_year=2025;,citation_fulltext_html_url=https://www.R-project.org/;">
@@ -190,7 +187,7 @@ ul.task-list li input[type="checkbox"] {
                 <div>
             <div class="quarto-title-meta-heading">Published</div>
             <div class="quarto-title-meta-contents">
-              <p class="date">March 30, 2026</p>
+              <p class="date">April 1, 2026</p>
             </div>
           </div>
           
@@ -295,11 +292,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="refuge-experiment-1" class="level2">
 <h2 class="anchored" data-anchor-id="refuge-experiment-1">Refuge experiment</h2>
 <p>The proportion of time kōura spent in refuge varied across treatments, experimental periods, and light conditions (<a href="#fig-refuge-plot" class="quarto-xref">Figure&nbsp;2</a>, <a href="#tbl-s1-refuge-prop" class="quarto-xref">Table&nbsp;1</a>). Under dark conditions, refuge use increased across the experimental period in the catfish treatment, rising from 0.39 before to 0.7 after exposure, while the control showed a smaller increase (0.37 to 0.47) and eel-exposed kōura showed little change (0.27 before, 0.41 during, and 0.36 after). Under light conditions, refuge use was generally higher than under dark conditions, with catfish (0.52 before to 0.73 after) and control (0.4 to 0.82) both showing increases across periods, while eel-exposed kōura showed a smaller increase (0.35 to 0.53).</p>
-<p>A beta-binomial GLMM with experimental unit as a random intercept was the best supported model (lowest AIC). Full model coefficients are reported in <a href="#tbl-s2-fixed-effects" class="quarto-xref">Table&nbsp;2</a>. Refuge use was most affected by period with more kōura using the refuge as the experiment progressed. Refuge use was significantly more in the during period than in the before period (<em>p</em> = 0.144, <a href="#fig-emmeans-plot" class="quarto-xref">Figure&nbsp;3</a>, <a href="#tbl-s3-emmeans" class="quarto-xref">Table&nbsp;3</a>). This was also the case between before and after period (<em>p</em> = 0.007), but not between during and after (<em>p</em> = 0.409). Neither treatment nor light condition significantly affected refuge use. No significant differences were found between catfish and eel (<em>p</em> = 0.01), catfish and control (<em>p</em> = ), or control and eel (<em>p</em> = 0.314). Light condition was also not significant (<em>p</em> = ).</p>
+<p>A beta-binomial GLMM without a random intercept was the best-supported model based on the lowest AIC, with full model coefficients reported in <a href="#tbl-s2-fixed-effects" class="quarto-xref">Table&nbsp;2</a> . Refuge use differed significantly between the catfish and eel treatments (<em>p</em> = 0.01, <a href="#fig-emmeans-plot" class="quarto-xref">Figure&nbsp;3</a> , <a href="#tbl-s3-emmeans" class="quarto-xref">Table&nbsp;3</a> ). However, there were no significant differences between the catfish and control treatments (<em>p</em> = ), or between the control and eel treatments (<em>p</em> = 0.314). Light condition also had a significant effect on refuge use (<em>p</em> = ), with greater refuge-seeking behavior observed under light compared to dark conditions. Regarding experimental periods, refuge use was significantly higher in the before and after periods (<em>p</em> = 0.007), but no significant differences were found between the before and during periods (<em>p</em> = 0.144) or the during and after periods (<em>p</em> = 0.409).</p>
 </section>
 <section id="feeding-experiment-1" class="level2">
 <h2 class="anchored" data-anchor-id="feeding-experiment-1">Feeding experiment</h2>
-<p>The feeding experiment showed the highest mean (±SE) feeding rate was after 3 days of starvation in the catfish treatment (0.235 ± 0.037 pellets g⁻¹). The linear model showed starvation period had significant effect on feeding rate (<em>p</em> = 4^{-4}, <a href="#tbl-s4-feeding-anova" class="quarto-xref">Table&nbsp;4</a>). Treatment had no significant effect on feeding rate (<em>p</em> = 0.968), and the interaction between the treatment and starvation period was not significant (<em>p</em> = 0.082), although a marginal trend was observed (<a href="#fig-feeding-plot" class="quarto-xref">Figure&nbsp;4</a>). No significant difference was found in feeding rate between catfish, eel, and control treatments within each of the starvation periods, this suggests that predator kairomones did not affect feeding behaviour in kōura within this experiment.</p>
+<p>The feeding experiment showed the highest mean (±SE) feeding rate was after 3 days of starvation in the catfish treatment (0.235 ±0.037 pellets g⁻¹). The linear model showed starvation period had significant effect on feeding rate (<em>p</em> = 4^{-4}, <strong>?@tbl-s4-feeding-ano</strong>). Treatment had no significant effect on feeding rate (<em>p</em> = 0.968), and the interaction between the treatment and starvation period was not significant (<em>p</em> = 0.082), although a marginal trend was observed (<a href="#fig-feeding-plot" class="quarto-xref">Figure&nbsp;4</a> ). No significant difference was found in feeding rate between catfish, eel, and control treatments within each of the starvation periods, suggesting that predator kairomones did not affect feeding behaviour in kōura within this experiment.</p>
 </section>
 </section>
 <section id="discussion" class="level1">
@@ -344,7 +341,7 @@ Figure&nbsp;1: Schematic overview of the experimental aquarium layout for one ex
 <div id="fig-refuge-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-refuge-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/analysis-fig-refuge-plot-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Kōura use of refuge over course of experiment with the three periods (before, during, after), the treatment (catfish; red-solid circle, eel; green-dashed triangle, control; blue-dotdash square), and divided over light regime (combined, dark, light). The points represent the proportion within each period for each treatment."><img src="index_files/figure-html/analysis-fig-refuge-plot-output-2.png" width="768" height="576" class="figure-img"></a>
+<a href="index_files/figure-html/analysis-fig-refuge-plot-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Kōura use of refuge over course of experiment with the three periods (before, during, after), the treatment (catfish; red-solid circle, eel; green-dashed triangle, control; blue-dotdash square), and divided over light regime (combined, dark, light). The points represent the proportion within each period for each treatment."><img src="index_files/figure-html/analysis-fig-refuge-plot-output-2.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-refuge-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Kōura use of refuge over course of experiment with the three periods (before, during, after), the treatment (catfish; red-solid circle, eel; green-dashed triangle, control; blue-dotdash square), and divided over light regime (combined, dark, light). The points represent the proportion within each period for each treatment.
@@ -360,10 +357,10 @@ Figure&nbsp;2: Kōura use of refuge over course of experiment with the three per
 <div id="fig-emmeans-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-emmeans-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/analysis-fig-emmeans-plot-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Predicted marginal probabilities of refuge use from the beta-binomial GLMM for each level of treatment, light condition, and experimental period. Points represent model-estimated marginal means averaged over other factors, with 95% confidence intervals shown as error bars. Different letters (a, b) indicate statistically significant differences between groups within each factor based on Tukey-adjusted pairwise comparisons. The dashed line at 0.5 marks the threshold where kōura spend half their time in refuge."><img src="index_files/figure-html/analysis-fig-emmeans-plot-output-1.png" width="768" height="576" class="figure-img"></a>
+<a href="index_files/figure-html/analysis-fig-emmeans-plot-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Predicted marginal probabilities of refuge use from the beta-binomial GLMM for each level of treatment, light condition, and experimental period. Points represent model-estimated marginal means averaged over other factors, with 95% confidence intervals shown as error bars. Different letters (a, b) indicate statistically significant differences between groups within each factor based on multiple comparison-adjusted pairwise comparisons. The dashed line at 0.5 marks the threshold where kōura spend half their time in refuge."><img src="index_files/figure-html/analysis-fig-emmeans-plot-output-1.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-emmeans-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Predicted marginal probabilities of refuge use from the beta-binomial GLMM for each level of treatment, light condition, and experimental period. Points represent model-estimated marginal means averaged over other factors, with 95% confidence intervals shown as error bars. Different letters (a, b) indicate statistically significant differences between groups within each factor based on Tukey-adjusted pairwise comparisons. The dashed line at 0.5 marks the threshold where kōura spend half their time in refuge.
+Figure&nbsp;3: Predicted marginal probabilities of refuge use from the beta-binomial GLMM for each level of treatment, light condition, and experimental period. Points represent model-estimated marginal means averaged over other factors, with 95% confidence intervals shown as error bars. Different letters (a, b) indicate statistically significant differences between groups within each factor based on multiple comparison-adjusted pairwise comparisons. The dashed line at 0.5 marks the threshold where kōura spend half their time in refuge.
 </figcaption>
 </figure>
 </div>
@@ -376,7 +373,7 @@ Figure&nbsp;3: Predicted marginal probabilities of refuge use from the beta-bino
 <div id="fig-feeding-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-feeding-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="index_files/figure-html/analysis-fig-feeding-plot-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Mean kōura feeding rate (pellets consumed per gram body weight ± SE) across predator treatments (catfish, eel, control) and starvation periods (0, 3, and 4 days). Points represent treatment means and error bars show standard error."><img src="index_files/figure-html/analysis-fig-feeding-plot-output-1.png" width="768" height="576" class="figure-img"></a>
+<a href="index_files/figure-html/analysis-fig-feeding-plot-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Mean kōura feeding rate (pellets consumed per gram body weight ± SE) across predator treatments (catfish, eel, control) and starvation periods (0, 3, and 4 days). Points represent treatment means and error bars show standard error."><img src="index_files/figure-html/analysis-fig-feeding-plot-output-1.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-feeding-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4: Mean kōura feeding rate (pellets consumed per gram body weight ± SE) across predator treatments (catfish, eel, control) and starvation periods (0, 3, and 4 days). Points represent treatment means and error bars show standard error.
@@ -397,9 +394,317 @@ Figure&nbsp;4: Mean kōura feeding rate (pellets consumed per gram body weight �
 Table&nbsp;1: Proportion of kōura observations recorded in refuge across experimental treatments (catfish, eel, control), light conditions (light, dark), and periods (before, during, and after predator exposure). Combined rows summarise across all levels of a given factor. Values represent the proportion of total observations where kōura were located in the refuge.
 </figcaption>
 <div aria-describedby="tbl-s1-refuge-prop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-3eed6010262f2ffc7be0" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-3eed6010262f2ffc7be0">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"60\" data-max=\"1344\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"18\" data-max=\"671\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0.27\" data-max=\"0.82\" data-scale=\"2\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","extensions":["Buttons"],"caption":"<caption>Proportion of kōura observations recorded in refuge across experimental treatments (catfish, eel, control), light conditions (light, dark), and periods (before, during, and after predator exposure). Combined rows summarise across all levels of a given factor. Values represent the proportion of total observations where kōura were located in the refuge.<\/caption>","data":[["dark","dark","dark","dark","dark","dark","dark","dark","dark","light","light","light","light","light","light","light","light","light","combined","combined","combined","combined","combined","combined","combined","combined","combined","dark","dark","dark","light","light","light","combined","combined","combined","combined"],["catfish","catfish","catfish","control","control","control","eel","eel","eel","catfish","catfish","catfish","control","control","control","eel","eel","eel","catfish","catfish","catfish","control","control","control","eel","eel","eel","combined","combined","combined","combined","combined","combined","combined","combined","combined","combined"],["before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","combined"],[66,99,66,60,90,60,66,99,66,66,99,66,60,90,60,66,99,66,132,198,132,120,180,120,132,198,132,192,288,192,192,288,192,384,576,384,1344],[26,47,46,22,38,28,18,41,24,34,71,48,24,48,49,23,49,35,60,118,94,46,86,77,41,90,59,66,126,98,81,168,132,147,294,230,671],[0.39,0.47,0.7,0.37,0.42,0.47,0.27,0.41,0.36,0.52,0.72,0.73,0.4,0.53,0.82,0.35,0.49,0.53,0.45,0.6,0.71,0.38,0.48,0.64,0.31,0.45,0.45,0.34,0.44,0.51,0.42,0.58,0.6899999999999999,0.38,0.51,0.6,0.5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Light<\/th>\n      <th>Treatment<\/th>\n      <th>Period<\/th>\n      <th>N total<\/th>\n      <th>N refuge<\/th>\n      <th>Proportion in refuge<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":37,"dom":"Bfrtip","buttons":["csv","excel"],"columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-center","targets":"_all"},{"name":"light","targets":0},{"name":"treatment","targets":1},{"name":"period","targets":2},{"name":"n_total","targets":3},{"name":"n_refuge","targets":4},{"name":"prop_refuge","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[10,25,37,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.270000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(0.820000 - value, 0)/0.550000 * 100 + '%, lightblue ' + Math.max(0.820000 - value, 0)/0.550000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\n}"}},"evals":["options.columnDefs.0.render","options.rowCallback"],"jsHooks":[]}</script>
+<div class="cell-output cell-output-display cell-output-markdown">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">light</th>
+<th style="text-align: left;">treatment</th>
+<th style="text-align: left;">period</th>
+<th style="text-align: right;">n_total</th>
+<th style="text-align: right;">n_refuge</th>
+<th style="text-align: right;">prop_refuge</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">0.39</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">0.47</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">0.70</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.37</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.42</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.47</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0.27</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">0.41</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">0.36</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">0.52</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">0.72</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">0.73</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">0.40</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">0.53</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">0.82</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0.35</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">0.49</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">0.53</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">0.45</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">198</td>
+<td style="text-align: right;">118</td>
+<td style="text-align: right;">0.60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">94</td>
+<td style="text-align: right;">0.71</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">0.38</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">0.48</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">0.64</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">0.31</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">198</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">0.45</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">0.45</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">192</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">0.34</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">288</td>
+<td style="text-align: right;">126</td>
+<td style="text-align: right;">0.44</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">192</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">0.51</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">192</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">0.42</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">288</td>
+<td style="text-align: right;">168</td>
+<td style="text-align: right;">0.58</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">192</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">0.69</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">384</td>
+<td style="text-align: right;">147</td>
+<td style="text-align: right;">0.38</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">576</td>
+<td style="text-align: right;">294</td>
+<td style="text-align: right;">0.51</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">384</td>
+<td style="text-align: right;">230</td>
+<td style="text-align: right;">0.60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: right;">1344</td>
+<td style="text-align: right;">671</td>
+<td style="text-align: right;">0.50</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </figure>
@@ -659,7 +964,7 @@ Table&nbsp;4: Type III ANOVA table for the linear model of kōura feeding rate (
   title = {Fear Alone Influences the Behaviour of a Keystone Native Prey
     by an Invader; a Non-Consumptive Effect of the Catfish Invasion of
     {Aotearoa} {New} {Zealand’s} Freshwaters},
-  date = {2026-03-30},
+  date = {2026-04-01},
   langid = {en},
   abstract = {Non-consumptive effects (NCEs) or “fear” responses to
     predators encompass costly antipredator behaviours, such as
@@ -684,7 +989,7 @@ Table&nbsp;4: Type III ANOVA table for the linear model of kōura feeding rate (
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-raven2026" class="csl-entry quarto-appendix-citeas" role="listitem">
 Raven, O. V., MacNeil, C., Lee, F., Holmes, R., Kusabs, I. A., Burdon,
-F. J., &amp; Özkundakci, D. (2026, March 30). <em>Fear alone influences
+F. J., &amp; Özkundakci, D. (2026, April 1). <em>Fear alone influences
 the behaviour of a keystone native prey by an invader; a non-consumptive
 effect of the catfish invasion of Aotearoa New Zealand’s
 freshwaters</em>...

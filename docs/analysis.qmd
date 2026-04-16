@@ -120,7 +120,10 @@ prop_refuge_light_treat <- koura_long_ref %>%
   dplyr::summarise(
     n_total  = dplyr::n(),
     n_refuge = sum(location == "refuge", na.rm = TRUE),
-    prop_refuge = n_refuge / n_total,.groups = "drop")
+    prop_refuge = n_refuge / n_total,.groups = "drop") %>%
+  mutate(treatment = factor(treatment, levels = c("catfish","eel","control")),
+         light     = factor(light,     levels = c("light", "dark"))) %>%
+  arrange(light, treatment, period)
 
 prop_refuge_treat <- koura_long_ref %>%
   dplyr::group_by(treatment, period) %>%
@@ -134,7 +137,9 @@ prop_refuge_light <- koura_long_ref %>%
   dplyr::summarise(treatment = "combined",
     n_total  = dplyr::n(),
     n_refuge = sum(location == "refuge", na.rm = TRUE),
-    prop_refuge = n_refuge / n_total,.groups = "drop")
+    prop_refuge = n_refuge / n_total,.groups = "drop")%>%
+  mutate(light     = factor(light,     levels = c("light", "dark"))) %>%
+  arrange(light, treatment, period)
 
 prop_refuge_per <- koura_long_ref %>%
   dplyr::group_by(period) %>%
@@ -198,8 +203,6 @@ if (knitr::is_html_output()) {
 #| include: true
 #| fig-cap: "Kōura use of refuge over course of experiment with the three periods (before, during, after), the treatment (catfish; red-solid circle, eel; green-dashed triangle, control; blue-dotdash square), and divided over light regime (combined, dark, light). The points represent the proportion within each period for each treatment."
 
-loc_order_ref <- c("refuge","open")
-
 # calculate the proportions of location for each treatment for each time step
 prop_location_time <- koura_long_ref %>%
   filter(!is.na(location), location != "") %>%
@@ -208,32 +211,8 @@ prop_location_time <- koura_long_ref %>%
   mutate(prop = n / sum(n)) %>%
   ungroup() %>%
   mutate(treatment = factor(treatment, levels = c("catfish","eel","control")),
-    location  = factor(location,  levels = loc_order_ref))
-
-# Create combined light data
-prop_location_time_combined <- prop_location_time %>%
-  group_by(treatment, time, location) %>%
-  summarise(n = sum(n), .groups = "drop") %>%
-  group_by(treatment, time) %>%
-  mutate(prop = n / sum(n)) %>%
-  ungroup() %>%
-  mutate(light = "combined")
-
-period_x <- c("before" = 30, "during" = 150, "after" = 270)
-
-prop_overlay <- prop_refuge_light_treat %>%
-  mutate(time = period_x[period], treatment = factor(treatment, levels = c("catfish", "eel", "control")))
-
-prop_overlay_combined <- prop_refuge_treat %>%
-  mutate(time = period_x[period], 
-         treatment = factor(treatment, levels = c("catfish", "eel", "control")))
-
-# Bind combined with separated
-plot_data <- bind_rows(prop_location_time, prop_location_time_combined) %>%
-  mutate(light = factor(light, levels = c("combined", "dark", "light")))
-
-overlay_data <- bind_rows(prop_overlay, prop_overlay_combined) %>%
-  mutate(light = factor(light, levels = c("combined", "dark", "light")))
+         location  = factor(location,  levels = c("refuge","open")),
+         light     = factor(light,     levels = c("light", "dark")))
 
 refuge_plot <- prop_location_time %>%
   dplyr::filter(location == "refuge") %>%
@@ -241,15 +220,12 @@ refuge_plot <- prop_location_time %>%
   geom_line(linewidth = 1) +
   geom_vline(xintercept = c(60, 240), linetype = "dashed") +
   geom_vline(xintercept = c(0, 5, 10, 20, 30, 45, 60, 61, 65, 70, 80, 90, 120, 150, 210, 240, 245, 260, 275, 290, 300), alpha = .15) +
-  geom_point(data = prop_overlay,  aes(x = time, y = prop_refuge, fill = treatment, shape = treatment), stroke = 1, col = "black") +
   annotate("text", x = 30,  y = 1, label = "before", size = 3) +
   annotate("text", x = 150, y = 1, label = "during", size = 3) +
   annotate("text", x = 270, y = 1, label = "after",  size = 3) +
   scale_linetype_manual(values = c("solid", "dashed", "dotdash")) +
-  scale_shape_manual(values = c(21, 24, 22)) +
   facet_grid(light ~ ., scales = "free_x") +
-  labs(x = NULL, y = "proportion in refuge", 
-       colour = "treatment", linetype = "treatment", shape = "treatment")
+  labs(x = "time (minutes)", y = "proportion in refuge", colour = "treatment", linetype = "treatment")
 
 ggsave(file.path(out_dir, "refuge_plot.png"), refuge_plot, width = 8, height = 5, dpi = 300)
 
@@ -425,7 +401,7 @@ emm_period_pred <- emm_period_pred %>% mutate(factor = "period",    x = period)
 
 emm_all <- bind_rows(emm_treat_pred, emm_light_pred, emm_period_pred) %>%
   mutate(factor = factor(factor, levels = c("treatment", "light", "period")),
-         x = factor(x, levels = c("catfish", "eel", "control", "dark", "light", "before", "during", "after")))
+         x = factor(x, levels = c("catfish", "eel", "control", "light", "dark", "before", "during", "after")))
 
 emmeans_plot <- ggplot(emm_all, aes(x = x, y = prob, ymin = asymp.LCL, ymax = asymp.UCL)) +
   geom_point(size = 3) +
@@ -445,7 +421,7 @@ emmeans_plot
 ## Summary table of koura used
 ```{r}
 #| label: tbl-koura
-#| include: true
+#| include: false
 #| tbl-cap: "Summary of kōura used in experiments"
 
 
@@ -509,14 +485,113 @@ koura_time_plot
 
 ```
 
-## Koura behaviour (controls)
+## koura length refuge use
 ```{r}
-#| label: Koura-behaviour
+#| label: Koura-refuge-use
 #| include: false
 
+# Calculate proportion of time each koura spent in refuge (overall)
+refuge_by_koura <- koura_long_ref %>%
+  group_by(exp_id , treatment, size_mm1) %>%
+  summarise(
+    total_obs = n(),
+    refuge_obs = sum(location == "refuge", na.rm = TRUE),
+    prop_refuge = refuge_obs / total_obs,
+    .groups = "drop"
+  )
+
+# Check what you have
+print(refuge_by_koura)
+
+# Spearman correlation - separate by treatment
+cor_catfish <- refuge_by_koura %>% filter(treatment == "catfish")
+cor_eel     <- refuge_by_koura %>% filter(treatment == "eel")
+cor_control <- refuge_by_koura %>% filter(treatment == "control")
+
+# Run Spearman tests
+spearman_catfish <- cor.test(cor_catfish$size_mm1, cor_catfish$prop_refuge, 
+                              method = "spearman")
+spearman_eel     <- cor.test(cor_eel$size_mm1,     cor_eel$prop_refuge,     
+                              method = "spearman")
+spearman_control <- cor.test(cor_control$size_mm1, cor_control$prop_refuge, 
+                              method = "spearman")
+
+# Print results
+spearman_catfish
+spearman_eel
+spearman_control
+
+# Optional quick scatter plots to visualise
+par(mfrow = c(1, 3))
+
+plot(cor_catfish$size_mm1, cor_catfish$prop_refuge,
+     main = "Catfish", xlab = "Size (mm)", ylab = "Proportion time in refuge",
+     pch = 19)
+abline(lm(prop_refuge ~ size_mm1, data = cor_catfish), col = "red")
+
+plot(cor_eel$size_mm1, cor_eel$prop_refuge,
+     main = "Eel", xlab = "Size (mm)", ylab = "Proportion time in refuge",
+     pch = 19)
+abline(lm(prop_refuge ~ size_mm1, data = cor_eel), col = "green")
+
+plot(cor_control$size_mm1, cor_control$prop_refuge,
+     main = "Control", xlab = "Size (mm)", ylab = "Proportion time in refuge",
+     pch = 19)
+abline(lm(prop_refuge ~ size_mm1, data = cor_control), col = "blue")
+
+par(mfrow = c(1, 1))
 
 
 
+
+
+```
+
+
+## Koura before behaviour
+```{r}
+#| label: Koura-before-behaviour
+#| include: false
+
+df_before <- koura_long_ref %>% 
+  filter(period =="before") %>%
+  filter(!is.na(location), location != "") %>%
+  count(exp_id, treatment, light, location = location, name = "n") %>%
+  group_by(exp_id) %>%
+  mutate(prop = n / sum(n)) %>%
+  ungroup() %>%
+  mutate(treatment = factor(treatment, levels = c("catfish","eel","control")),
+    location  = factor(location,  levels = c("refuge","open"))) %>%
+  filter(location == "refuge")
+
+# Coefficient of Variation (CV)
+before_cv_ref <- df_before %>%
+  group_by(light) %>%
+  summarise(cv = sd(prop) / mean(prop) * 100)
+
+#leveneTest(prop ~ light, data = df_before)
+#fligner.test(prop ~ light, data = df_before)
+
+
+time_compare <- koura_long_ref %>%
+  filter(time == 5 | time == 60) %>%
+  filter(!is.na(location), location != "") %>%
+  group_by(time, location) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  pivot_wider(names_from = location, values_from = n, values_fill = 0)
+
+# contingency table
+cont_table <- time_compare %>%
+  select(refuge, open) %>%
+  as.matrix()
+
+rownames(cont_table) <- c("time_5", "time_60")
+
+# chi-square test
+#chisq.test(cont_table)
+
+# Fisher's exact (better for small counts)
+#fisher.test(cont_table)
 
 
 ```
@@ -537,7 +612,7 @@ df_repeated <- koura_long_ref %>%
   mutate(prop = n / sum(n)) %>%
   ungroup() %>%
   mutate(treatment = factor(treatment, levels = c("catfish","eel","control")),
-    location  = factor(location,  levels = loc_order_ref))
+    location  = factor(location,  levels = c("refuge","open")))
 
 # Collapse to one score per individual per trial - e.g. prop time refuge
 refuge_score <- df_repeated %>%
@@ -559,80 +634,12 @@ plot_repeated_time <-
 plot_repeated_time
 ```
 
-## Koura size
-```{r}
-#| label: koura-size
-#| include: false
-#| fig-cap: "your caption"
-
-m_size <- glmmTMB(
-  cbind(n_refuge, n_total - n_refuge) ~ size_mm1 +  (1 | exp_id),
-  data = round_summary, family = betabinomial)
-
-#summary(m_size)
-
-
-```
-
-## Barrier
-```{r}
-#| label: fig-barrier
-#| include: false
-#| fig-cap: "your caption"
-
-koura_long_bar <- koura_long %>%
-  mutate(location = case_when(
-      location == "barrier" ~ "barrier",
-      location %in% c("floor", "wall") ~ "open",
-      location %in% c("ref_back", "ref_open", "ref_next") ~ "refuge",
-      TRUE ~ NA_character_ ),
-    behaviour = case_when(
-      behaviour == "climb" ~ "climbing",
-      behaviour %in% c("static", "walk", "swim") ~ "other",
-      TRUE ~ NA_character_))
-
-# summarise barrier climbing per round
-barrier_summary <- koura_long_bar %>%
-  filter(!is.na(location)) %>%
-  group_by(treatment, exp_id, round, tank, light, period) %>%
-  summarise(
-    n_total   = n(),
-    n_barrier = sum(location == "barrier", na.rm = TRUE),
-    .groups   = "drop"
-  )
-
-# check counts
-barrier_summary_tbl <- barrier_summary %>%
-  group_by(treatment, period) %>%
-  summarise(mean_prop = mean(n_barrier/n_total), .groups = "drop")
-
-knitr::kable(barrier_summary_tbl, digits = 2)
-
-# fit model
-m_barrier <- glmmTMB(
-  cbind(n_barrier, n_total - n_barrier) ~ treatment + light + period,
-  data = barrier_summary,
-  family = betabinomial)
-
-#summary(m_barrier)
-
-# emmeans contrasts
-#pairs(emmeans(m_barrier, ~ treatment, type = "response"))
-#pairs(emmeans(m_barrier, ~ period, type = "response"))
-
-# DHARMa diagnostics
-#sim_bar <- simulateResiduals(m_barrier)
-#plot(sim_bar)
-#testDispersion(sim_bar)
-
-```
-
 # Feeding experiment
-## Feeding plot
+## Feeding table
 ```{r}
-#| label: fig-feeding-plot
+#| label: tbl-feeding
 #| include: true
-#| fig-cap: "Mean kōura feeding rate (pellets consumed per gram body weight ± SE) across predator treatments (catfish, eel, control) and starvation periods (0, 3, and 4 days). Points represent treatment means and error bars show standard error."
+#| tbl-cap: "Mean feeding rate per gram body weight by treatment and starvation day."
 
 df_feeding <- df_Feeding_raw %>%
   mutate(pellets_eaten_24h = total_fed - left_after_24h,
@@ -642,13 +649,47 @@ df_feeding <- df_Feeding_raw %>%
     day_starve = as.factor(day_starve),
     treatment = factor(treatment, levels = c("catfish", "eel", "control")))
 
-feeding_plot <- ggplot(df_feeding, aes(day_starve, pellets_per_g, col = treatment, group = treatment, linetype = treatment)) +
-  stat_summary(fun = mean, geom = "line", linewidth = 1.5) +
-  stat_summary(fun = mean, geom = "point",aes(fill = treatment, shape = treatment), stroke = 1, col = "black", size = 3) +
-  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.3, linewidth = 1) +
+
+# summary table
+feeding_summary <- df_feeding %>%
+  group_by(treatment, day_starve) %>%
+  summarise(
+    mean = round(mean(pellets_per_g, na.rm = TRUE), 3),
+    se   = round(sd(pellets_per_g, na.rm = TRUE) / sqrt(n()), 3),
+    .groups = "drop"
+  )
+
+# helpers for inline use
+get_mean <- function(trt, starve) {
+  feeding_summary %>% filter(treatment == trt, day_starve == starve) %>% pull(mean)
+}
+
+get_se <- function(trt, starve) {
+  feeding_summary %>% filter(treatment == trt, day_starve == starve) %>% pull(se)
+}
+
+get_mean_se <- function(trt, starve) {
+  row <- feeding_summary %>% filter(treatment == trt, day_starve == starve)
+  paste0(row$mean, " ± ", row$se)
+}
+
+knitr::kable(feeding_summary, col.names = c("Treatment", "Days starved", "Mean (pellets/g)", "SE"))
+```
+
+## Feeding plot
+```{r}
+#| label: fig-feeding-plot
+#| include: true
+#| fig-cap: "Mean kōura feeding rate (pellets consumed per gram body weight ± SE) across predator treatments (catfish, eel, control) and starvation periods (0, 3, and 4 days). Points represent treatment means and error bars show standard error."
+
+feeding_plot <- ggplot(df_feeding, aes(day_starve, pellets_per_g, col = treatment, group = treatment)) +
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.3, linewidth = 0.5, col = "black", position = position_dodge(0.15)) +
+  stat_summary(fun = mean, geom = "line", aes(linetype = treatment), linewidth = 1.5, position = position_dodge(0.15)) +
+  stat_summary(fun = mean, geom = "point", aes(fill = treatment, shape = treatment), stroke = 1, col = "black", size = 3, position = position_dodge(0.15)) +
   scale_linetype_manual(values = c("solid", "dashed", "dotdash")) +
   scale_shape_manual(values = c(21, 24, 22)) +
-  labs(x = "days starved", y = "pellets eaten per gram", col = "treatment", linetype = "treatment", shape = "treatment", fill = "treatment")
+  #facet_grid(treatment ~.) +
+  labs(x = "starvation period (days)  ", y = "feeding rate (pellets consumed g WW⁻¹)", col = "treatment", linetype = "treatment", shape = "treatment", fill = "treatment")
 
 ggsave(file.path(out_dir, "feeding_plot.png"), feeding_plot, width = 8, height = 5, dpi = 300)
 
@@ -661,12 +702,11 @@ feeding_plot
 #| include: false
 
 # Model selection
-
 feeding_models <- list(
   m1 = lm(pellets_per_g ~ treatment * day_starve, data = df_feeding),
   m2 = lm(pellets_per_g ~ treatment + day_starve, data = df_feeding),
-  m3 = lm(pellets_per_g ~ treatment * day_starve + (1 | exp_tank ), data = df_feeding),
-  m4 = lm(pellets_per_g ~ treatment + day_starve + (1 | exp_tank ), data = df_feeding),
+  m3 = lmer(pellets_per_g ~ treatment * day_starve + (1 | exp_tank ), data = df_feeding),
+  m4 = lmer(pellets_per_g ~ treatment + day_starve + (1 | exp_tank ), data = df_feeding),
   m5 = lm(pellets_per_g ~ treatment, data = df_feeding),
   m6 = lm(pellets_per_g ~ day_starve, data = df_feeding))
 
@@ -709,12 +749,63 @@ get_se <- function(trt, starve) {
     pull(SE)
 }
 
+# combined helper: returns "mean ± SE" string for inline use
+get_emm_se <- function(trt, starve) {
+  row <- emm_feed_df %>% filter(treatment == trt, day_starve == starve)
+  paste0(row$emmean, " ± ", row$SE)
+}
+
 Anova(lm_feed, type = "III")
 emmeans(lm_feed, ~ treatment * day_starve)
 shapiro.test(residuals(lm_feed))
 par(mfrow = c(2, 2))
 plot(lm_feed)
 par(mfrow = c(1, 1)) 
+
+emm_pairs <- emmeans(lm_feed, ~ treatment | day_starve)
+pairs(emm_pairs)
+
+
+
+
+
+
+
+
+# Split data by starvation period
+df_day0 <- df_feeding %>% filter(day_starve == 0)
+df_day3 <- df_feeding %>% filter(day_starve == 3)
+df_day4 <- df_feeding %>% filter(day_starve == 4)
+
+# Separate linear models per starvation period
+lm_day0 <- lm(pellets_per_g ~ treatment, data = df_day0)
+lm_day3 <- lm(pellets_per_g ~ treatment, data = df_day3)
+lm_day4 <- lm(pellets_per_g ~ treatment, data = df_day4)
+
+# ANOVA for each
+summary(aov(lm_day0))
+summary(aov(lm_day3))
+summary(aov(lm_day4))
+
+# Pairwise comparisons for each separately (no pooling across starvation periods)
+pairs(emmeans(lm_day0, ~ treatment))
+pairs(emmeans(lm_day3, ~ treatment))
+pairs(emmeans(lm_day4, ~ treatment))
+
+# Check normality of residuals for each
+shapiro.test(residuals(lm_day0))
+shapiro.test(residuals(lm_day3))
+shapiro.test(residuals(lm_day4))
+
+# Non-parametric alternative if normality violated
+library(dunn.test)
+
+kruskal.test(pellets_per_g ~ treatment, data = df_day0)
+kruskal.test(pellets_per_g ~ treatment, data = df_day3)
+kruskal.test(pellets_per_g ~ treatment, data = df_day4)
+
+# Post-hoc Dunn test if Kruskal significant
+dunn.test(df_day4$pellets_per_g, df_day4$treatment, method = "bonferroni")
 
 
 ```

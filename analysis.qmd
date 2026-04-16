@@ -401,7 +401,7 @@ emm_period_pred <- emm_period_pred %>% mutate(factor = "period",    x = period)
 
 emm_all <- bind_rows(emm_treat_pred, emm_light_pred, emm_period_pred) %>%
   mutate(factor = factor(factor, levels = c("treatment", "light", "period")),
-         x = factor(x, levels = c("catfish", "eel", "control", "dark", "light", "before", "during", "after")))
+         x = factor(x, levels = c("catfish", "eel", "control", "light", "dark", "before", "during", "after")))
 
 emmeans_plot <- ggplot(emm_all, aes(x = x, y = prob, ymin = asymp.LCL, ymax = asymp.UCL)) +
   geom_point(size = 3) +
@@ -484,6 +484,69 @@ koura_time_plot <- p_loc_time + p_beh_time
 koura_time_plot
 
 ```
+
+## koura length refuge use
+```{r}
+#| label: Koura-refuge-use
+#| include: false
+
+# Calculate proportion of time each koura spent in refuge (overall)
+refuge_by_koura <- koura_long_ref %>%
+  group_by(exp_id , treatment, size_mm1) %>%
+  summarise(
+    total_obs = n(),
+    refuge_obs = sum(location == "refuge", na.rm = TRUE),
+    prop_refuge = refuge_obs / total_obs,
+    .groups = "drop"
+  )
+
+# Check what you have
+print(refuge_by_koura)
+
+# Spearman correlation - separate by treatment
+cor_catfish <- refuge_by_koura %>% filter(treatment == "catfish")
+cor_eel     <- refuge_by_koura %>% filter(treatment == "eel")
+cor_control <- refuge_by_koura %>% filter(treatment == "control")
+
+# Run Spearman tests
+spearman_catfish <- cor.test(cor_catfish$size_mm1, cor_catfish$prop_refuge, 
+                              method = "spearman")
+spearman_eel     <- cor.test(cor_eel$size_mm1,     cor_eel$prop_refuge,     
+                              method = "spearman")
+spearman_control <- cor.test(cor_control$size_mm1, cor_control$prop_refuge, 
+                              method = "spearman")
+
+# Print results
+spearman_catfish
+spearman_eel
+spearman_control
+
+# Optional quick scatter plots to visualise
+par(mfrow = c(1, 3))
+
+plot(cor_catfish$size_mm1, cor_catfish$prop_refuge,
+     main = "Catfish", xlab = "Size (mm)", ylab = "Proportion time in refuge",
+     pch = 19)
+abline(lm(prop_refuge ~ size_mm1, data = cor_catfish), col = "red")
+
+plot(cor_eel$size_mm1, cor_eel$prop_refuge,
+     main = "Eel", xlab = "Size (mm)", ylab = "Proportion time in refuge",
+     pch = 19)
+abline(lm(prop_refuge ~ size_mm1, data = cor_eel), col = "green")
+
+plot(cor_control$size_mm1, cor_control$prop_refuge,
+     main = "Control", xlab = "Size (mm)", ylab = "Proportion time in refuge",
+     pch = 19)
+abline(lm(prop_refuge ~ size_mm1, data = cor_control), col = "blue")
+
+par(mfrow = c(1, 1))
+
+
+
+
+
+```
+
 
 ## Koura before behaviour
 ```{r}
@@ -626,7 +689,7 @@ feeding_plot <- ggplot(df_feeding, aes(day_starve, pellets_per_g, col = treatmen
   scale_linetype_manual(values = c("solid", "dashed", "dotdash")) +
   scale_shape_manual(values = c(21, 24, 22)) +
   #facet_grid(treatment ~.) +
-  labs(x = "starvation period (days)  ", y = "feeding rate (pellets consumed g BWt⁻¹)", col = "treatment", linetype = "treatment", shape = "treatment", fill = "treatment")
+  labs(x = "starvation period (days)  ", y = "feeding rate (pellets consumed g WW⁻¹)", col = "treatment", linetype = "treatment", shape = "treatment", fill = "treatment")
 
 ggsave(file.path(out_dir, "feeding_plot.png"), feeding_plot, width = 8, height = 5, dpi = 300)
 
@@ -698,6 +761,51 @@ shapiro.test(residuals(lm_feed))
 par(mfrow = c(2, 2))
 plot(lm_feed)
 par(mfrow = c(1, 1)) 
+
+emm_pairs <- emmeans(lm_feed, ~ treatment | day_starve)
+pairs(emm_pairs)
+
+
+
+
+
+
+
+
+# Split data by starvation period
+df_day0 <- df_feeding %>% filter(day_starve == 0)
+df_day3 <- df_feeding %>% filter(day_starve == 3)
+df_day4 <- df_feeding %>% filter(day_starve == 4)
+
+# Separate linear models per starvation period
+lm_day0 <- lm(pellets_per_g ~ treatment, data = df_day0)
+lm_day3 <- lm(pellets_per_g ~ treatment, data = df_day3)
+lm_day4 <- lm(pellets_per_g ~ treatment, data = df_day4)
+
+# ANOVA for each
+summary(aov(lm_day0))
+summary(aov(lm_day3))
+summary(aov(lm_day4))
+
+# Pairwise comparisons for each separately (no pooling across starvation periods)
+pairs(emmeans(lm_day0, ~ treatment))
+pairs(emmeans(lm_day3, ~ treatment))
+pairs(emmeans(lm_day4, ~ treatment))
+
+# Check normality of residuals for each
+shapiro.test(residuals(lm_day0))
+shapiro.test(residuals(lm_day3))
+shapiro.test(residuals(lm_day4))
+
+# Non-parametric alternative if normality violated
+library(dunn.test)
+
+kruskal.test(pellets_per_g ~ treatment, data = df_day0)
+kruskal.test(pellets_per_g ~ treatment, data = df_day3)
+kruskal.test(pellets_per_g ~ treatment, data = df_day4)
+
+# Post-hoc Dunn test if Kruskal significant
+dunn.test(df_day4$pellets_per_g, df_day4$treatment, method = "bonferroni")
 
 
 ```

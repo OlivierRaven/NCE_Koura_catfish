@@ -202,6 +202,8 @@ if (knitr::is_html_output()) {
 ```{r}
 #| label: fig-refuge-plot
 #| include: true
+#| fig-width: 8
+#| fig-height: 5
 #| fig-cap: "Kōura use of refuge over course of experiment with the three periods (before, during, after), the treatment (catfish; red-solid circle, eel; green-dashed triangle, control; blue-dotdash square), and divided over light regime (combined, dark, light). The points represent the proportion within each period for each treatment."
 
 # calculate the proportions of location for each treatment for each time step
@@ -228,11 +230,9 @@ refuge_plot <- prop_location_time %>%
   facet_grid(light ~ ., scales = "free_x") +
   labs(x = "time (minutes)", y = "proportion in refuge", colour = "treatment", linetype = "treatment")
 
-ggsave(file.path(out_dir, "refuge_plot.png"), refuge_plot, width = 8, height = 5, dpi = 300)
+ggsave(file.path(out_dir, "fig-refuge-plot.png"), refuge_plot, width = 8, height = 5, dpi = 300)
 
 refuge_plot
-
-
 
 ```
 
@@ -385,6 +385,8 @@ knitr::kable(emmeans_bb,col.names = c("Contrast", "Odds ratio", "SE", "df", "Nul
 ```{r}
 #| label: fig-emmeans-plot
 #| include: true
+#| fig-width: 5
+#| fig-height: 3
 #| fig-cap: "Predicted marginal probabilities of refuge use from the beta-binomial GLMM for each level of treatment, light condition, and experimental period. Points represent model-estimated marginal means averaged over other factors, with 95% confidence intervals shown as error bars. Different letters (a, b) indicate statistically significant differences between groups within each factor based on multiple comparison-adjusted pairwise comparisons. The dashed line at 0.5 marks the threshold where kōura spend half their time in refuge."
 
 # Make plot
@@ -413,7 +415,7 @@ emmeans_plot <- ggplot(emm_all, aes(x = x, y = prob, ymin = asymp.LCL, ymax = as
   scale_x_discrete(NULL) +
   geom_hline(yintercept = 0.5, linetype = "dashed", colour = "grey50")
 
-ggsave(file.path(out_dir, "emmeans_plot.png"), emmeans_plot, width = 5, height = 3, dpi = 300)
+ggsave(file.path(out_dir, "fig-emmeans-plot.png"), emmeans_plot, width = 5, height = 3, dpi = 300)
 
 emmeans_plot
 
@@ -451,6 +453,8 @@ knitr::kable(summary_animals, digits = 2)
 ```{r}
 #| label: fig-koura
 #| include: false
+#| fig-width: 5
+#| fig-height: 5
 #| fig-cap: "your caption"
 
 
@@ -601,6 +605,8 @@ rownames(cont_table) <- c("time_5", "time_60")
 ```{r}
 #| label: repeated-measurements
 #| include: false
+#| fig-width: 5
+#| fig-height: 5
 #| fig-cap: "your caption"
 
 repeated_ids <- unique(df_NCE_raw$koura_id[duplicated(df_NCE_raw$koura_id)])
@@ -681,6 +687,8 @@ knitr::kable(feeding_summary, col.names = c("Treatment", "Days starved", "Mean (
 ```{r}
 #| label: fig-feeding-plot
 #| include: true
+#| fig-width: 6
+#| fig-height: 4
 #| fig-cap: "Mean kōura feeding rate (pellets consumed per gram body weight ± SE) across predator treatments (catfish, eel, control) and starvation periods (0, 3, and 4 days). Points represent treatment means and error bars show standard error."
 
 feeding_plot <- ggplot(df_feeding, aes(day_starve, pellets_per_g, col = treatment, group = treatment)) +
@@ -692,7 +700,7 @@ feeding_plot <- ggplot(df_feeding, aes(day_starve, pellets_per_g, col = treatmen
   #facet_grid(treatment ~.) +
   labs(x = "starvation period (days)  ", y = "feeding rate (pellets consumed g WW⁻¹)", col = "treatment", linetype = "treatment", shape = "treatment", fill = "treatment")
 
-ggsave(file.path(out_dir, "feeding_plot.png"), feeding_plot, width = 8, height = 5, dpi = 300)
+ggsave(file.path(out_dir, "fig-feeding-plot.png"), feeding_plot, width = 6, height = 4, dpi = 300)
 
 feeding_plot
 ```

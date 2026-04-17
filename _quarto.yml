@@ -17,12 +17,16 @@ format:
   html:
     theme: cosmo
   pdf:
-    toc: true
-    number-sections: true
-    colorlinks: true
-    link-citations: true
     includes:
       in-header: references/header.tex
+    latex-engine: xelatex
+    number-sections: true
+    toc: true
+    colorlinks: true
+    link-citations: true
+    header-includes: |
+      \usepackage[left]{lineno}
+      \linenumbers
   docx:
     reference-doc: references/reference.docx
 

@@ -160,11 +160,12 @@ prop_refuge_comb <- koura_long_ref %>%
 refuge_table <- dplyr::bind_rows(prop_refuge_light_treat, prop_refuge_treat,prop_refuge_light, prop_refuge_per, prop_refuge_comb) %>%
   mutate_if(is.numeric, round, digits = 2)
 
-# extract specific values for inline reporting
 get_prop <- function(l, t, p) {
   refuge_table %>% 
     filter(light == l, treatment == t, period == p) %>% 
-    pull(prop_refuge)
+    pull(prop_refuge) %>% 
+    `*`(100) %>% 
+    paste0(round(., 1), "%")  # rounds to 1 decimal place and adds '%'
 }
 
 write.csv(refuge_table, file = file.path(out_dir, "refuge_table.csv"), row.names = FALSE)

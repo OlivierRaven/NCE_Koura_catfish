@@ -138,7 +138,7 @@
       }      
     </style>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script>
+    <script>
     window.document.addEventListener("DOMContentLoaded", function () {
 
       var header = window.document.querySelector("#quarto-embed-header");
@@ -232,9 +232,7 @@
 <link href="site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
 
 <script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>  
+  
       <meta name="citation_title" content="Fear of the invader: a predatory invader may provoke stronger non-consumptive effects on a keystone native prey than a co-evolved native predator">
 <meta name="citation_abstract" content="Non-consumptive effects (NCEs) of predators on prey encompass costly antipredator behaviours such as increased refuge use and reduced foraging, which can influence prey population dynamics and community structure, particularly when the prey themselves are keystone species. In Aotearoa-New Zealand, the native freshwater crayfish kōura (*Paranephrops planifrons*) is a keystone species, an ecosystem engineer with a critical functional role in sediment dynamics, nutrient cycling and benthic community structure. Kōura are preyed upon by both the co-evolved native longfin eel (*Anguilla dieffenbachii*) and invasive brown bullhead catfish (*Ameiurus nebulosus*), a species introduced less than two centuries ago. Under laboratory conditions, we tested whether visual and chemical cues from the two predators induced different changes in kōura refuge-seeking and feeding behaviour. In a mesocosm habitat experiment, predator presence produced a NCE on refuge use, with kōura exposed to catfish cues showing significantly greater refuge-seeking behaviour than those exposed to eel cues. This is consistent with a generalised overcautious fear response triggered by unfamiliar predator cues rather than classic prey naivety. Neither predator treatment differed significantly from the control, however the catfish–eel contrast was robust and biologically meaningful. In the kōura feeding experiment, exposure to catfish and eel kairomones had no clear effect on feeding rate. Our study indicates catfish incursions may provoke a greater NCE on kōura refuge use than resident eels. As catfish range expansion continues, these NCEs represent an ecologically significant and underappreciated threat to kōura populations, compounding the direct predation pressure already documented for this invader.">
 <meta name="citation_keywords" content="Non-consumptive effects,Crayfish,Kōura,Brown bullhead catfish,Antipredator behaviour">
@@ -446,7 +444,6 @@
   <li><a href="#ethical-approval" id="toc-ethical-approval" class="nav-link" data-scroll-target="#ethical-approval">Ethical approval</a></li>
   <li><a href="#declarations" id="toc-declarations" class="nav-link" data-scroll-target="#declarations">Declarations</a></li>
   <li><a href="#data-availability-statement" id="toc-data-availability-statement" class="nav-link" data-scroll-target="#data-availability-statement">Data availability statement</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures">Figures</a></li>
   <li><a href="#supplementary-information" id="toc-supplementary-information" class="nav-link" data-scroll-target="#supplementary-information">Supplementary information</a></li>
   </ul>
@@ -460,7 +457,7 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run analysis notebook to make all variables available</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">knit</span>(<span class="st">"analysis.qmd"</span>, <span class="at">output =</span> <span class="fu">tempfile</span>(), <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "C:\\Users\\or81\\AppData\\Local\\Temp\\RtmpEBbPfl\\file1c147c0b31c7"</code></pre>
+<pre><code>[1] "C:\\Users\\or81\\AppData\\Local\\Temp\\RtmpWQR0SD\\file80087dba60f2"</code></pre>
 </div>
 </div></div>
 <section id="introduction" class="level1">
@@ -493,11 +490,11 @@
 <section id="refuge-experiment-1" class="level2">
 <h2 class="anchored" data-anchor-id="refuge-experiment-1">Refuge experiment</h2>
 <p>The proportion of time kōura spent in refuge varied across treatments, experimental periods, and light conditions (<a href="#fig-emmeans-plot" class="quarto-xref">Figure&nbsp;3</a>, <a href="#tbl-s1-refuge-prop" class="quarto-xref">Table&nbsp;1</a>). A beta-binomial GLMM without a random intercept was the best-supported model based on the lowest AIC, with full model coefficients reported in <a href="#tbl-s2-fixed-effects" class="quarto-xref">Table&nbsp;2</a>. Refuge use by kōura was consistently higher when exposed to catfish than eel (<em>p</em> = 0.01, <a href="#fig-emmeans-plot" class="quarto-xref">Figure&nbsp;3</a>, <a href="#tbl-s3-emmeans" class="quarto-xref">Table&nbsp;3</a>). However, there were no significant differences in kōura refuge use between either fish treatment and the control (both <em>p</em> = for catfish and control and eel and control; <a href="#fig-emmeans-plot" class="quarto-xref">Figure&nbsp;3</a>). Under light conditions, the pattern of refuge use in the control treatment was more similar to the catfish treatment, whereas under dark conditions it more resembled the eel treatment (<a href="#fig-refuge-plot" class="quarto-xref">Figure&nbsp;2</a>). Light regime had a significant effect on refuge use (<em>p</em> = ), with greater refuge use under light compared to dark conditions (<a href="#fig-emmeans-plot" class="quarto-xref">Figure&nbsp;3</a> and <a href="#fig-refuge-plot" class="quarto-xref">Figure&nbsp;2</a>). Regarding experimental periods, refuge use was significantly lower in the period just before fish were introduced (or first 30-second mechanical disturbance initiated) compared to period just after the fish had been removed (or second mechanical disturbance ceased) (<em>p</em> = 0.007; <a href="#fig-emmeans-plot" class="quarto-xref">Figure&nbsp;3</a> and <a href="#fig-refuge-plot" class="quarto-xref">Figure&nbsp;2</a>). No significant differences were found between the before and during periods, or between the during and after periods. There was also no relationship between kōura OCL and refuge use in any of the three treatments (rs = -0.09, 0.09 and 0.17 for catfish, eel and control treatments respectively, all NS).</p>
-<p>For all treatments, we observed individual kōura within the laboratory population appeared highly variable in their movement around tanks and use of refuges, even in the time intervals comprising the first 60 minutes of the experiment, before fish were introduced. The coefficient of variations (CVs) for kōura refuge use in the light and the dark before fish introduction were similarly high, being 60.4 % and 58.2 % (both n = 32) respectively, confirming high baseline variation in kōura refuge use, regardless of treatment type. Despite this inherent variation in individual kōura behaviour, clear patterns in kōura refuge use were evident over the course of the experiment. Under light conditions, the control showed the largest overall increase in refuge use (0.440 % to 0.8282 %), driven primarily by a sharp rise in the after period, while the catfish treatment showed a more sustained increase across all periods (0.5252 % to 0.7373 %) and the eel treatment the smallest increase (0.3535 % to 0.5353 %; <a href="#fig-refuge-plot" class="quarto-xref">Figure&nbsp;2</a>). Under dark conditions, the pattern shifted, with the catfish treatment showing the greatest increase (0.3939 % to 0.770 %), while the eel treatment showed a modest and non-sustained increase (0.2727 % to 0.4141 % during exposure, returning to 0.3636 % after), and the control remained comparatively low throughout (0.4737 % to 0.4747 %).</p>
+<p>For all treatments, we observed individual kōura within the laboratory population appeared highly variable in their movement around tanks and use of refuges, even in the time intervals comprising the first 60 minutes of the experiment, before fish were introduced. The coefficient of variations (CVs) for kōura refuge use in the light and the dark before fish introduction were similarly high, being 60.4 % and 58.2 % (both n = 32) respectively, confirming high baseline variation in kōura refuge use, regardless of treatment type. Despite this inherent variation in individual kōura behaviour, clear patterns in kōura refuge use were evident over the course of the experiment. Under light conditions, the control showed the largest overall increase in refuge use (4040% to 8282%), driven primarily by a sharp rise in the after period, while the catfish treatment showed a more sustained increase across all periods (5252% to 7373%) and the eel treatment the smallest increase (3535% to 5353%; <a href="#fig-refuge-plot" class="quarto-xref">Figure&nbsp;2</a>). Under dark conditions, the pattern shifted, with the catfish treatment showing the greatest increase (3939% to 7070%), while the eel treatment showed a modest and non-sustained increase (2727% to 4141% during exposure, returning to 3636% after), and the control remained comparatively low throughout (3737% to 4747%).</p>
 </section>
 <section id="feeding-experiment-1" class="level2">
 <h2 class="anchored" data-anchor-id="feeding-experiment-1">Feeding experiment</h2>
-<p>While the linear model showed starvation period had a significant effect on feeding rate (<em>p</em> = 4^{-4}, <a href="#fig-feeding-plot" class="quarto-xref">Figure&nbsp;4</a>; <strong>?@tbl-s4-feeding-ano</strong>), there was no significant difference in feeding rate between catfish, eel, and control treatments (<em>p</em> = 0.968). There was a marginal interaction between treatment and starvation period (<em>p</em> = 0.082), with feeding rate in the control treatment appearing to increase with starvation period in a pattern not evident in the fish treatments. After 4 days starvation, the mean (±SE) kōura feeding rate (pellets g WW⁻¹) for the control was over two and a half times that of the catfish and eel treatments (0.148 ±0.050 pellets g WW⁻¹ compared to 0.059 ± 0.017 and 0.052 ± 0.028 pellets g WW⁻¹ respectively).</p>
+<p>While the linear model showed starvation period had a significant effect on feeding rate (<em>p</em> = 4^{-4}, <a href="#fig-feeding-plot" class="quarto-xref">Figure&nbsp;4</a>; <a href="#tbl-s4-feeding-ano" class="quarto-xref">Table&nbsp;4</a>), there was no significant difference in feeding rate between catfish, eel, and control treatments (<em>p</em> = 0.968). There was a marginal interaction between treatment and starvation period (<em>p</em> = 0.082), with feeding rate in the control treatment appearing to increase with starvation period in a pattern not evident in the fish treatments. After 4 days starvation, the mean (±SE) kōura feeding rate (pellets g WW⁻¹) for the control was over two and a half times that of the catfish and eel treatments (0.148 ±0.050 pellets g WW⁻¹ compared to 0.059 ± 0.017 and 0.052 ± 0.028 pellets g WW⁻¹ respectively).</p>
 </section>
 </section>
 <section id="discussion" class="level1">
@@ -530,9 +527,6 @@
 <section id="data-availability-statement" class="level1 unnumbered">
 <h1 class="unnumbered">Data availability statement</h1>
 <p>The code and data supporting the findings of this study are openly available on Zenodo (add link) and GitHub https://github.com/OlivierRaven/NCE_Koura_catfish.</p>
-</section>
-<section id="references" class="level1 unnumbered">
-<h1 class="unnumbered">References</h1>
 </section>
 <section id="figures" class="level1 unnumbered">
 <h1 class="unnumbered">Figures</h1>
@@ -580,7 +574,7 @@ Figure&nbsp;1: (a) Aquarium layout for kōura refuge seeking behaviour experimen
 <div id="fig-refuge-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-refuge-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="">
-<a href="index_files/figure-html/analysis-fig-refuge-plot-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Kōura use of refuge over course of experiment with the three periods (before, during, after), the treatment (catfish; red-solid circle, eel; green-dashed triangle, control; blue-dotdash square), and divided over light regime (combined, dark, light). The points represent the proportion within each period for each treatment."><img src="index_files/figure-html/analysis-fig-refuge-plot-output-2.png" width="768" height="576" class="figure-img"></a>
+<a href="index_files/figure-html/analysis-fig-refuge-plot-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Kōura use of refuge over course of experiment with the three periods (before, during, after), the treatment (catfish; red-solid circle, eel; green-dashed triangle, control; blue-dotdash square), and divided over light regime (combined, dark, light). The points represent the proportion within each period for each treatment."><img src="index_files/figure-html/analysis-fig-refuge-plot-output-2.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-refuge-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Kōura use of refuge over course of experiment with the three periods (before, during, after), the treatment (catfish; red-solid circle, eel; green-dashed triangle, control; blue-dotdash square), and divided over light regime (combined, dark, light). The points represent the proportion within each period for each treatment.
@@ -625,7 +619,7 @@ Figure&nbsp;2: Kōura use of refuge over course of experiment with the three per
 <div id="fig-emmeans-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-emmeans-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="">
-<a href="index_files/figure-html/analysis-fig-emmeans-plot-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Predicted marginal probabilities of refuge use from the beta-binomial GLMM for each level of treatment, light condition, and experimental period. Points represent model-estimated marginal means averaged over other factors, with 95% confidence intervals shown as error bars. Different letters (a, b) indicate statistically significant differences between groups within each factor based on multiple comparison-adjusted pairwise comparisons. The dashed line at 0.5 marks the threshold where kōura spend half their time in refuge."><img src="index_files/figure-html/analysis-fig-emmeans-plot-output-1.png" width="768" height="576" class="figure-img"></a>
+<a href="index_files/figure-html/analysis-fig-emmeans-plot-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Predicted marginal probabilities of refuge use from the beta-binomial GLMM for each level of treatment, light condition, and experimental period. Points represent model-estimated marginal means averaged over other factors, with 95% confidence intervals shown as error bars. Different letters (a, b) indicate statistically significant differences between groups within each factor based on multiple comparison-adjusted pairwise comparisons. The dashed line at 0.5 marks the threshold where kōura spend half their time in refuge."><img src="index_files/figure-html/analysis-fig-emmeans-plot-output-1.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-emmeans-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: Predicted marginal probabilities of refuge use from the beta-binomial GLMM for each level of treatment, light condition, and experimental period. Points represent model-estimated marginal means averaged over other factors, with 95% confidence intervals shown as error bars. Different letters (a, b) indicate statistically significant differences between groups within each factor based on multiple comparison-adjusted pairwise comparisons. The dashed line at 0.5 marks the threshold where kōura spend half their time in refuge.
@@ -653,7 +647,7 @@ Figure&nbsp;3: Predicted marginal probabilities of refuge use from the beta-bino
 <div id="fig-feeding-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-feeding-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="">
-<a href="index_files/figure-html/analysis-fig-feeding-plot-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Mean kōura feeding rate (pellets consumed per gram body weight ± SE) across predator treatments (catfish, eel, control) and starvation periods (0, 3, and 4 days). Points represent treatment means and error bars show standard error."><img src="index_files/figure-html/analysis-fig-feeding-plot-output-1.png" width="768" height="576" class="figure-img"></a>
+<a href="index_files/figure-html/analysis-fig-feeding-plot-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Mean kōura feeding rate (pellets consumed per gram body weight ± SE) across predator treatments (catfish, eel, control) and starvation periods (0, 3, and 4 days). Points represent treatment means and error bars show standard error."><img src="index_files/figure-html/analysis-fig-feeding-plot-output-1.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-feeding-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4: Mean kōura feeding rate (pellets consumed per gram body weight ± SE) across predator treatments (catfish, eel, control) and starvation periods (0, 3, and 4 days). Points represent treatment means and error bars show standard error.
@@ -713,49 +707,358 @@ Figure&nbsp;4: Mean kōura feeding rate (pellets consumed per gram body weight �
 <span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>refuge_table <span class="op">&lt;-</span> dplyr::bind_rows(prop_refuge_light_treat, prop_refuge_treat,prop_refuge_light, prop_refuge_per, prop_refuge_comb) <span class="op">%&gt;%</span></span>
 <span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>  mutate_if(<span class="kw">is</span>.numeric, <span class="bu">round</span>, digits <span class="op">=</span> <span class="dv">2</span>)</span>
 <span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="co"># extract specific values for inline reporting</span></span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>get_prop <span class="op">&lt;-</span> function(l, t, p) {</span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>  refuge_table <span class="op">%&gt;%</span> </span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>    <span class="bu">filter</span>(light <span class="op">==</span> l, treatment <span class="op">==</span> t, period <span class="op">==</span> p) <span class="op">%&gt;%</span> </span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>    pull(prop_refuge)</span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>write.csv(refuge_table, <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"refuge_table.csv"</span>), row.names <span class="op">=</span> FALSE)</span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (knitr::is_html_output()) {</span>
-<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>  datatable(</span>
-<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>    refuge_table,</span>
-<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>    <span class="bu">filter</span> <span class="op">=</span> <span class="st">"top"</span>,</span>
-<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>    options <span class="op">=</span> <span class="bu">list</span>(</span>
-<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>      pageLength <span class="op">=</span> <span class="dv">37</span>,</span>
-<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>      dom <span class="op">=</span> <span class="st">'Bfrtip'</span>,</span>
-<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>      buttons <span class="op">=</span> c(<span class="st">'csv'</span>, <span class="st">'excel'</span>),</span>
-<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>      columnDefs <span class="op">=</span> <span class="bu">list</span>(<span class="bu">list</span>(className <span class="op">=</span> <span class="st">'dt-center'</span>, targets <span class="op">=</span> <span class="st">"_all"</span>))</span>
-<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>    extensions <span class="op">=</span> <span class="st">'Buttons'</span>,</span>
-<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>    rownames <span class="op">=</span> FALSE,</span>
-<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>    colnames <span class="op">=</span> c(<span class="st">"Light"</span>, <span class="st">"Treatment"</span>, <span class="st">"Period"</span>, <span class="st">"N total"</span>, <span class="st">"N refuge"</span>, <span class="st">"Proportion in refuge"</span>)</span>
-<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">|&gt;</span></span>
-<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>    formatRound(columns <span class="op">=</span> <span class="st">"prop_refuge"</span>, digits <span class="op">=</span> <span class="dv">2</span>) <span class="op">|&gt;</span></span>
-<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>    formatStyle(</span>
-<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>      <span class="st">"prop_refuge"</span>,</span>
-<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>      background <span class="op">=</span> styleColorBar(<span class="bu">range</span>(refuge_table$prop_refuge), <span class="st">"lightblue"</span>),</span>
-<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>      backgroundSize <span class="op">=</span> <span class="st">"100</span><span class="sc">% 90%</span><span class="st">"</span>,</span>
-<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>      backgroundRepeat <span class="op">=</span> <span class="st">"no-repeat"</span>,</span>
-<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>      backgroundPosition <span class="op">=</span> <span class="st">"center"</span></span>
-<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>  knitr::kable(refuge_table, digits <span class="op">=</span> <span class="dv">2</span>)</span>
-<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>get_prop <span class="op">&lt;-</span> function(l, t, p) {</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>  refuge_table <span class="op">%&gt;%</span> </span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>    <span class="bu">filter</span>(light <span class="op">==</span> l, treatment <span class="op">==</span> t, period <span class="op">==</span> p) <span class="op">%&gt;%</span> </span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>    pull(prop_refuge) <span class="op">%&gt;%</span> </span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>    `<span class="op">*</span>`(<span class="dv">100</span>) <span class="op">%&gt;%</span> </span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>    paste0(<span class="bu">round</span>(., <span class="dv">1</span>), <span class="st">"%"</span>)  <span class="co"># rounds to 1 decimal place and adds '%'</span></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>write.csv(refuge_table, <span class="bu">file</span> <span class="op">=</span> <span class="bu">file</span>.path(out_dir, <span class="st">"refuge_table.csv"</span>), row.names <span class="op">=</span> FALSE)</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (knitr::is_html_output()) {</span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>  datatable(</span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>    refuge_table,</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>    <span class="bu">filter</span> <span class="op">=</span> <span class="st">"top"</span>,</span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>    options <span class="op">=</span> <span class="bu">list</span>(</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>      pageLength <span class="op">=</span> <span class="dv">37</span>,</span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>      dom <span class="op">=</span> <span class="st">'Bfrtip'</span>,</span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>      buttons <span class="op">=</span> c(<span class="st">'csv'</span>, <span class="st">'excel'</span>),</span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>      columnDefs <span class="op">=</span> <span class="bu">list</span>(<span class="bu">list</span>(className <span class="op">=</span> <span class="st">'dt-center'</span>, targets <span class="op">=</span> <span class="st">"_all"</span>))</span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>    extensions <span class="op">=</span> <span class="st">'Buttons'</span>,</span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>    rownames <span class="op">=</span> FALSE,</span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>    colnames <span class="op">=</span> c(<span class="st">"Light"</span>, <span class="st">"Treatment"</span>, <span class="st">"Period"</span>, <span class="st">"N total"</span>, <span class="st">"N refuge"</span>, <span class="st">"Proportion in refuge"</span>)</span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>  ) <span class="op">|&gt;</span></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>    formatRound(columns <span class="op">=</span> <span class="st">"prop_refuge"</span>, digits <span class="op">=</span> <span class="dv">2</span>) <span class="op">|&gt;</span></span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>    formatStyle(</span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>      <span class="st">"prop_refuge"</span>,</span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>      background <span class="op">=</span> styleColorBar(<span class="bu">range</span>(refuge_table$prop_refuge), <span class="st">"lightblue"</span>),</span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>      backgroundSize <span class="op">=</span> <span class="st">"100</span><span class="sc">% 90%</span><span class="st">"</span>,</span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>      backgroundRepeat <span class="op">=</span> <span class="st">"no-repeat"</span>,</span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>      backgroundPosition <span class="op">=</span> <span class="st">"center"</span></span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>  knitr::kable(refuge_table, digits <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="tbl-s1-refuge-prop" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-s1-refuge-prop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: Proportion of kōura observations recorded in refuge across experimental treatments (catfish, eel, control), light conditions (light, dark), and periods (before, during, and after predator exposure). Combined rows summarise across all levels of a given factor. Values represent the proportion of total observations where kōura were located in the refuge.
 </figcaption>
 <div aria-describedby="tbl-s1-refuge-prop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-993b6e02be54ce3a0483" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-993b6e02be54ce3a0483">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"60\" data-max=\"1344\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"18\" data-max=\"671\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"0.27\" data-max=\"0.82\" data-scale=\"2\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","extensions":["Buttons"],"data":[["light","light","light","light","light","light","light","light","light","dark","dark","dark","dark","dark","dark","dark","dark","dark","combined","combined","combined","combined","combined","combined","combined","combined","combined","light","light","light","dark","dark","dark","combined","combined","combined","combined"],["catfish","catfish","catfish","eel","eel","eel","control","control","control","catfish","catfish","catfish","eel","eel","eel","control","control","control","catfish","catfish","catfish","control","control","control","eel","eel","eel","combined","combined","combined","combined","combined","combined","combined","combined","combined","combined"],["before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","before","during","after","combined"],[66,99,66,66,99,66,60,90,60,66,99,66,66,99,66,60,90,60,132,198,132,120,180,120,132,198,132,192,288,192,192,288,192,384,576,384,1344],[34,71,48,23,49,35,24,48,49,26,47,46,18,41,24,22,38,28,60,118,94,46,86,77,41,90,59,81,168,132,66,126,98,147,294,230,671],[0.52,0.72,0.73,0.35,0.49,0.53,0.4,0.53,0.82,0.39,0.47,0.7,0.27,0.41,0.36,0.37,0.42,0.47,0.45,0.6,0.71,0.38,0.48,0.64,0.31,0.45,0.45,0.42,0.58,0.6899999999999999,0.34,0.44,0.51,0.38,0.51,0.6,0.5]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Light<\/th>\n      <th>Treatment<\/th>\n      <th>Period<\/th>\n      <th>N total<\/th>\n      <th>N refuge<\/th>\n      <th>Proportion in refuge<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":37,"dom":"Bfrtip","buttons":["csv","excel"],"columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-center","targets":"_all"},{"name":"light","targets":0},{"name":"treatment","targets":1},{"name":"period","targets":2},{"name":"n_total","targets":3},{"name":"n_refuge","targets":4},{"name":"prop_refuge","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[10,25,37,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.270000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(0.820000 - value, 0)/0.550000 * 100 + '%, lightblue ' + Math.max(0.820000 - value, 0)/0.550000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\n}"}},"evals":["options.columnDefs.0.render","options.rowCallback"],"jsHooks":[]}</script>
+<div class="cell-output cell-output-display cell-output-markdown">
+<table class="cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">light</th>
+<th style="text-align: left;">treatment</th>
+<th style="text-align: left;">period</th>
+<th style="text-align: right;">n_total</th>
+<th style="text-align: right;">n_refuge</th>
+<th style="text-align: right;">prop_refuge</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">0.52</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">0.72</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">0.73</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0.35</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">0.49</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">0.53</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">0.40</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">0.53</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">0.82</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">0.39</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">0.47</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">0.70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0.27</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">0.41</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">0.36</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0.37</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0.42</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0.47</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">0.45</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">198</td>
+<td style="text-align: right;">118</td>
+<td style="text-align: right;">0.60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">catfish</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">94</td>
+<td style="text-align: right;">0.71</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">0.38</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">0.48</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">control</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">0.64</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">0.31</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">198</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">0.45</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">eel</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">0.45</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">192</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">0.42</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">288</td>
+<td style="text-align: right;">168</td>
+<td style="text-align: right;">0.58</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">light</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">192</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">0.69</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">192</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">0.34</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">288</td>
+<td style="text-align: right;">126</td>
+<td style="text-align: right;">0.44</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dark</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">192</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">0.51</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">before</td>
+<td style="text-align: right;">384</td>
+<td style="text-align: right;">147</td>
+<td style="text-align: right;">0.38</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">during</td>
+<td style="text-align: right;">576</td>
+<td style="text-align: right;">294</td>
+<td style="text-align: right;">0.51</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">after</td>
+<td style="text-align: right;">384</td>
+<td style="text-align: right;">230</td>
+<td style="text-align: right;">0.60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: left;">combined</td>
+<td style="text-align: right;">1344</td>
+<td style="text-align: right;">671</td>
+<td style="text-align: right;">0.50</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </figure>
@@ -992,18 +1295,18 @@ Table&nbsp;3: Pairwise contrasts from the beta-binomial GLMM for kōura refuge u
 </div></div>
 </div></div>
 </div>
-<div class="quarto-embed-nb-cell" data-notebook="C:\Users\or81\OneDrive - The University of Waikato\Documents\PhD\01_thesis_chapters\05_fear_study\analysis.qmd" data-notebook-title="Analysis Notebook" data-notebook-cellid="cell-tbl-s4-feeding-anova">
+<div class="quarto-embed-nb-cell" data-notebook="C:\Users\or81\OneDrive - The University of Waikato\Documents\PhD\01_thesis_chapters\05_fear_study\analysis.qmd" data-notebook-title="Analysis Notebook" data-notebook-cellid="cell-tbl-s4-feeding-ano">
 <div class="cell-container"><div class="cell-decorator"><pre>In [11]:</pre></div><div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">as</span>.data.frame(anova_feed) <span class="op">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  rownames_to_column(<span class="st">"term"</span>) <span class="op">%&gt;%</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  mutate(across(where(<span class="kw">is</span>.numeric), <span class="bu">round</span>, <span class="dv">3</span>)) <span class="op">%&gt;%</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  knitr::kable(col.names <span class="op">=</span> c(<span class="st">"Term"</span>, <span class="st">"Sum Sq"</span>, <span class="st">"Df"</span>, <span class="st">"F value"</span>, <span class="st">"p value"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [12]:</pre></div><div id="tbl-s4-feeding-anova" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div class="cell-container"><div class="cell-decorator"><pre>In [12]:</pre></div><div id="tbl-s4-feeding-ano" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-s4-feeding-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-s4-feeding-ano-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;4: Type III ANOVA table for the linear model of kōura feeding rate (pellets consumed per gram body weight). Treatment, starvation period, and their interaction were included as fixed effects.
 </figcaption>
-<div aria-describedby="tbl-s4-feeding-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="tbl-s4-feeding-ano-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="cell caption-top table table-sm table-striped small">
 <thead>

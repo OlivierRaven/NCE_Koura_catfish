@@ -1,5 +1,6 @@
 ---
 title: "Analysis Notebook"
+description: "Analysis notebook for NCE kōura catfish experiment"
 format:
   html:
     fig-path: "analysis_files/figure-html/"
@@ -25,8 +26,6 @@ execute:
 ```{r}
 #| label: setup
 #| include: false
-
-options(warn = -1)
 
 packages <- c("ggpattern","multcomp","DT","car","glmmTMB","AICcmodavg", "ggeffects","DHARMa", "brms", "emmeans", "lme4","lmerTest","vegan","ggnewscale","multcompView","patchwork","janitor","lubridate","stringr","tidyverse","dplyr","ggplot2","readxl","writexl","readr")
 
@@ -254,7 +253,7 @@ round_summary <- koura_stat %>%
   summarise(n_total  = n(),n_refuge = sum(location == "refuge"), .groups  = "drop") %>%
   mutate(treatment = relevel(factor(treatment), ref = "control"),
     light = relevel(factor(light), ref = "light"),   
-    before = relevel(factor(period), ref = "before"))
+    period = relevel(factor(period), ref = "before"))
 
 # Model selection
 models_bb <- list(
@@ -278,12 +277,8 @@ models_bb <- list(
     cbind(n_refuge, n_total - n_refuge) ~ treatment * light * period + (1 | tank),
     data = round_summary, family = betabinomial),
   # --- Random effects structure (main effects fixed, vary RE) ---
-  m7_no_re = glmmTMB(
-    cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period,
-    data = round_summary, family = betabinomial),
-  m8_tank_round = glmmTMB(
-    cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period + (1 | tank) + (1 | round),
-    data = round_summary, family = betabinomial),
+  m7_no_re = glmmTMB(cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period, data = round_summary, family = betabinomial),
+  m8_tank_round = glmmTMB(cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period + (1 | tank) + (1 | round),  data = round_summary, family = betabinomial),
   # --- Null model for baseline comparison ---
   m9_null = glmmTMB(
     cbind(n_refuge, n_total - n_refuge) ~ 1 + (1 | tank),
@@ -304,9 +299,10 @@ comparison_bb <- data.frame(
 
 print(comparison_bb)
 
+# m7_no_re best model 
+
 m_final <- glmmTMB(
-  cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period,
-  data = round_summary, family = betabinomial)
+  cbind(n_refuge, n_total - n_refuge) ~ treatment + light + period, data = round_summary, family = betabinomial)
 
 summary(m_final)
 
@@ -323,7 +319,6 @@ testZeroInflation(sim_final)
 #| label: tbl-1-fixed-effects
 #| include: true
 #| tbl-cap: "Fixed effects of the beta-binomial GLMM for kōura refuge use."
-
 
 # Save fixed effects table 
 fixed_bb <- as.data.frame(summary(m_final)$coefficients$cond) %>%
@@ -431,7 +426,6 @@ emmeans_plot
 #| include: false
 #| tbl-cap: "Summary of kōura used in experiments"
 
-
 grps <- list(c("treatment","light"), "treatment", "light", character(0))
 tags <- c("treatment+light","treatment","light","overall")
 
@@ -496,7 +490,7 @@ koura_time_plot
 
 ## koura length refuge use
 ```{r}
-#| label: Koura-refuge-use
+#| label: koura-refuge-use
 #| include: false
 
 # Calculate proportion of time each koura spent in refuge (overall)
@@ -555,7 +549,7 @@ par(mfrow = c(1, 1))
 
 ## Koura before behaviour
 ```{r}
-#| label: Koura-before-behaviour
+#| label: koura-before-behaviour
 #| include: false
 
 df_before <- koura_long_ref %>% 
@@ -591,14 +585,6 @@ cont_table <- time_compare %>%
   as.matrix()
 
 rownames(cont_table) <- c("time_5", "time_60")
-
-# chi-square test
-#chisq.test(cont_table)
-
-# Fisher's exact (better for small counts)
-#fisher.test(cont_table)
-
-
 ```
 
 ## Repeated measurements
@@ -667,15 +653,7 @@ feeding_summary <- df_feeding %>%
     .groups = "drop"
   )
 
-# helpers for inline use
-get_mean <- function(trt, starve) {
-  feeding_summary %>% filter(treatment == trt, day_starve == starve) %>% pull(mean)
-}
-
-get_se <- function(trt, starve) {
-  feeding_summary %>% filter(treatment == trt, day_starve == starve) %>% pull(se)
-}
-
+# helper for inline use
 get_mean_se <- function(trt, starve) {
   row <- feeding_summary %>% filter(treatment == trt, day_starve == starve)
   paste0(row$mean, " ± ", row$se)
@@ -711,27 +689,30 @@ feeding_plot
 #| include: false
 
 # Model selection
-feeding_models <- list(
+feeding_models_lm <- list(
+  m0 = lm(pellets_per_g ~ 1, data = df_feeding),
   m1 = lm(pellets_per_g ~ treatment * day_starve, data = df_feeding),
   m2 = lm(pellets_per_g ~ treatment + day_starve, data = df_feeding),
-  m3 = lmer(pellets_per_g ~ treatment * day_starve + (1 | exp_tank ), data = df_feeding),
-  m4 = lmer(pellets_per_g ~ treatment + day_starve + (1 | exp_tank ), data = df_feeding),
   m5 = lm(pellets_per_g ~ treatment, data = df_feeding),
   m6 = lm(pellets_per_g ~ day_starve, data = df_feeding))
 
-comparison_feeding_models <- data.frame(
-  model  = names(feeding_models),
-  AIC    = sapply(feeding_models, AIC),
-  BIC    = sapply(feeding_models, BIC),
-  logLik = sapply(feeding_models, \(m) as.numeric(logLik(m)))) |>
-  arrange(AIC) |>
-  mutate(delta_AIC = round(AIC - min(AIC), 2))
+comparison_lm <- data.frame(
+  model  = names(feeding_models_lm),
+  AIC    = sapply(feeding_models_lm, AIC),
+  BIC    = sapply(feeding_models_lm, BIC),
+  logLik = sapply(feeding_models_lm, \(m) as.numeric(logLik(m))),
+  AICc   = sapply(feeding_models_lm, AICc),
+  k      = sapply(feeding_models_lm, \(m) attr(logLik(m), "df"))) %>%
+  arrange(AICc) %>%
+  mutate(delta_AICc = round(AICc - min(AICc), 2))
 
-print(comparison_feeding_models)
+print(comparison_lm)
 
-
-# Final Linear model
-lm_feed <- lm(pellets_per_g ~ treatment * day_starve, data = df_feeding)
+# Best model by AICc: m6 (day_starve only, delta_AICc = 0.00)
+# Treatment does not improve model fit (m2 delta_AICc = 2.70, m1 delta_AICc = 4.41)
+# Interaction model retained for hypothesis-driven pairwise comparisons
+lm_feed <- lm(pellets_per_g ~ treatment + day_starve, data = df_feeding)
+summary(lm_feed)
 
 # extract p-values for inline reporting
 anova_feed <- Anova(lm_feed, type = "III")
@@ -745,42 +726,31 @@ p_shapiro_feed <- round(shapiro.test(residuals(lm_feed))$p.value, 3)
 emm_feed_df <- as.data.frame(emmeans(lm_feed, ~ treatment * day_starve)) %>%
   mutate(across(where(is.numeric), round, 3))
 
-get_emm <- function(trt, starve) {
-  emm_feed_df %>% 
-    filter(treatment == trt, day_starve == starve) %>% 
-    pull(emmean)
-}
-
-get_se <- function(trt, starve) {
-  emm_feed_df %>% 
-    filter(treatment == trt, day_starve == starve) %>% 
-    pull(SE)
-}
-
-# combined helper: returns "mean ± SE" string for inline use
 get_emm_se <- function(trt, starve) {
   row <- emm_feed_df %>% filter(treatment == trt, day_starve == starve)
   paste0(row$emmean, " ± ", row$SE)
 }
 
+# ANOVA table for reporting
 Anova(lm_feed, type = "III")
-emmeans(lm_feed, ~ treatment * day_starve)
+
+# Check normality of residuals
 shapiro.test(residuals(lm_feed))
+
+# Diagnostic plots
 par(mfrow = c(2, 2))
 plot(lm_feed)
-par(mfrow = c(1, 1)) 
+par(mfrow = c(1, 1))
 
-emm_pairs <- emmeans(lm_feed, ~ treatment | day_starve)
-pairs(emm_pairs)
+# Pairwise comparisons for treatment (Tukey-adjusted)
+emm_treatment <- emmeans(lm_feed, ~ treatment)
+pairs(emm_treatment, adjust = "tukey")
 
+# Pairwise comparisons for day_starve (Tukey-adjusted)
+emm_day_starve <- emmeans(lm_feed, ~ day_starve)
+pairs(emm_day_starve, adjust = "tukey")
 
-
-
-
-
-
-
-# Split data by starvation period
+# Split data by starvation period (for stratified analysis)
 df_day0 <- df_feeding %>% filter(day_starve == 0)
 df_day3 <- df_feeding %>% filter(day_starve == 3)
 df_day4 <- df_feeding %>% filter(day_starve == 4)
@@ -806,23 +776,16 @@ shapiro.test(residuals(lm_day3))
 shapiro.test(residuals(lm_day4))
 
 # Non-parametric alternative if normality violated
-library(dunn.test)
-
 kruskal.test(pellets_per_g ~ treatment, data = df_day0)
 kruskal.test(pellets_per_g ~ treatment, data = df_day3)
 kruskal.test(pellets_per_g ~ treatment, data = df_day4)
-
-# Post-hoc Dunn test if Kruskal significant
-dunn.test(df_day4$pellets_per_g, df_day4$treatment, method = "bonferroni")
-
-
 ```
 
 ### feeding anova tbl
 ```{r}
 #| label: tbl-s2-feeding-anova
 #| include: true
-#| tbl-cap: "Type III ANOVA table for the linear model of kōura feeding rate (pellets consumed per gram body weight). Treatment, starvation period, and their interaction were included as fixed effects."
+#| tbl-cap: "Type III ANOVA table for the linear model of kōura feeding rate (pellets consumed per gram body weight). Treatment and starvation period included as fixed effects."
 
 write.csv(anova_feed,  file.path(out_dir, "tbl-s2-feeding-anova.csv"), row.names = TRUE)
 
@@ -832,3 +795,10 @@ as.data.frame(anova_feed) %>%
   knitr::kable(col.names = c("Term", "Sum Sq", "Df", "F value", "p value"))
 ```
 
+
+```{r}
+#| label: session-info
+#| include: true
+#| code-fold: true
+sessionInfo()
+```

@@ -28,7 +28,7 @@ execute:
 
 options(warn = -1)
 
-packages <- c("multcomp","DT","car","glmmTMB","AICcmodavg", "ggeffects","DHARMa", "brms", "emmeans", "lme4","lmerTest","vegan","ggnewscale","multcompView","patchwork","janitor","lubridate","stringr","tidyverse","dplyr","ggplot2","readxl","writexl","readr")
+packages <- c("ggpattern","multcomp","DT","car","glmmTMB","AICcmodavg", "ggeffects","DHARMa", "brms", "emmeans", "lme4","lmerTest","vegan","ggnewscale","multcompView","patchwork","janitor","lubridate","stringr","tidyverse","dplyr","ggplot2","readxl","writexl","readr")
 
 # Load packages if not already installed
 quiet_load <- function(pkg) {
@@ -168,7 +168,7 @@ get_prop <- function(l, t, p) {
     paste0(round(., 1), "%")  # rounds to 1 decimal place and adds '%'
 }
 
-write.csv(refuge_table, file = file.path(out_dir, "refuge_table.csv"), row.names = FALSE)
+write.csv(refuge_table, file = file.path(out_dir, "tbl-s1-refuge-prop.csv"), row.names = FALSE)
 
 if (knitr::is_html_output()) {
   datatable(
@@ -200,11 +200,11 @@ if (knitr::is_html_output()) {
 
 ## Refuge plot
 ```{r}
-#| label: fig-refuge-plot
+#| label: fig-3-refuge-plot
 #| include: true
 #| fig-width: 8
 #| fig-height: 5
-#| fig-cap: "Kōura use of refuge over course of experiment with the three periods (before, during, after), the treatment (catfish; red-solid circle, eel; green-dashed triangle, control; blue-dotdash square), and divided over light regime (combined, dark, light). The points represent the proportion within each period for each treatment."
+#| fig-cap: "Kōura refuge use over the course of the experiment, showing the proportion of time spent in refuge across three periods (before, during, and after predator exposure) for each treatment (catfish: dark grey solid line; eel: medium grey dashed line; control: light grey dot-dash line) under light (top) and dark (bottom) conditions. Black dashed vertical lines indicate the start and end of predator exposure and grey vertical lines show individual observation times."
 
 # calculate the proportions of location for each treatment for each time step
 prop_location_time <- koura_long_ref %>%
@@ -226,11 +226,12 @@ refuge_plot <- prop_location_time %>%
   annotate("text", x = 30,  y = 1, label = "before", size = 3) +
   annotate("text", x = 150, y = 1, label = "during", size = 3) +
   annotate("text", x = 270, y = 1, label = "after",  size = 3) +
+  scale_colour_manual(values = c("catfish" = "grey20",  "eel"  = "grey40",  "control" = "grey60")) +
   scale_linetype_manual(values = c("solid", "dashed", "dotdash")) +
   facet_grid(light ~ ., scales = "free_x") +
   labs(x = "time (minutes)", y = "proportion in refuge", colour = "treatment", linetype = "treatment")
 
-ggsave(file.path(out_dir, "fig-refuge-plot.png"), refuge_plot, width = 8, height = 5, dpi = 300)
+ggsave(file.path(out_dir, "fig-3-refuge-plot.png"), refuge_plot, width = 8, height = 5, dpi = 300)
 
 refuge_plot
 
@@ -289,14 +290,17 @@ models_bb <- list(
     data = round_summary, family = betabinomial)
 )
 
+# Calculate AICc for all models
+aicc_vals <- sapply(models_bb, AICc)
 
 comparison_bb <- data.frame(
   model  = names(models_bb),
   AIC    = sapply(models_bb, AIC),
   BIC    = sapply(models_bb, BIC),
-  logLik = sapply(models_bb, \(m) as.numeric(logLik(m)))) |>
-  arrange(AIC) |>
-  mutate(delta_AIC = round(AIC - min(AIC), 2))
+  logLik = sapply(models_bb, \(m) as.numeric(logLik(m))),
+  AICc   = sapply(models_bb, AICc)) %>%
+  arrange(AICc) %>%
+  mutate(delta_AIC  = round(AIC  - min(AIC),  2), delta_AICc = round(AICc - min(AICc), 2))
 
 print(comparison_bb)
 
@@ -316,7 +320,7 @@ testZeroInflation(sim_final)
 
 ### Fixed effect tbl
 ```{r}
-#| label: tbl-s2-fixed-effects
+#| label: tbl-1-fixed-effects
 #| include: true
 #| tbl-cap: "Fixed effects of the beta-binomial GLMM for kōura refuge use."
 
@@ -326,14 +330,14 @@ fixed_bb <- as.data.frame(summary(m_final)$coefficients$cond) %>%
   rownames_to_column("term") %>%
   mutate(across(where(is.numeric), round, 3))
 
-write.csv(fixed_bb, file.path(out_dir, "table_bb_fixed_effects.csv"), row.names = FALSE)
+write.csv(fixed_bb, file.path(out_dir, "tbl-1-fixed-effects.csv"), row.names = FALSE)
 
 knitr::kable(fixed_bb, col.names = c("Term", "Estimate", "Std. Error", "z value", "p value"))
 ```
 
 ### Emmeans tbl
 ```{r}
-#| label: tbl-s3-emmeans
+#| label: tbl-2-emmeans
 #| include: true
 #| tbl-cap: "Pairwise contrasts from the beta-binomial GLMM for kōura refuge use. Odds ratios and p-values are shown for treatment, light condition, and period comparisons. P-values are Tukey-adjusted for multiple comparisons within each factor."
 
@@ -375,7 +379,7 @@ p_before_during   <- emmeans_bb %>% filter(contrast == "before / during")   %>% 
 p_during_after    <- emmeans_bb %>% filter(contrast == "during / after")    %>% pull(p.value)
 p_dark_light      <- emmeans_bb %>% filter(contrast == "dark / light")      %>% pull(p.value)
 
-write.csv(emmeans_bb,  file.path(out_dir, "table_bb_emmeans.csv"), row.names = FALSE)
+write.csv(emmeans_bb,  file.path(out_dir, "tbl-2-emmeans.csv"), row.names = FALSE)
 
 knitr::kable(emmeans_bb,col.names = c("Contrast", "Odds ratio", "SE", "df", "Null", "z value", "p value", "Factor"), digits = 3)
 
@@ -383,7 +387,7 @@ knitr::kable(emmeans_bb,col.names = c("Contrast", "Odds ratio", "SE", "df", "Nul
 
 ## Emmeans plot
 ```{r}
-#| label: fig-emmeans-plot
+#| label: fig-2-emmeans-plot
 #| include: true
 #| fig-width: 5
 #| fig-height: 3
@@ -415,7 +419,7 @@ emmeans_plot <- ggplot(emm_all, aes(x = x, y = prob, ymin = asymp.LCL, ymax = as
   scale_x_discrete(NULL) +
   geom_hline(yintercept = 0.5, linetype = "dashed", colour = "grey50")
 
-ggsave(file.path(out_dir, "fig-emmeans-plot.png"), emmeans_plot, width = 5, height = 3, dpi = 300)
+ggsave(file.path(out_dir, "fig-2-emmeans-plot.png"), emmeans_plot, width = 5, height = 3, dpi = 300)
 
 emmeans_plot
 
@@ -546,10 +550,6 @@ abline(lm(prop_refuge ~ size_mm1, data = cor_control), col = "blue")
 
 par(mfrow = c(1, 1))
 
-
-
-
-
 ```
 
 
@@ -649,6 +649,7 @@ plot_repeated_time
 #| tbl-cap: "Mean feeding rate per gram body weight by treatment and starvation day."
 
 df_feeding <- df_Feeding_raw %>%
+  filter(sex != "F") %>%
   mutate(pellets_eaten_24h = total_fed - left_after_24h,
     pellets_per_g = pellets_eaten_24h / weight_g,
     koura_id = as.factor(koura_id),
@@ -685,24 +686,23 @@ knitr::kable(feeding_summary, col.names = c("Treatment", "Days starved", "Mean (
 
 ## Feeding plot
 ```{r}
-#| label: fig-feeding-plot
+#| label: fig-4-feeding-plot
 #| include: true
-#| fig-width: 6
+#| fig-width: 5
 #| fig-height: 4
 #| fig-cap: "Mean kōura feeding rate (pellets consumed per gram body weight ± SE) across predator treatments (catfish, eel, control) and starvation periods (0, 3, and 4 days). Points represent treatment means and error bars show standard error."
 
-feeding_plot <- ggplot(df_feeding, aes(day_starve, pellets_per_g, col = treatment, group = treatment)) +
-  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.3, linewidth = 0.5, col = "black", position = position_dodge(0.15)) +
-  stat_summary(fun = mean, geom = "line", aes(linetype = treatment), linewidth = 1.5, position = position_dodge(0.15)) +
-  stat_summary(fun = mean, geom = "point", aes(fill = treatment, shape = treatment), stroke = 1, col = "black", size = 3, position = position_dodge(0.15)) +
-  scale_linetype_manual(values = c("solid", "dashed", "dotdash")) +
-  scale_shape_manual(values = c(21, 24, 22)) +
-  #facet_grid(treatment ~.) +
-  labs(x = "starvation period (days)  ", y = "feeding rate (pellets consumed g WW⁻¹)", col = "treatment", linetype = "treatment", shape = "treatment", fill = "treatment")
+feeding_plot <- ggplot(df_feeding, aes(x = factor(day_starve),  y = pellets_per_g, fill = treatment)) +
+  stat_summary(fun = mean, geom = "bar", position = position_dodge(0.9), colour = "black", linewidth = 0.4, pattern_fill = "black",pattern_colour = "black", pattern_density = 0.3, pattern_spacing = 0.05) +
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.25, linewidth = 0.5,  position = position_dodge(0.9)) +
+  scale_fill_manual(values = c("catfish" = "gray20",  "eel"  = "grey40",  "control" = "grey60")) +
+  labs(x = "starvation period (days)",  y = "feeding rate (pellets consumed g WW⁻¹)",  fill = "treatment") +
+  theme(legend.position = "right")
 
-ggsave(file.path(out_dir, "fig-feeding-plot.png"), feeding_plot, width = 6, height = 4, dpi = 300)
+ggsave(file.path(out_dir, "fig-4-feeding-plot.png"), feeding_plot, width = 5, height = 4, dpi = 300)
 
 feeding_plot
+
 ```
 
 ## Feeding stats
@@ -740,7 +740,6 @@ p_day_starve   <- round(anova_feed["day_starve", "Pr(>F)"], 4)
 p_interaction  <- round(anova_feed["treatment:day_starve", "Pr(>F)"], 3)
 p_shapiro_feed <- round(shapiro.test(residuals(lm_feed))$p.value, 3)
 
-write.csv(anova_feed,  file.path(out_dir, "anova_feed.csv"), row.names = TRUE)
 
 # emmeans for inline values
 emm_feed_df <- as.data.frame(emmeans(lm_feed, ~ treatment * day_starve)) %>%
@@ -821,9 +820,11 @@ dunn.test(df_day4$pellets_per_g, df_day4$treatment, method = "bonferroni")
 
 ### feeding anova tbl
 ```{r}
-#| label: tbl-s4-feeding-anova
+#| label: tbl-s2-feeding-anova
 #| include: true
 #| tbl-cap: "Type III ANOVA table for the linear model of kōura feeding rate (pellets consumed per gram body weight). Treatment, starvation period, and their interaction were included as fixed effects."
+
+write.csv(anova_feed,  file.path(out_dir, "tbl-s2-feeding-anova.csv"), row.names = TRUE)
 
 as.data.frame(anova_feed) %>%
   rownames_to_column("term") %>%

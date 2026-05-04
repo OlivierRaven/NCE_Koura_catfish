@@ -1,8 +1,0 @@
-"contrast","odds.ratio","SE","df","null","z.ratio","p.value","factor"
-"control / catfish",0.655,0.191,Inf,1,-1.452,0.314,"treatment"
-"control / eel",1.533,0.451,Inf,1,1.452,0.314,"treatment"
-"catfish / eel",2.341,0.681,Inf,1,2.924,0.01,"treatment"
-"light / dark",1.924,0.46,Inf,1,2.737,0.006,"light"
-"before / during",0.589,0.166,Inf,1,-1.881,0.144,"period"
-"before / after",0.402,0.121,Inf,1,-3.04,0.007,"period"
-"during / after",0.682,0.205,Inf,1,-1.276,0.409,"period"

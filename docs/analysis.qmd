@@ -160,11 +160,11 @@ refuge_table <- dplyr::bind_rows(prop_refuge_light_treat, prop_refuge_treat,prop
   mutate_if(is.numeric, round, digits = 2)
 
 get_prop <- function(l, t, p) {
-  refuge_table %>% 
-    filter(light == l, treatment == t, period == p) %>% 
-    pull(prop_refuge) %>% 
-    `*`(100) %>% 
-    paste0(round(., 1), "%")  # rounds to 1 decimal place and adds '%'
+  refuge_table %>%
+    filter(light == l, treatment == t, period == p) %>%
+    pull(prop_refuge) %>%
+    `*`(100) %>%  # Convert to percentage
+    round(1)      # Round to 1 decimal place
 }
 
 write.csv(refuge_table, file = file.path(out_dir, "tbl-s1-refuge-prop.csv"), row.names = FALSE)
